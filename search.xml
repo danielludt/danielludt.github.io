@@ -2,28 +2,24 @@
 <search>
   <entry>
     <title><![CDATA[Hello World2]]></title>
-    <url>%2F2014%2F07%2F13%2Fhello-world%20-%20%E5%89%AF%E6%9C%AC%2F</url>
+    <url>%2F2017%2F08%2F18%2Fhello-world%20-%20%E5%89%AF%E6%9C%AC%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
       <categories>
-        <category>CCC</category>
+        <category>wordpress learning</category>
       </categories>
       <tags>
-        <tag>AA</tag>
-        <tag>BB</tag>
-        <tag>CCC</tag>
+        <tag>wordpress learning</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2013%2F07%2F13%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    <title><![CDATA[wordpress常用函数]]></title>
+    <url>%2F2017%2F08%2F18%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[写写WordPress模板常用函数，以免遗忘。 WordPress模板常用函数WordPress基本模板文件style.css : CSS(样式表)文件 index.php : 主页模板 archive.php : Archive/Category模板 404.php : Not Found 错误页模板 comments.php : 留言/回复模板 footer.php : Footer模板 header.php : Header模板 sidebar.php : 侧栏模板 page.php : 内容页(Page)模板 single.php : 内容页(Post)模板 searchform.php : 搜索表单模板 search.php : 搜索结果模板 基本条件判断Tagis_home() : 是否为主页 is_single() : 是否为内容页(Post) is_page() : 是否为内容页(Page) is_category() : 是否为Category/Archive页 is_tag() : 是否为Tag存档页 is_date() : 是否为指定日期存档页 is_year() : 是否为指定年份存档页 is_month() : 是否为指定月份存档页 is_day() : 是否为指定日存档页 is_time() : 是否为指定时间存档页 is_archive() : 是否为存档页 is_search() : 是否为搜索结果页 is_404() : 是否为 “HTTP 404: Not Found” 错误页 is_paged() : 主页/Category/Archive页是否以多页显示 Header部分常用到的PHP函数&lt;?php bloginfo(’name’); ?&gt; : 博客名称(Title) &lt;?php bloginfo(’stylesheet_url’); ?&gt; : CSS文件路径 &lt;?php bloginfo(’pingback_url’); ?&gt; : PingBack Url &lt;?php bloginfo(’template_url’); ?&gt; : 模板文件路径 &lt;?php bloginfo(’version’); ?&gt; : WordPress版本 &lt;?php bloginfo(’atom_url’); ?&gt; : Atom Url &lt;?php bloginfo(’rss2_url’); ?&gt; : RSS 2.o Url &lt;?php bloginfo(’url’); ?&gt; : 博客 Url &lt;?php bloginfo(’html_type’); ?&gt; : 博客网页Html类型 &lt;?php bloginfo(’charset’); ?&gt; : 博客网页编码 &lt;?php bloginfo(’description’); ?&gt; : 博客描述 &lt;?php wp_title(); ?&gt; : 特定内容页(Post/Page)的标题 模板常用的PHP函数及命令&lt;?php get_header(); ?&gt; : 调用Header模板 &lt;?php get_sidebar(); ?&gt; : 调用Sidebar模板 &lt;?php get_footer(); ?&gt; : 调用Footer模板 &lt;?php the_content(); ?&gt; : 显示内容(Post/Page) &lt;?php if(have_posts()) : ?&gt; : 检查是否存在Post/Page &lt;?php while(have_posts()) : the_post(); ?&gt; : 如果存在Post/Page则予以显示 &lt;?php endwhile; ?&gt; : While 结束 &lt;?php endif; ?&gt; : If 结束 &lt;?php the_time(’字符串’) ?&gt; : 显示时间，时间格式由“字符串”参数决定，具体参考PHP手册 &lt;?php comments_popup_link(); ?&gt; : 正文中的留言链接。如果使用 comments_popup_script() ，则留言会在新窗口中打开，反之，则在当前窗口打开 &lt;?php the_title(); ?&gt; : 内容页(Post/Page)标题 &lt;?php the_permalink() ?&gt; : 内容页(Post/Page) Url &lt;?php the_category(’, ‘) ?&gt; : 特定内容页(Post/Page)所属Category &lt;?php the_author(); ?&gt; : 作者 &lt;?php the_ID(); ?&gt; : 特定内容页(Post/Page) ID &lt;?php edit_post_link(); ?&gt; : 如果用户已登录并具有权限，显示编辑链接 &lt;?php get_links_list(); ?&gt; : 显示Blogroll中的链接 &lt;?php comments_template(); ?&gt; : 调用留言/回复模板 &lt;?php wp_list_pages(); ?&gt; : 显示Page列表 &lt;?php wp_list_categories(); ?&gt; : 显示Categories列表 &lt;?php next_post_link(’ %link ‘); ?&gt; : 下一篇文章链接 &lt;?php previous_post_link(’%link’); ?&gt; : 上一篇文章链接 &lt;?php get_calendar(); ?&gt; : 日历 &lt;?php wp_get_archives() ?&gt; : 显示内容存档 &lt;?php posts_nav_link(); ?&gt; : 导航，显示上一篇/下一篇文章链接 &lt;?php include(TEMPLATEPATH . ‘/文件名’); ?&gt; : 嵌入其他文件，可为定制的模板或其他类型文件 与模板相关的其他函数&lt;?php _e(’Message’); ?&gt; : 输出相应信息 &lt;?php wp_register(); ?&gt; : 显示注册链接 &lt;?php wp_loginout(); ?&gt; : 显示登录/注销链接 &lt;!–next page–&gt; : 将当前内容分页 &lt;!–more–&gt; : 将当前内容截断，以不在主页/目录页显示全部内容 &lt;?php timer_stop(1); ?&gt; : 网页加载时间(秒) &lt;?php echo get_num_queries(); ?&gt; : 网页加载查询量]]></content>
       <categories>
-        <category>Diary</category>
+        <category>wordpress learning</category>
       </categories>
       <tags>
-        <tag>PS3</tag>
-        <tag>Games</tag>
-        <tag>2</tag>
+        <tag>wordpress learning</tag>
       </tags>
   </entry>
 </search>
