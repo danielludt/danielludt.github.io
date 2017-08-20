@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="PHP," />
 
 
 
@@ -94,13 +94,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Daniel Lu">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="some function about how to use PHP and MYSQL database  PHP and MYSQLconnect to mysql server123456789101112&amp;lt;?php$dbhost = &apos;localhost&apos;;  // server$dbuser = &apos;root&apos;;            // username$dbpass = &apos;12">
+<meta name="keywords" content="PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP MYSQL database function(1)">
+<meta property="og:url" content="http://yoursite.com/2017/08/20/PHP MYSQL /index.html">
 <meta property="og:site_name" content="Daniel Lu">
+<meta property="og:description" content="some function about how to use PHP and MYSQL database  PHP and MYSQLconnect to mysql server123456789101112&amp;lt;?php$dbhost = &apos;localhost&apos;;  // server$dbuser = &apos;root&apos;;            // username$dbpass = &apos;12">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-08-20T05:51:04.253Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Daniel Lu">
+<meta name="twitter:title" content="PHP MYSQL database function(1)">
+<meta name="twitter:description" content="some function about how to use PHP and MYSQL database  PHP and MYSQLconnect to mysql server123456789101112&amp;lt;?php$dbhost = &apos;localhost&apos;;  // server$dbuser = &apos;root&apos;;            // username$dbpass = &apos;12">
 
 
 
@@ -129,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/20/PHP MYSQL /"/>
 
 
 
 
 
-  <title>Daniel Lu</title>
+  <title>PHP MYSQL database function(1) | Daniel Lu</title>
   
 
 
@@ -160,9 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -299,9 +302,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -331,9 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/20/PHP MYSQL /" itemprop="url">PHP MYSQL database function(1)</a></h1>
+          <h1 class="post-title" itemprop="name headline">PHP MYSQL database function(1)</h1>
         
 
         <div class="post-meta">
@@ -405,9 +406,7 @@
       
 
       
-        
-          
-            <p>some function about how to use PHP and MYSQL database </p>
+        <p>some function about how to use PHP and MYSQL database </p>
 <h2 id="PHP-and-MYSQL"><a href="#PHP-and-MYSQL" class="headerlink" title="PHP and MYSQL"></a>PHP and MYSQL</h2><h3 id="connect-to-mysql-server"><a href="#connect-to-mysql-server" class="headerlink" title="connect to mysql server"></a>connect to mysql server</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$dbhost = <span class="string">'localhost'</span>;  <span class="comment">// server</span></div><div class="line">$dbuser = <span class="string">'root'</span>;            <span class="comment">// username</span></div><div class="line">$dbpass = <span class="string">'123456'</span>;          <span class="comment">// password</span></div><div class="line">$conn = mysqli_connect($dbhost, $dbuser, $dbpass);</div><div class="line"><span class="keyword">if</span>(! $conn )</div><div class="line">&#123;</div><div class="line">    <span class="keyword">die</span>(<span class="string">'Could not connect: '</span> . mysqli_error());</div><div class="line">&#125;</div><div class="line"><span class="keyword">echo</span> <span class="string">'yes'</span>;</div><div class="line">mysqli_close($conn);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="creat-database"><a href="#creat-database" class="headerlink" title="creat database"></a>creat database</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$dbhost = <span class="string">'localhost:3306'</span>;  <span class="comment">// server</span></div><div class="line">$dbuser = <span class="string">'root'</span>;            <span class="comment">// username</span></div><div class="line">$dbpass = <span class="string">'123456'</span>;          <span class="comment">// password</span></div><div class="line">$conn = mysqli_connect($dbhost, $dbuser, $dbpass);</div><div class="line"><span class="keyword">if</span>(! $conn )</div><div class="line">&#123;</div><div class="line">  <span class="keyword">die</span>(<span class="string">'error '</span> . mysqli_error($conn));</div><div class="line">&#125;</div><div class="line"><span class="keyword">echo</span> <span class="string">'connect yes'</span>;</div><div class="line">$sql = <span class="string">'CREATE DATABASE RUNOOB'</span>;</div><div class="line">$retval = mysqli_query($conn,$sql );</div><div class="line"><span class="keyword">if</span>(! $retval )</div><div class="line">&#123;</div><div class="line">    <span class="keyword">die</span>(<span class="string">'error '</span> . mysqli_error($conn));</div><div class="line">&#125;</div><div class="line"><span class="keyword">echo</span> <span class="string">"yes"</span>;</div><div class="line">mysqli_close($conn);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="delete-database"><a href="#delete-database" class="headerlink" title="delete database"></a>delete database</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$sql = <span class="string">'DROP DATABASE RUNOOB'</span>;</div></pre></td></tr></table></figure>
@@ -424,8 +423,6 @@
 <h3 id="where-syntax"><a href="#where-syntax" class="headerlink" title="where syntax"></a>where syntax</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$sql = <span class="string">'SELECT runoob_id, runoob_title, </span></div><div class="line"><span class="string">        runoob_author, submission_date</span></div><div class="line"><span class="string">        FROM runoob_tbl</span></div><div class="line"><span class="string">        WHERE runoob_author="RUNOOB.COM"'</span>;</div></pre></td></tr></table></figure>
 <h3 id="like-syntax"><a href="#like-syntax" class="headerlink" title="like syntax"></a>like syntax</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$sql = <span class="string">'SELECT runoob_id, runoob_title, </span></div><div class="line"><span class="string">        runoob_author, submission_date</span></div><div class="line"><span class="string">        FROM runoob_tbl</span></div><div class="line"><span class="string">        WHERE runoob_author LIKE "%COM"'</span>;<span class="comment">// % means any</span></div></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
     
@@ -440,374 +437,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/PHP search/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Daniel Lu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Daniel Lu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/18/PHP search/" itemprop="url">PHP search function</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T21:46:25+08:00">
-                2017-08-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>use PHP and MYSQL to build search function</p>
-<h2 id="search"><a href="#search" class="headerlink" title="search"></a>search</h2><h3 id="Full-Code"><a href="#Full-Code" class="headerlink" title="Full Code"></a>Full Code</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$keywords = <span class="keyword">isset</span>($_GET[<span class="string">'keywords'</span>]) ? trim($_GET[<span class="string">'keywords'</span>]) : <span class="string">''</span>;</div><div class="line">$con= <span class="keyword">new</span> mysqli(<span class="string">"localhost"</span>,<span class="string">"root"</span>,<span class="string">""</span>,<span class="string">"search"</span>);</div><div class="line"><span class="keyword">if</span> (mysqli_connect_errno($con)) </div><div class="line">&#123; </div><div class="line">    <span class="keyword">echo</span> <span class="string">"Error: "</span> . mysqli_connect_error(); </div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="keyword">if</span> (!mysqli_set_charset($con, <span class="string">"utf8"</span>)) &#123;</div><div class="line">    printf(<span class="string">"Error loading character set utf8: %s\n"</span>, mysqli_error($con));</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    printf(<span class="string">"START SEARCHING"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">$rs= mysqli_query($con,<span class="string">"SELECT * FROM user WHERE username LIKE '%&#123;$keywords&#125;%'"</span>);</div><div class="line">$users = <span class="keyword">array</span>();<span class="comment">//save users</span></div><div class="line"><span class="keyword">if</span>(!<span class="keyword">empty</span>($keywords))&#123;</div><div class="line"> <span class="keyword">while</span> ($row=mysqli_fetch_assoc($rs))&#123;</div><div class="line"> $row[<span class="string">'username'</span>] = str_replace($keywords,<span class="string">'&lt;font color="red"&gt;'</span>.$keywords.<span class="string">'&lt;/font&gt;'</span>,$row[<span class="string">'username'</span>]);</div><div class="line"> $users[] = $row;</div><div class="line"> &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line"> &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line"> &lt;title&gt;search <span class="function"><span class="keyword">function</span>&lt;/<span class="title">title</span>&gt;</span></div><div class="line"><span class="function"> &lt;<span class="title">style</span>&gt;</span></div><div class="line"><span class="function"></span></div><div class="line"><span class="function"></span></div><div class="line"><span class="function"> .<span class="title">textbox</span> </span>&#123;</div><div class="line"> width: <span class="number">355</span>px;</div><div class="line"> height: <span class="number">40</span>px;</div><div class="line"> border-radius: <span class="number">3</span>px;</div><div class="line"> border: <span class="number">1</span>px solid <span class="comment">#e2b709;</span></div><div class="line"> padding-left: <span class="number">10</span>px;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> .su &#123;</div><div class="line"> width: <span class="number">365</span>px;</div><div class="line"> height: <span class="number">40</span>px;</div><div class="line"> background-color: <span class="comment">#7fbdf0;</span></div><div class="line"> color: white;</div><div class="line"> border: <span class="number">1</span>px solid <span class="comment">#666666;</span></div><div class="line"></div><div class="line"> &#125;</div><div class="line"> table&#123; background-color: <span class="comment">#7fbdf0; line-height:25px;&#125;</span></div><div class="line"> th&#123; background-color:<span class="comment">#fff;&#125;</span></div><div class="line"> td&#123; background-color:<span class="comment">#fff; text-align:center&#125;</span></div><div class="line"> &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body &gt;</div><div class="line">&lt;form action=<span class="string">""</span> method=<span class="string">"get"</span>&gt;</div><div class="line"> &lt;p&gt;&lt;input type=<span class="string">"text"</span> name=<span class="string">"keywords"</span> value=<span class="string">""</span> placeholder=<span class="string">"input"</span>/&gt;</div><div class="line"> &lt;p&gt;&lt;input type=<span class="string">"submit"</span> value=<span class="string">"search"</span>/&gt;</div><div class="line">&lt;/form&gt;</div><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">if</span> ($keywords)&#123;</div><div class="line"> <span class="keyword">echo</span> <span class="string">'&lt;h3&gt;keywords:&lt;font color="red"&gt;'</span>.$keywords.<span class="string">'&lt;/font&gt;&lt;/h3&gt;'</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span> ($users)&#123;</div><div class="line"> <span class="keyword">echo</span> <span class="string">'&lt;table width="500" cellpadding="5" &gt;'</span>;</div><div class="line"> <span class="keyword">echo</span> <span class="string">'&lt;tr&gt;&lt;th&gt;username&lt;/th&gt;&lt;th&gt;password&lt;/th&gt;&lt;th&gt;email&lt;/th&gt;&lt;th&gt;sex&lt;/th&gt;&lt;th&gt;hobby&lt;/th&gt;'</span>;</div><div class="line"> <span class="keyword">foreach</span> ($users <span class="keyword">as</span> $key=&gt;$value)&#123;</div><div class="line"> <span class="keyword">echo</span> <span class="string">'&lt;tr&gt;'</span>;</div><div class="line"> <span class="keyword">echo</span> <span class="string">'&lt;td&gt;'</span>.$value[<span class="string">'username'</span>].<span class="string">'&lt;/td&gt;'</span>;</div><div class="line"> <span class="keyword">echo</span> <span class="string">'&lt;td&gt;'</span>.$value[<span class="string">'password'</span>].<span class="string">'&lt;/td&gt;'</span>;</div><div class="line"> <span class="keyword">echo</span> <span class="string">'&lt;td&gt;'</span>.$value[<span class="string">'sex'</span>].<span class="string">'&lt;/td&gt;'</span>;</div><div class="line"> <span class="keyword">echo</span> <span class="string">'&lt;td&gt;'</span>.$value[<span class="string">'email'</span>].<span class="string">'&lt;/td&gt;'</span>;</div><div class="line"> <span class="keyword">echo</span> <span class="string">'&lt;td&gt;'</span>.$value[<span class="string">'hobby'</span>].<span class="string">'&lt;/td&gt;'</span>;</div><div class="line"> <span class="keyword">echo</span> <span class="string">'&lt;/tr&gt;'</span>;</div><div class="line"></div><div class="line"> &#125;</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line"> <span class="keyword">echo</span> <span class="string">'None'</span>;</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h3 id="“Fatal-error-Uncaught-Error-Call-to-undefined-function-mysql-connect-”solve"><a href="#“Fatal-error-Uncaught-Error-Call-to-undefined-function-mysql-connect-”solve" class="headerlink" title="“Fatal error: Uncaught Error: Call to undefined function mysql_connect()”solve"></a>“Fatal error: Uncaught Error: Call to undefined function mysql_connect()”solve</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// mysqli</span></div><div class="line">$mysqli = <span class="keyword">new</span> mysqli(<span class="string">"example.com"</span>, <span class="string">"user"</span>, <span class="string">"password"</span>, <span class="string">"database"</span>);</div><div class="line"> </div><div class="line"><span class="comment">// PDO</span></div><div class="line">$pdo = <span class="keyword">new</span> PDO(<span class="string">'mysql:host=example.com;dbname=database'</span>, <span class="string">'user'</span>, <span class="string">'password'</span>);</div><div class="line"> </div><div class="line"><span class="comment">// mysql</span></div><div class="line">$c = mysql_connect(<span class="string">"example.com"</span>, <span class="string">"user"</span>, <span class="string">"password"</span>);</div></pre></td></tr></table></figure>
-<p>php.ini:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">extension=php_curl.dll</div><div class="line">extension=php_gd2.dll</div><div class="line">extension=php_mbstring.dll</div><div class="line">;extension=php_mysql.dll <span class="comment">//deleted by php7</span></div><div class="line">extension=php_mysqli.dll</div><div class="line">extension=php_pdo_mysql.dll</div><div class="line">extension=php_pdo_odbc.dll</div><div class="line">extension=php_xmlrpc.dll</div></pre></td></tr></table></figure></p>
-<p>hello.php changes:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$dbc= <span class="keyword">new</span> mysqli(<span class="string">"localhost"</span>,<span class="string">"root"</span>,<span class="string">"root"</span>,<span class="string">"test"</span>);</div><div class="line">    <span class="keyword">if</span>(!$dbc)  &#123;</div><div class="line">        <span class="keyword">echo</span><span class="string">"error!"</span>;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">echo</span><span class="string">"success"</span>;</div><div class="line">    &#125;</div><div class="line">    mysqli_close($dbc);</div></pre></td></tr></table></figure></p>
-<p> repost<a href="http://www.happy3w.com/2016/01/11/php7%E8%BF%9E%E6%8E%A5mysql%E9%94%99%E8%AF%AFfatal-error-uncaught-error-call-to-undefined-function-mysql_connect/" target="_blank" rel="external">links</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/wordpress函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Daniel Lu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Daniel Lu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/18/wordpress函数/" itemprop="url">wordpress常用函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T20:46:25+08:00">
-                2017-08-18
-              </time>
+              <a href="/2017/08/18/PHP search/" rel="next" title="PHP search function">
+                <i class="fa fa-chevron-left"></i> PHP search function
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/wordpress-learning/" itemprop="url" rel="index">
-                    <span itemprop="name">wordpress learning</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>写写WordPress模板常用函数，以免遗忘。</p>
-<h2 id="WordPress模板常用函数"><a href="#WordPress模板常用函数" class="headerlink" title="WordPress模板常用函数"></a>WordPress模板常用函数</h2><h3 id="WordPress基本模板文件"><a href="#WordPress基本模板文件" class="headerlink" title="WordPress基本模板文件"></a>WordPress基本模板文件</h3><p>style.css : CSS(样式表)文件</p>
-<p>index.php : 主页模板</p>
-<p>archive.php : Archive/Category模板</p>
-<p>404.php : Not Found 错误页模板</p>
-<p>comments.php : 留言/回复模板</p>
-<p>footer.php : Footer模板</p>
-<p>header.php : Header模板</p>
-<p>sidebar.php : 侧栏模板</p>
-<p>page.php : 内容页(Page)模板</p>
-<p>single.php : 内容页(Post)模板</p>
-<p>searchform.php : 搜索表单模板</p>
-<p>search.php : 搜索结果模板</p>
-<h3 id="基本条件判断Tag"><a href="#基本条件判断Tag" class="headerlink" title="基本条件判断Tag"></a>基本条件判断Tag</h3><p>is_home() : 是否为主页</p>
-<p>is_single() : 是否为内容页(Post)</p>
-<p>is_page() : 是否为内容页(Page)</p>
-<p>is_category() : 是否为Category/Archive页</p>
-<p>is_tag() : 是否为Tag存档页</p>
-<p>is_date() : 是否为指定日期存档页</p>
-<p>is_year() : 是否为指定年份存档页</p>
-<p>is_month() : 是否为指定月份存档页</p>
-<p>is_day() : 是否为指定日存档页</p>
-<p>is_time() : 是否为指定时间存档页</p>
-<p>is_archive() : 是否为存档页</p>
-<p>is_search() : 是否为搜索结果页</p>
-<p>is_404() : 是否为 “HTTP 404: Not Found” 错误页</p>
-<p>is_paged() : 主页/Category/Archive页是否以多页显示</p>
-<h3 id="Header部分常用到的PHP函数"><a href="#Header部分常用到的PHP函数" class="headerlink" title="Header部分常用到的PHP函数"></a>Header部分常用到的PHP函数</h3><p>&lt;?php bloginfo(’name’); ?&gt; : 博客名称(Title)</p>
-<p>&lt;?php bloginfo(’stylesheet_url’); ?&gt; : CSS文件路径</p>
-<p>&lt;?php bloginfo(’pingback_url’); ?&gt; : PingBack Url</p>
-<p>&lt;?php bloginfo(’template_url’); ?&gt; : 模板文件路径</p>
-<p>&lt;?php bloginfo(’version’); ?&gt; : WordPress版本</p>
-<p>&lt;?php bloginfo(’atom_url’); ?&gt; : Atom Url</p>
-<p>&lt;?php bloginfo(’rss2_url’); ?&gt; : RSS 2.o Url</p>
-<p>&lt;?php bloginfo(’url’); ?&gt; : 博客 Url</p>
-<p>&lt;?php bloginfo(’html_type’); ?&gt; : 博客网页Html类型</p>
-<p>&lt;?php bloginfo(’charset’); ?&gt; : 博客网页编码</p>
-<p>&lt;?php bloginfo(’description’); ?&gt; : 博客描述</p>
-<p>&lt;?php wp_title(); ?&gt; : 特定内容页(Post/Page)的标题</p>
-<h3 id="模板常用的PHP函数及命令"><a href="#模板常用的PHP函数及命令" class="headerlink" title="模板常用的PHP函数及命令"></a>模板常用的PHP函数及命令</h3><p>&lt;?php get_header(); ?&gt; : 调用Header模板</p>
-<p>&lt;?php get_sidebar(); ?&gt; : 调用Sidebar模板</p>
-<p>&lt;?php get_footer(); ?&gt; : 调用Footer模板</p>
-<p>&lt;?php the_content(); ?&gt; : 显示内容(Post/Page)</p>
-<p>&lt;?php if(have_posts()) : ?&gt; : 检查是否存在Post/Page</p>
-<p>&lt;?php while(have_posts()) : the_post(); ?&gt; : 如果存在Post/Page则予以显示</p>
-<p>&lt;?php endwhile; ?&gt; : While 结束</p>
-<p>&lt;?php endif; ?&gt; : If 结束</p>
-<p>&lt;?php the_time(’字符串’) ?&gt; : 显示时间，时间格式由“字符串”参数决定，具体参考PHP手册</p>
-<p>&lt;?php comments_popup_link(); ?&gt; : 正文中的留言链接。如果使用 comments_popup_script() ，则留言会在新窗口中打开，反之，则在当前窗口打开</p>
-<p>&lt;?php the_title(); ?&gt; : 内容页(Post/Page)标题</p>
-<p>&lt;?php the_permalink() ?&gt; : 内容页(Post/Page) Url</p>
-<p>&lt;?php the_category(’, ‘) ?&gt; : 特定内容页(Post/Page)所属Category</p>
-<p>&lt;?php the_author(); ?&gt; : 作者</p>
-<p>&lt;?php the_ID(); ?&gt; : 特定内容页(Post/Page) ID</p>
-<p>&lt;?php edit_post_link(); ?&gt; : 如果用户已登录并具有权限，显示编辑链接</p>
-<p>&lt;?php get_links_list(); ?&gt; : 显示Blogroll中的链接</p>
-<p>&lt;?php comments_template(); ?&gt; : 调用留言/回复模板</p>
-<p>&lt;?php wp_list_pages(); ?&gt; : 显示Page列表</p>
-<p>&lt;?php wp_list_categories(); ?&gt; : 显示Categories列表</p>
-<p>&lt;?php next_post_link(’ %link ‘); ?&gt; : 下一篇文章链接</p>
-<p>&lt;?php previous_post_link(’%link’); ?&gt; : 上一篇文章链接</p>
-<p>&lt;?php get_calendar(); ?&gt; : 日历</p>
-<p>&lt;?php wp_get_archives() ?&gt; : 显示内容存档</p>
-<p>&lt;?php posts_nav_link(); ?&gt; : 导航，显示上一篇/下一篇文章链接</p>
-<p>&lt;?php include(TEMPLATEPATH . ‘/文件名’); ?&gt; : 嵌入其他文件，可为定制的模板或其他类型文件</p>
-<h3 id="与模板相关的其他函数"><a href="#与模板相关的其他函数" class="headerlink" title="与模板相关的其他函数"></a>与模板相关的其他函数</h3><p>&lt;?php _e(’Message’); ?&gt; : 输出相应信息</p>
-<p>&lt;?php wp_register(); ?&gt; : 显示注册链接</p>
-<p>&lt;?php wp_loginout(); ?&gt; : 显示登录/注销链接</p>
-<p>&lt;!–next page–&gt; : 将当前内容分页</p>
-<p>&lt;!–more–&gt; : 将当前内容截断，以不在主页/目录页显示全部内容</p>
-<p>&lt;?php timer_stop(1); ?&gt; : 网页加载时间(秒)</p>
-<p>&lt;?php echo get_num_queries(); ?&gt; : 网页加载查询量</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -817,10 +476,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -828,6 +488,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -848,8 +512,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -972,6 +645,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-and-MYSQL"><span class="nav-number">1.</span> <span class="nav-text">PHP and MYSQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#connect-to-mysql-server"><span class="nav-number">1.1.</span> <span class="nav-text">connect to mysql server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#creat-database"><span class="nav-number">1.2.</span> <span class="nav-text">creat database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delete-database"><span class="nav-number">1.3.</span> <span class="nav-text">delete database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#select-database"><span class="nav-number">1.4.</span> <span class="nav-text">select database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#create-database-table"><span class="nav-number">1.5.</span> <span class="nav-text">create database table</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delete-database-table"><span class="nav-number">1.6.</span> <span class="nav-text">delete database table</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#insert-data"><span class="nav-number">1.7.</span> <span class="nav-text">insert data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#search-data"><span class="nav-number">1.8.</span> <span class="nav-text">search data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#free-internal-memory"><span class="nav-number">1.9.</span> <span class="nav-text">free internal memory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Delete-Data-From-MySQL"><span class="nav-number">1.10.</span> <span class="nav-text">Delete Data From MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Update-Data-in-MySQL"><span class="nav-number">1.11.</span> <span class="nav-text">Update Data in MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#where-syntax"><span class="nav-number">1.12.</span> <span class="nav-text">where syntax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#like-syntax"><span class="nav-number">1.13.</span> <span class="nav-text">like syntax</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -1084,10 +773,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
