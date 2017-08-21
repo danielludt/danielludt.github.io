@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="wordpress learning," />
+  <meta name="keywords" content="PHP," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="写写WordPress模板常用函数，以免遗忘。 WordPress模板常用函数WordPress基本模板文件style.css : CSS(样式表)文件 index.php : 主页模板 archive.php : Archive/Category模板 404.php : Not Found 错误页模板 comments.php : 留言/回复模板 footer.php : Footer模板 he">
-<meta name="keywords" content="wordpress learning">
+<meta name="description" content="use PHP jquery json mysql to build comments function commentsindex.html123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869">
+<meta name="keywords" content="PHP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="wordpress常用函数">
-<meta property="og:url" content="http://yoursite.com/2017/08/18/wordpress函数/index.html">
+<meta property="og:title" content="PHP comments function">
+<meta property="og:url" content="http://yoursite.com/2017/08/20/php comments/index.html">
 <meta property="og:site_name" content="Daniel Lu">
-<meta property="og:description" content="写写WordPress模板常用函数，以免遗忘。 WordPress模板常用函数WordPress基本模板文件style.css : CSS(样式表)文件 index.php : 主页模板 archive.php : Archive/Category模板 404.php : Not Found 错误页模板 comments.php : 留言/回复模板 footer.php : Footer模板 he">
+<meta property="og:description" content="use PHP jquery json mysql to build comments function commentsindex.html123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-08-18T15:30:19.406Z">
+<meta property="og:updated_time" content="2017-08-21T12:28:50.990Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wordpress常用函数">
-<meta name="twitter:description" content="写写WordPress模板常用函数，以免遗忘。 WordPress模板常用函数WordPress基本模板文件style.css : CSS(样式表)文件 index.php : 主页模板 archive.php : Archive/Category模板 404.php : Not Found 错误页模板 comments.php : 留言/回复模板 footer.php : Footer模板 he">
+<meta name="twitter:title" content="PHP comments function">
+<meta name="twitter:description" content="use PHP jquery json mysql to build comments function commentsindex.html123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/18/wordpress函数/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/20/php comments/"/>
 
 
 
 
 
-  <title>wordpress常用函数 | Daniel Lu</title>
+  <title>PHP comments function | Daniel Lu</title>
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/wordpress函数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/20/php comments/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Daniel Lu">
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">wordpress常用函数</h1>
+          <h1 class="post-title" itemprop="name headline">PHP comments function</h1>
         
 
         <div class="post-meta">
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T20:46:25+08:00">
-                2017-08-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-20T22:46:25+08:00">
+                2017-08-20
               </time>
             
 
@@ -369,8 +369,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/wordpress-learning/" itemprop="url" rel="index">
-                    <span itemprop="name">wordpress learning</span>
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
                   </a>
                 </span>
 
@@ -406,79 +406,12 @@
       
 
       
-        <p>写写WordPress模板常用函数，以免遗忘。</p>
-<h2 id="WordPress模板常用函数"><a href="#WordPress模板常用函数" class="headerlink" title="WordPress模板常用函数"></a>WordPress模板常用函数</h2><h3 id="WordPress基本模板文件"><a href="#WordPress基本模板文件" class="headerlink" title="WordPress基本模板文件"></a>WordPress基本模板文件</h3><p>style.css : CSS(样式表)文件</p>
-<p>index.php : 主页模板</p>
-<p>archive.php : Archive/Category模板</p>
-<p>404.php : Not Found 错误页模板</p>
-<p>comments.php : 留言/回复模板</p>
-<p>footer.php : Footer模板</p>
-<p>header.php : Header模板</p>
-<p>sidebar.php : 侧栏模板</p>
-<p>page.php : 内容页(Page)模板</p>
-<p>single.php : 内容页(Post)模板</p>
-<p>searchform.php : 搜索表单模板</p>
-<p>search.php : 搜索结果模板</p>
-<h3 id="基本条件判断Tag"><a href="#基本条件判断Tag" class="headerlink" title="基本条件判断Tag"></a>基本条件判断Tag</h3><p>is_home() : 是否为主页</p>
-<p>is_single() : 是否为内容页(Post)</p>
-<p>is_page() : 是否为内容页(Page)</p>
-<p>is_category() : 是否为Category/Archive页</p>
-<p>is_tag() : 是否为Tag存档页</p>
-<p>is_date() : 是否为指定日期存档页</p>
-<p>is_year() : 是否为指定年份存档页</p>
-<p>is_month() : 是否为指定月份存档页</p>
-<p>is_day() : 是否为指定日存档页</p>
-<p>is_time() : 是否为指定时间存档页</p>
-<p>is_archive() : 是否为存档页</p>
-<p>is_search() : 是否为搜索结果页</p>
-<p>is_404() : 是否为 “HTTP 404: Not Found” 错误页</p>
-<p>is_paged() : 主页/Category/Archive页是否以多页显示</p>
-<h3 id="Header部分常用到的PHP函数"><a href="#Header部分常用到的PHP函数" class="headerlink" title="Header部分常用到的PHP函数"></a>Header部分常用到的PHP函数</h3><p>&lt;?php bloginfo(’name’); ?&gt; : 博客名称(Title)</p>
-<p>&lt;?php bloginfo(’stylesheet_url’); ?&gt; : CSS文件路径</p>
-<p>&lt;?php bloginfo(’pingback_url’); ?&gt; : PingBack Url</p>
-<p>&lt;?php bloginfo(’template_url’); ?&gt; : 模板文件路径</p>
-<p>&lt;?php bloginfo(’version’); ?&gt; : WordPress版本</p>
-<p>&lt;?php bloginfo(’atom_url’); ?&gt; : Atom Url</p>
-<p>&lt;?php bloginfo(’rss2_url’); ?&gt; : RSS 2.o Url</p>
-<p>&lt;?php bloginfo(’url’); ?&gt; : 博客 Url</p>
-<p>&lt;?php bloginfo(’html_type’); ?&gt; : 博客网页Html类型</p>
-<p>&lt;?php bloginfo(’charset’); ?&gt; : 博客网页编码</p>
-<p>&lt;?php bloginfo(’description’); ?&gt; : 博客描述</p>
-<p>&lt;?php wp_title(); ?&gt; : 特定内容页(Post/Page)的标题</p>
-<h3 id="模板常用的PHP函数及命令"><a href="#模板常用的PHP函数及命令" class="headerlink" title="模板常用的PHP函数及命令"></a>模板常用的PHP函数及命令</h3><p>&lt;?php get_header(); ?&gt; : 调用Header模板</p>
-<p>&lt;?php get_sidebar(); ?&gt; : 调用Sidebar模板</p>
-<p>&lt;?php get_footer(); ?&gt; : 调用Footer模板</p>
-<p>&lt;?php the_content(); ?&gt; : 显示内容(Post/Page)</p>
-<p>&lt;?php if(have_posts()) : ?&gt; : 检查是否存在Post/Page</p>
-<p>&lt;?php while(have_posts()) : the_post(); ?&gt; : 如果存在Post/Page则予以显示</p>
-<p>&lt;?php endwhile; ?&gt; : While 结束</p>
-<p>&lt;?php endif; ?&gt; : If 结束</p>
-<p>&lt;?php the_time(’字符串’) ?&gt; : 显示时间，时间格式由“字符串”参数决定，具体参考PHP手册</p>
-<p>&lt;?php comments_popup_link(); ?&gt; : 正文中的留言链接。如果使用 comments_popup_script() ，则留言会在新窗口中打开，反之，则在当前窗口打开</p>
-<p>&lt;?php the_title(); ?&gt; : 内容页(Post/Page)标题</p>
-<p>&lt;?php the_permalink() ?&gt; : 内容页(Post/Page) Url</p>
-<p>&lt;?php the_category(’, ‘) ?&gt; : 特定内容页(Post/Page)所属Category</p>
-<p>&lt;?php the_author(); ?&gt; : 作者</p>
-<p>&lt;?php the_ID(); ?&gt; : 特定内容页(Post/Page) ID</p>
-<p>&lt;?php edit_post_link(); ?&gt; : 如果用户已登录并具有权限，显示编辑链接</p>
-<p>&lt;?php get_links_list(); ?&gt; : 显示Blogroll中的链接</p>
-<p>&lt;?php comments_template(); ?&gt; : 调用留言/回复模板</p>
-<p>&lt;?php wp_list_pages(); ?&gt; : 显示Page列表</p>
-<p>&lt;?php wp_list_categories(); ?&gt; : 显示Categories列表</p>
-<p>&lt;?php next_post_link(’ %link ‘); ?&gt; : 下一篇文章链接</p>
-<p>&lt;?php previous_post_link(’%link’); ?&gt; : 上一篇文章链接</p>
-<p>&lt;?php get_calendar(); ?&gt; : 日历</p>
-<p>&lt;?php wp_get_archives() ?&gt; : 显示内容存档</p>
-<p>&lt;?php posts_nav_link(); ?&gt; : 导航，显示上一篇/下一篇文章链接</p>
-<p>&lt;?php include(TEMPLATEPATH . ‘/文件名’); ?&gt; : 嵌入其他文件，可为定制的模板或其他类型文件</p>
-<h3 id="与模板相关的其他函数"><a href="#与模板相关的其他函数" class="headerlink" title="与模板相关的其他函数"></a>与模板相关的其他函数</h3><p>&lt;?php _e(’Message’); ?&gt; : 输出相应信息</p>
-<p>&lt;?php wp_register(); ?&gt; : 显示注册链接</p>
-<p>&lt;?php wp_loginout(); ?&gt; : 显示登录/注销链接</p>
-<p>&lt;!–next page–&gt; : 将当前内容分页</p>
-<p>&lt;!–more–&gt; : 将当前内容截断，以不在主页/目录页显示全部内容</p>
-<p>&lt;?php timer_stop(1); ?&gt; : 网页加载时间(秒)</p>
-<p>&lt;?php echo get_num_queries(); ?&gt; : 网页加载查询量</p>
-
+        <p>use PHP jquery json mysql to build comments function</p>
+<h2 id="comments"><a href="#comments" class="headerlink" title="comments"></a>comments</h2><h3 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>comments<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">        .demo&#123;</span></div><div class="line"><span class="undefined">            width:500px;</span></div><div class="line"><span class="undefined">            margin:  0 auto;</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined">        h3&#123;</span></div><div class="line"><span class="undefined">            font-size:18px</span></div><div class="line"><span class="undefined"> &#125;</span></div><div class="line"><span class="undefined">        #comments&#123;</span></div><div class="line"><span class="undefined">            margin:10px auto</span></div><div class="line"><span class="undefined"> &#125;</span></div><div class="line"><span class="undefined">        #post&#123;</span></div><div class="line"><span class="undefined">            margin-top:10px</span></div><div class="line"><span class="undefined"> &#125;</span></div><div class="line"><span class="undefined">        #comments p,#post p&#123;</span></div><div class="line"><span class="undefined">            line-height:30px</span></div><div class="line"><span class="undefined"> &#125;</span></div><div class="line"><span class="undefined">        #comments p span&#123;</span></div><div class="line"><span class="undefined">            margin:4px; color:#999</span></div><div class="line"><span class="undefined"> &#125;</span></div><div class="line"><span class="undefined">        #message&#123;</span></div><div class="line"><span class="undefined">            position:relative;</span></div><div class="line"><span class="undefined">            display:none;</span></div><div class="line"><span class="undefined">            width:100px;</span></div><div class="line"><span class="undefined">            padding:4px;</span></div><div class="line"><span class="undefined">            margin-top:-100px;</span></div><div class="line"><span class="undefined">            margin-left:30px;</span></div><div class="line"><span class="undefined">            background: #ff0000;</span></div><div class="line"><span class="undefined">            color: #c286ff;</span></div><div class="line"><span class="undefined">            z-index:1001</span></div><div class="line"><span class="undefined"> &#125;</span></div><div class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://cdn.bootcss.com/jquery/1.4.2/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">        $(function()&#123;</span></div><div class="line"><span class="undefined">            var comments = $("#comments");</span></div><div class="line"><span class="undefined">            $.getJSON("server.php",function(json)&#123;</span></div><div class="line"><span class="undefined">                $.each(json,function(index,array)&#123;</span></div><div class="line"><span class="xml">                    var txt = "<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>"+array["user"]+"<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>："+array["comment"]+"<span class="tag">&lt;<span class="name">span</span>&gt;</span>"+array["addtime"]+"<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span>";</span></div><div class="line"><span class="undefined">                    comments.append(txt);</span></div><div class="line"><span class="undefined">                &#125;);</span></div><div class="line"><span class="undefined">            &#125;);</span></div><div class="line"><span class="undefined">            $("#add").click(function()&#123;</span></div><div class="line"><span class="undefined">                var user = $("#user").val();</span></div><div class="line"><span class="undefined">                var txt = $("#txt").val();</span></div><div class="line"><span class="undefined">                $.ajax(&#123;</span></div><div class="line"><span class="undefined">                    type: "POST",</span></div><div class="line"><span class="undefined">                    url: "comment.php",</span></div><div class="line"><span class="undefined">                    data: "user="+user+"&amp;txt="+txt,</span></div><div class="line"><span class="undefined">                    success: function(msg)&#123;</span></div><div class="line"><span class="undefined">                        if(msg==1)&#123;</span></div><div class="line"><span class="xml">                            var str = "<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>"+user+"<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>："+txt+"<span class="tag">&lt;<span class="name">span</span>&gt;</span>just now<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span>";</span></div><div class="line"><span class="undefined">                            comments.append(str);</span></div><div class="line"><span class="undefined">                            $("#message").show().html("go!").fadeOut(1000);</span></div><div class="line"><span class="undefined">                            $("#txt").attr("value","");</span></div><div class="line"><span class="undefined">                        &#125;else&#123;</span></div><div class="line"><span class="undefined">                            $("#message").show().html(msg).fadeOut(1000);</span></div><div class="line"><span class="undefined">                        &#125;</span></div><div class="line"><span class="undefined">                    &#125;</span></div><div class="line"><span class="undefined">                &#125;);</span></div><div class="line"><span class="undefined">            &#125;);</span></div><div class="line"><span class="undefined">        &#125;);</span></div><div class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"comments"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>comments list<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"post"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>comments<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>username<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"input"</span> <span class="attr">id</span>=<span class="string">"user"</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>contents<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">class</span>=<span class="string">"input"</span> <span class="attr">id</span>=<span class="string">"txt"</span> <span class="attr">style</span>=<span class="string">"width:100%; height:80px"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"submit"</span> <span class="attr">id</span>=<span class="string">"add"</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"message"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="create-comments-database"><a href="#create-comments-database" class="headerlink" title="create comments database"></a>create comments database</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"></div><div class="line">header(<span class="string">"Content-type:text/html;charset=utf-8"</span>);    </div><div class="line">$servername = <span class="string">"localhost"</span>;</div><div class="line">$username = <span class="string">"root"</span>;</div><div class="line">$password = <span class="string">"root"</span>;</div><div class="line"><span class="comment">// connect</span></div><div class="line">$conn = mysqli_connect($servername, $username, $password);</div><div class="line">mysqli_set_charset($conn,<span class="string">'utf8'</span>); <span class="comment">//utf-8</span></div><div class="line"><span class="comment">// check </span></div><div class="line"><span class="keyword">if</span> (!$conn) &#123;</div><div class="line">    <span class="keyword">die</span>(<span class="string">"error "</span> . mysqli_connect_error());</div><div class="line">&#125;</div><div class="line"><span class="comment">// create database</span></div><div class="line">$sql = <span class="string">"CREATE DATABASE comments"</span>;</div><div class="line"><span class="keyword">if</span> (mysqli_query($conn, $sql)) &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"s"</span>;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"e "</span> . mysqli_error($conn);</div><div class="line">&#125;</div><div class="line">mysqli_close($conn);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$sql = <span class="string">"CREATE TABLE `comments` (</span></div><div class="line"><span class="string">  `id` int(11) NOT NULL auto_increment,</span></div><div class="line"><span class="string">  `user` varchar(30) NOT NULL,</span></div><div class="line"><span class="string">  `comment` varchar(200) NOT NULL,</span></div><div class="line"><span class="string">  `addtime` datetime NOT NULL,</span></div><div class="line"><span class="string">  PRIMARY KEY  (`id`)</span></div><div class="line"><span class="string">) ENGINE=MyISAM; "</span> ;</div><div class="line"><span class="keyword">if</span> (mysqli_query($conn, $sql)) &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"s"</span>;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"e "</span> . mysqli_error($conn);</div><div class="line">&#125;</div><div class="line">mysqli_close($conn);</div></pre></td></tr></table></figure>
+<h3 id="server-php"><a href="#server-php" class="headerlink" title="server.php"></a>server.php</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">header(<span class="string">"Content-type:text/html;charset=utf-8"</span>);    </div><div class="line">$conn=mysqli_connect(<span class="string">"localhost"</span>,<span class="string">"root"</span>,<span class="string">"root"</span>,<span class="string">"comments"</span>);</div><div class="line">mysqli_set_charset($conn,<span class="string">"utf8"</span>);</div><div class="line">$sql=<span class="string">"SELECT * from comments"</span>;</div><div class="line">$que=mysqli_query($conn,$sql);</div><div class="line"><span class="keyword">while</span>($row=mysqli_fetch_array($que))&#123;</div><div class="line">      $comments[] = <span class="keyword">array</span>(<span class="string">"id"</span>=&gt;$row[id],<span class="string">"user"</span>=&gt;$row[user],<span class="string">"comment"</span>=&gt;$row[comment],<span class="string">"addtime"</span>=&gt;$row[addtime]);</div><div class="line">&#125;</div><div class="line"><span class="keyword">echo</span> json_encode($comments);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="comment-php"><a href="#comment-php" class="headerlink" title="comment.php"></a>comment.php</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">header(<span class="string">"Content-type:text/html;charset=utf-8"</span>);    </div><div class="line">$user = htmlspecialchars(trim($_POST[<span class="string">'user'</span>]));</div><div class="line">$txt = htmlspecialchars(trim($_POST[<span class="string">'txt'</span>]));</div><div class="line">$time = date(<span class="string">"Y-m-d H:i:s"</span>);</div><div class="line"><span class="keyword">if</span>(<span class="keyword">empty</span>($user))&#123;</div><div class="line">   <span class="keyword">echo</span> <span class="string">"username null"</span>;</div><div class="line">   <span class="keyword">exit</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span>(<span class="keyword">empty</span>($txt))&#123;</div><div class="line">   <span class="keyword">echo</span> <span class="string">"contents null"</span>;</div><div class="line">   <span class="keyword">exit</span>;</div><div class="line">&#125;</div><div class="line">$conn=mysqli_connect(<span class="string">"localhost"</span>,<span class="string">"root"</span>,<span class="string">"root"</span>,<span class="string">"comments"</span>);</div><div class="line">mysqli_set_charset($conn,<span class="string">"utf8"</span>);</div><div class="line">$sql=<span class="string">"insert into comments(user,comment,addtime)values('$user','$txt','$time')"</span>;</div><div class="line">$que=mysqli_query($conn,$sql);</div><div class="line"><span class="keyword">if</span>($que)  <span class="keyword">echo</span> <span class="string">"1"</span>;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
       
     </div>
     
@@ -495,7 +428,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/wordpress-learning/" rel="tag"># wordpress learning</a>
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
           
         </div>
       
@@ -508,15 +441,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/08/20/PHP MYSQL /" rel="next" title="PHP MYSQL database function(1)">
+                <i class="fa fa-chevron-left"></i> PHP MYSQL database function(1)
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/18/PHP search/" rel="prev" title="PHP search function">
-                PHP search function <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -710,7 +643,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WordPress模板常用函数"><span class="nav-number">1.</span> <span class="nav-text">WordPress模板常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WordPress基本模板文件"><span class="nav-number">1.1.</span> <span class="nav-text">WordPress基本模板文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本条件判断Tag"><span class="nav-number">1.2.</span> <span class="nav-text">基本条件判断Tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Header部分常用到的PHP函数"><span class="nav-number">1.3.</span> <span class="nav-text">Header部分常用到的PHP函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板常用的PHP函数及命令"><span class="nav-number">1.4.</span> <span class="nav-text">模板常用的PHP函数及命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与模板相关的其他函数"><span class="nav-number">1.5.</span> <span class="nav-text">与模板相关的其他函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#comments"><span class="nav-number">1.</span> <span class="nav-text">comments</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#index-html"><span class="nav-number">1.1.</span> <span class="nav-text">index.html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#create-comments-database"><span class="nav-number">1.2.</span> <span class="nav-text">create comments database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#server-php"><span class="nav-number">1.3.</span> <span class="nav-text">server.php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#comment-php"><span class="nav-number">1.4.</span> <span class="nav-text">comment.php</span></a></li></ol></li></ol></div>
             
 
           </div>
