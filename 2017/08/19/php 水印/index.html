@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="PHP," />
 
 
 
@@ -94,14 +94,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="php实现水印和缩略图功能">
+<meta name="keywords" content="PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP 水印和缩略图">
+<meta property="og:url" content="http://yoursite.com/2017/08/19/php 水印/index.html">
 <meta property="og:site_name" content="Daniel Lu">
+<meta property="og:description" content="php实现水印和缩略图功能">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-08-11T09:43:49.313Z">
+<meta property="og:updated_time" content="2017-08-23T23:23:54.855Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="PHP 水印和缩略图">
+<meta name="twitter:description" content="php实现水印和缩略图功能">
 
 
 
@@ -130,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/19/php 水印/"/>
 
 
 
 
 
-  <title>tags | Daniel Lu</title>
+  <title>PHP 水印和缩略图 | Daniel Lu</title>
   
 
 
@@ -301,40 +305,174 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/19/php 水印/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daniel Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daniel Lu">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                2 tags in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/PHP/" style="font-size: 30px; color: #111">PHP</a> <a href="/tags/wordpress-learning/" style="font-size: 12px; color: #ccc">wordpress learning</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">PHP 水印和缩略图</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-19T22:46:25+08:00">
+                2017-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>php实现水印和缩略图功能<br><a id="more"></a></p>
+<h3 id="添加文字水印"><a href="#添加文字水印" class="headerlink" title="添加文字水印"></a>添加文字水印</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">     <span class="comment">/*打开图片*/</span></div><div class="line">     <span class="comment">//1.配置图片路径（填入你的图片路径）</span></div><div class="line">     $src=<span class="string">"http://img.php.cn/upload/course/000/000/004/581454f755fb1195.jpg"</span>;</div><div class="line">     <span class="comment">//获取图片信息</span></div><div class="line">     $info = getimagesize($src);</div><div class="line">     <span class="comment">//通过图像的编号来获取图像的类型</span></div><div class="line">     $type=image_type_to_extension($info[<span class="number">2</span>],<span class="keyword">false</span>);</div><div class="line">     <span class="comment">//在内存中创建一个和我们图像类型一样的图像</span></div><div class="line">     $fun = <span class="string">"imagecreatefrom&#123;$type&#125;"</span>;</div><div class="line">     <span class="comment">//把图片复制到我们的内存中</span></div><div class="line">     $image=$fun($src);</div><div class="line">    <span class="comment">/*操作图片*/</span></div><div class="line">     <span class="comment">//设置字体的路径</span></div><div class="line">     $font=<span class="string">"/tpl/Index/Static/css/img/fonts/Christmas.ttf"</span>;</div><div class="line">     <span class="comment">//添加内容</span></div><div class="line">     $content=<span class="string">"hello"</span>;</div><div class="line">     <span class="comment">//设置字体的颜色和透明度</span></div><div class="line">     $col=imagecolorallocatealpha($image,<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">30</span>);</div><div class="line">     <span class="comment">//写入文字</span></div><div class="line">     imagettftext($image,<span class="number">20</span>,<span class="number">0</span>,<span class="number">20</span>,<span class="number">30</span>,$col,$font,$content);</div><div class="line">     <span class="comment">/*输出图片*/</span></div><div class="line">     <span class="comment">//浏览器输出</span></div><div class="line">     header(<span class="string">"Content-type:"</span>.$info[<span class="string">'mime'</span>]);</div><div class="line">     $func=<span class="string">"image&#123;$type&#125;"</span>;</div><div class="line">     $func($image);</div><div class="line">     <span class="comment">//保存图片</span></div><div class="line">     $func($image,<span class="string">'FFF.'</span>.$type);</div><div class="line">     <span class="comment">/*销毁图片*/</span></div><div class="line">     imagedestroy($image);</div><div class="line"> <span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="添加图片水印"><a href="#添加图片水印" class="headerlink" title="添加图片水印"></a>添加图片水印</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">    <span class="comment">/*打开图片*/</span></div><div class="line">    <span class="comment">//配置图片路径</span></div><div class="line">    $src = <span class="string">"http://img.php.cn/upload/course/000/000/004/581454f755fb1195.jpg"</span>;</div><div class="line">    <span class="comment">//获取图片的基本信息</span></div><div class="line">    $info=getimagesize($src);</div><div class="line">    <span class="comment">//通过图像的编号来获取图片的类型</span></div><div class="line">    $type=image_type_to_extension($info[<span class="number">2</span>],<span class="keyword">false</span>);</div><div class="line">    <span class="comment">//内存中创建一个和我们图像类型一致的图像</span></div><div class="line">    $fun = <span class="string">"imagecreatefrom&#123;$type&#125;"</span>;</div><div class="line">    <span class="comment">//把要操作的图片复制到内存中</span></div><div class="line">    $image=$fun($src);</div><div class="line">    <span class="comment">/*操作图片*/</span></div><div class="line">    <span class="comment">//设置水印路径</span></div><div class="line">    $image_Mark = <span class="string">"http://img.php.cn/upload/course/000/000/004/5814594e3e7c9278.png"</span>;</div><div class="line">    <span class="comment">//获取水印的基本信息</span></div><div class="line">    $info2=getimagesize($image_Mark);</div><div class="line">    <span class="comment">//通过水印的图像编号来获取水印的图片类型</span></div><div class="line">    $type2=image_type_to_extension($info2[<span class="number">2</span>],<span class="keyword">false</span>);</div><div class="line">    <span class="comment">//在内存中创建一个和水印图像一致的图像类型</span></div><div class="line">    $fun2=<span class="string">"imagecreatefrom&#123;$type2&#125;"</span>;</div><div class="line">    <span class="comment">//把水印复制到内存中</span></div><div class="line">    $water = $fun2($image_Mark);</div><div class="line">    <span class="comment">//合并图片</span></div><div class="line">    imagecopymerge($image,$water,<span class="number">60</span>,<span class="number">40</span>,<span class="number">0</span>,<span class="number">0</span>,$info2[<span class="number">0</span>],$info2[<span class="number">1</span>],<span class="number">30</span>);</div><div class="line">    <span class="comment">//销毁水印图片</span></div><div class="line">    imagedestroy($water);</div><div class="line">    <span class="comment">/*输出图片*/</span></div><div class="line">    header(<span class="string">"Content-type:"</span>,$info[<span class="string">'mime'</span>]);</div><div class="line">    $funs = <span class="string">"image&#123;$type&#125;"</span>;</div><div class="line">    $funs($image);</div><div class="line">    <span class="comment">/*销毁图片*/</span></div><div class="line">    imagedestroy($image);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="缩略图"><a href="#缩略图" class="headerlink" title="缩略图"></a>缩略图</h3> <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"> <span class="meta">&lt;?php</span></div><div class="line"><span class="comment">/*打开图片*/</span></div><div class="line">$src = <span class="string">"http://img.php.cn/upload/course/000/000/004/5812bd10e70ef729.jpg"</span>;</div><div class="line">$info = getimagesize($src);</div><div class="line">$type = image_type_to_extension($info[<span class="number">2</span>],<span class="keyword">false</span>);</div><div class="line">$fun = <span class="string">"imagecreatefrom&#123;$type&#125;"</span>;</div><div class="line">$image = $fun($src);</div><div class="line"><span class="comment">/*操作图片*/</span></div><div class="line"><span class="comment">//在内存中建立一个宽300高200的真色彩图片</span></div><div class="line">$image_thumb = imagecreatetruecolor(<span class="number">300</span>,<span class="number">200</span>);</div><div class="line"><span class="comment">//将原图复制到新建的真色彩图片上，并且按照一定比例压缩(参数1：真色彩图片,参数2：原图，参数3,4,5,6：原图和真色彩图的起始点，参数7,8：原图和真色彩图的结束点，参数9：原图宽，参数10：原图高)</span></div><div class="line">imagecopyresampled($image_thumb,$image,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">300</span>,<span class="number">200</span>,$info[<span class="number">0</span>],$info[<span class="number">1</span>]);</div><div class="line"><span class="comment">//销毁原始图片</span></div><div class="line">imagedestroy($image);</div><div class="line"><span class="comment">/*输出图片*/</span></div><div class="line">header(<span class="string">"Content-type:"</span>.$info[<span class="string">'mime'</span>]);</div><div class="line">$funs = <span class="string">"image&#123;$type&#125;"</span>;</div><div class="line">$funs($image_thumb);</div><div class="line"><span class="comment">//保存到硬盘</span></div><div class="line">$funs($image_thumb,<span class="string">"thumb_image."</span>.$type);</div><div class="line"><span class="comment">/*销毁图片*/</span></div><div class="line">imagedestroy($image_thumb);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p> <a href="&quot;http://www.php.cn/code/3908.html&quot;">links</a></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/18/php pager/" rel="next" title="PHP pager function">
+                <i class="fa fa-chevron-left"></i> PHP pager function
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/20/PHP MYSQL /" rel="prev" title="PHP MYSQL database function">
+                PHP MYSQL database function <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -343,6 +481,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -363,8 +505,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -487,6 +638,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加文字水印"><span class="nav-number">1.</span> <span class="nav-text">添加文字水印</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加图片水印"><span class="nav-number">2.</span> <span class="nav-text">添加图片水印</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缩略图"><span class="nav-number">3.</span> <span class="nav-text">缩略图</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -599,10 +766,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
