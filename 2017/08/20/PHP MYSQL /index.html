@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="some function about how to use PHP and MYSQL database  PHP and MYSQLconnect to mysql server123456789101112&amp;lt;?php$dbhost = &apos;localhost&apos;;  // server$dbuser = &apos;root&apos;;            // username$dbpass = &apos;12">
+<meta name="description" content="some function about how to use PHP and MYSQL database">
 <meta name="keywords" content="PHP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP MYSQL database function(1)">
+<meta property="og:title" content="PHP MYSQL database function">
 <meta property="og:url" content="http://yoursite.com/2017/08/20/PHP MYSQL /index.html">
 <meta property="og:site_name" content="Daniel Lu">
-<meta property="og:description" content="some function about how to use PHP and MYSQL database  PHP and MYSQLconnect to mysql server123456789101112&amp;lt;?php$dbhost = &apos;localhost&apos;;  // server$dbuser = &apos;root&apos;;            // username$dbpass = &apos;12">
+<meta property="og:description" content="some function about how to use PHP and MYSQL database">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-08-23T02:15:04.286Z">
+<meta property="og:updated_time" content="2017-08-23T02:39:10.259Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP MYSQL database function(1)">
-<meta name="twitter:description" content="some function about how to use PHP and MYSQL database  PHP and MYSQLconnect to mysql server123456789101112&amp;lt;?php$dbhost = &apos;localhost&apos;;  // server$dbuser = &apos;root&apos;;            // username$dbpass = &apos;12">
+<meta name="twitter:title" content="PHP MYSQL database function">
+<meta name="twitter:description" content="some function about how to use PHP and MYSQL database">
 
 
 
@@ -140,7 +140,7 @@
 
 
 
-  <title>PHP MYSQL database function(1) | Daniel Lu</title>
+  <title>PHP MYSQL database function | Daniel Lu</title>
   
 
 
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PHP MYSQL database function(1)</h1>
+          <h1 class="post-title" itemprop="name headline">PHP MYSQL database function</h1>
         
 
         <div class="post-meta">
@@ -406,7 +406,7 @@
       
 
       
-        <p>some function about how to use PHP and MYSQL database </p>
+        <p>some function about how to use PHP and MYSQL database<br><a id="more"></a></p>
 <h2 id="PHP-and-MYSQL"><a href="#PHP-and-MYSQL" class="headerlink" title="PHP and MYSQL"></a>PHP and MYSQL</h2><h3 id="connect-to-mysql-server"><a href="#connect-to-mysql-server" class="headerlink" title="connect to mysql server"></a>connect to mysql server</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$dbhost = <span class="string">'localhost'</span>;  <span class="comment">// server</span></div><div class="line">$dbuser = <span class="string">'root'</span>;            <span class="comment">// username</span></div><div class="line">$dbpass = <span class="string">'123456'</span>;          <span class="comment">// password</span></div><div class="line">$conn = mysqli_connect($dbhost, $dbuser, $dbpass);</div><div class="line"><span class="keyword">if</span>(! $conn )</div><div class="line">&#123;</div><div class="line">    <span class="keyword">die</span>(<span class="string">'Could not connect: '</span> . mysqli_error());</div><div class="line">&#125;</div><div class="line"><span class="keyword">echo</span> <span class="string">'yes'</span>;</div><div class="line">mysqli_close($conn);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="creat-database"><a href="#creat-database" class="headerlink" title="creat database"></a>creat database</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$dbhost = <span class="string">'localhost:3306'</span>;  <span class="comment">// server</span></div><div class="line">$dbuser = <span class="string">'root'</span>;            <span class="comment">// username</span></div><div class="line">$dbpass = <span class="string">'123456'</span>;          <span class="comment">// password</span></div><div class="line">$conn = mysqli_connect($dbhost, $dbuser, $dbpass);</div><div class="line"><span class="keyword">if</span>(! $conn )</div><div class="line">&#123;</div><div class="line">  <span class="keyword">die</span>(<span class="string">'error '</span> . mysqli_error($conn));</div><div class="line">&#125;</div><div class="line"><span class="keyword">echo</span> <span class="string">'connect yes'</span>;</div><div class="line">$sql = <span class="string">'CREATE DATABASE RUNOOB'</span>;</div><div class="line">$retval = mysqli_query($conn,$sql );</div><div class="line"><span class="keyword">if</span>(! $retval )</div><div class="line">&#123;</div><div class="line">    <span class="keyword">die</span>(<span class="string">'error '</span> . mysqli_error($conn));</div><div class="line">&#125;</div><div class="line"><span class="keyword">echo</span> <span class="string">"yes"</span>;</div><div class="line">mysqli_close($conn);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="delete-database"><a href="#delete-database" class="headerlink" title="delete database"></a>delete database</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$sql = <span class="string">'DROP DATABASE RUNOOB'</span>;</div></pre></td></tr></table></figure>
