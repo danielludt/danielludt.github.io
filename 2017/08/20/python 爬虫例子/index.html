@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="web crawling examples with python using urllib,beautifulsoup,re,requests,">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python web crawling">
+<meta property="og:url" content="http://yoursite.com/2017/08/20/python 爬虫例子/index.html">
+<meta property="og:site_name" content="Daniel Lu">
+<meta property="og:description" content="web crawling examples with python using urllib,beautifulsoup,re,requests,">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-08-25T08:30:43.940Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python web crawling">
+<meta name="twitter:description" content="web crawling examples with python using urllib,beautifulsoup,re,requests,">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/20/python 爬虫例子/"/>
+
+
+
+
+
+  <title>python web crawling | Daniel Lu</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Daniel Lu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Life is Now</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/20/python 爬虫例子/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daniel Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daniel Lu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python web crawling</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-20T16:45:25+08:00">
+                2017-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>web crawling examples with python using urllib,beautifulsoup,re,requests,<br><a id="more"></a></p>
+<h3 id="python3-6爬取糗事百科热门帖子例子-web-crawling-qiushibaike-com-using-python3-6"><a href="#python3-6爬取糗事百科热门帖子例子-web-crawling-qiushibaike-com-using-python3-6" class="headerlink" title="python3.6爬取糗事百科热门帖子例子/web crawling qiushibaike.com using python3.6"></a>python3.6爬取糗事百科热门帖子例子/web crawling qiushibaike.com using python3.6</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding:utf-8</span></div><div class="line"><span class="keyword">import</span> urllib</div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="keyword">import</span> urllib.request</div><div class="line"><span class="keyword">import</span> _thread</div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">QSBK</span>:</span></div><div class="line"></div><div class="line">    <span class="comment">#初始化方法，定义一些变量</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.pageIndex = <span class="number">1</span></div><div class="line">        self.user_agent = <span class="string">'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'</span></div><div class="line">        self.headers = &#123;<span class="string">'User-agent'</span>:self.user_agent&#125;</div><div class="line">        <span class="comment">#存放段子的变量，每一个元素是每一页的段子们</span></div><div class="line">        self.stories = []</div><div class="line">        <span class="comment">#存放变量是否继续运行的变量</span></div><div class="line">        self.enable = <span class="keyword">False</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getPage</span><span class="params">(self,pageIndex)</span>:</span><span class="comment">#获取页面的HTML文件内容</span></div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            url = <span class="string">'https://www.qiushibaike.com/hot/'</span> + str(pageIndex)</div><div class="line">            req = urllib.request.Request(url,headers=self.headers)</div><div class="line">            response = urllib.request.urlopen(req)</div><div class="line">            pageCode = response.read().decode(<span class="string">'utf-8'</span>)</div><div class="line">            <span class="keyword">return</span> pageCode</div><div class="line">        <span class="keyword">except</span> urllib.error.URLError <span class="keyword">as</span> e:</div><div class="line">            <span class="keyword">if</span> hasattr(e, <span class="string">"reason"</span>):</div><div class="line">                print(<span class="string">"连接糗事百科失败，原因："</span>,e.reason)</div><div class="line">                <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getPageItems</span><span class="params">(self,pageIndex)</span>:</span></div><div class="line">        <span class="comment">#解析HTML文件</span></div><div class="line">        pageCode = self.getPage(pageIndex)</div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> pageCode:</div><div class="line">            print(<span class="string">'页面加载失败。。。'</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        <span class="comment">#用正则表达式匹配出作者，段子内容，段子里面的图片，点赞数</span></div><div class="line">        pattern = re.compile(</div><div class="line">            <span class="string">'&lt;div.*?author clearfix"&gt;.*?&lt;a.*?&lt;h2.*?&gt;(.*?)&lt;/h2&gt;.*?&lt;div.*?content"&gt;.*?&lt;span.*?&gt;(.*?)&lt;/span&gt;(.*?)'</span></div><div class="line">            <span class="string">'&lt;div class="stats.*?class="number"&gt;(.*?)&lt;/i&gt;'</span>,</div><div class="line">            re.S)</div><div class="line">        items = re.findall(pattern, pageCode)</div><div class="line">        pageStories = []</div><div class="line">        <span class="comment">#遍历items，找出不含img的段子</span></div><div class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> items:</div><div class="line">            haveImg = re.search(<span class="string">"img"</span>, item[<span class="number">2</span>])</div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> haveImg:</div><div class="line">                <span class="comment">#除去字符br</span></div><div class="line">                replaceBR = re.compile(<span class="string">'&lt;br/&gt;'</span>)</div><div class="line">                text = re.sub(replaceBR,<span class="string">"\n"</span>,item[<span class="number">1</span>])</div><div class="line">                pageStories.append([item[<span class="number">0</span>].strip(),text.strip(),item[<span class="number">2</span>].strip(),item[<span class="number">3</span>].strip()])</div><div class="line">        <span class="keyword">return</span> pageStories</div><div class="line"></div><div class="line">    <span class="comment">#判断页数，从第一页开始输出</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">loadPage</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">if</span> self.enable == <span class="keyword">True</span>:</div><div class="line">            <span class="keyword">if</span> len(self.stories) &lt; <span class="number">2</span>:</div><div class="line">                pageStories = self.getPageItems(self.pageIndex)</div><div class="line">                <span class="keyword">if</span> pageStories:</div><div class="line">                    self.stories.append(pageStories)</div><div class="line">                    self.pageIndex += <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="comment">#每次输出一个段子</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getOneStory</span><span class="params">(self,pageStories,page)</span>:</span></div><div class="line">        <span class="comment">#遍历pageStories</span></div><div class="line">        <span class="keyword">for</span> story <span class="keyword">in</span> pageStories:</div><div class="line">            i =  input()</div><div class="line">            self.loadPage()</div><div class="line">            <span class="keyword">if</span> i == <span class="string">"Q"</span>:</div><div class="line">                self.enable = <span class="keyword">False</span></div><div class="line">                <span class="keyword">return</span></div><div class="line">            print(<span class="string">u"第%d页\n发布人:%s\n赞:%s\n%s"</span>%(page,story[<span class="number">0</span>],story[<span class="number">3</span>],story[<span class="number">1</span>]))</div><div class="line"></div><div class="line">    <span class="comment">#主程序</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">u"正在读取糗事百科，按回车键查看新段子，Q退出"</span>)</div><div class="line">        self.enable = <span class="keyword">True</span></div><div class="line">        self.loadPage()</div><div class="line">        nowpage = <span class="number">0</span></div><div class="line"></div><div class="line">        <span class="keyword">while</span> self.enable:</div><div class="line">            <span class="keyword">if</span> len(self.stories)&gt;<span class="number">0</span>:</div><div class="line">                pageStories = self.stories[<span class="number">0</span>]</div><div class="line">                nowpage += <span class="number">1</span></div><div class="line">                <span class="keyword">del</span> self.stories[<span class="number">0</span>]</div><div class="line">                self.getOneStory(pageStories,nowpage)</div><div class="line"></div><div class="line"><span class="comment">#程序入口</span></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</div><div class="line"></div><div class="line">    spider = QSBK()</div><div class="line">    spider.start()</div></pre></td></tr></table></figure>
+<p><a href="&quot;https://github.com/xiaowx/test-/blob/master/糗事百科.py&quot;">repost</a></p>
+<h3 id="python2-7爬取百度贴吧帖子-web-crawling-tieba-baidu-com-using-python2-7"><a href="#python2-7爬取百度贴吧帖子-web-crawling-tieba-baidu-com-using-python2-7" class="headerlink" title="python2.7爬取百度贴吧帖子/web crawling tieba.baidu.com using python2.7"></a>python2.7爬取百度贴吧帖子/web crawling tieba.baidu.com using python2.7</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> urllib</div><div class="line"><span class="keyword">import</span> urllib2</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line"><span class="comment">#处理页面标签类</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tool</span>:</span></div><div class="line">    <span class="comment">#去除img标签,7位长空格</span></div><div class="line">    removeImg = re.compile(<span class="string">'&lt;img.*?&gt;| &#123;7&#125;|'</span>)</div><div class="line">    <span class="comment">#删除超链接标签</span></div><div class="line">    removeAddr = re.compile(<span class="string">'&lt;a.*?&gt;|&lt;/a&gt;'</span>)</div><div class="line">    <span class="comment">#把换行的标签换为\n</span></div><div class="line">    replaceLine = re.compile(<span class="string">'&lt;tr&gt;|&lt;div&gt;|&lt;/div&gt;|&lt;/p&gt;'</span>)</div><div class="line">    <span class="comment">#将表格制表&lt;td&gt;替换为\t</span></div><div class="line">    replaceTD= re.compile(<span class="string">'&lt;td&gt;'</span>)</div><div class="line">    <span class="comment">#把段落开头换为\n加空两格</span></div><div class="line">    replacePara = re.compile(<span class="string">'&lt;p.*?&gt;'</span>)</div><div class="line">    <span class="comment">#将换行符或双换行符替换为\n</span></div><div class="line">    replaceBR = re.compile(<span class="string">'&lt;br&gt;&lt;br&gt;|&lt;br&gt;'</span>)</div><div class="line">    <span class="comment">#将其余标签剔除</span></div><div class="line">    removeExtraTag = re.compile(<span class="string">'&lt;.*?&gt;'</span>)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">replace</span><span class="params">(self,x)</span>:</span></div><div class="line">        x = re.sub(self.removeImg,<span class="string">""</span>,x)</div><div class="line">        x = re.sub(self.removeAddr,<span class="string">""</span>,x)</div><div class="line">        x = re.sub(self.replaceLine,<span class="string">"\n"</span>,x)</div><div class="line">        x = re.sub(self.replaceTD,<span class="string">"\t"</span>,x)</div><div class="line">        x = re.sub(self.replacePara,<span class="string">"\n    "</span>,x)</div><div class="line">        x = re.sub(self.replaceBR,<span class="string">"\n"</span>,x)</div><div class="line">        x = re.sub(self.removeExtraTag,<span class="string">""</span>,x)</div><div class="line">        <span class="comment">#strip()将前后多余内容删除</span></div><div class="line">        <span class="keyword">return</span> x.strip()</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#百度贴吧爬虫类</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BDTB</span>:</span></div><div class="line"></div><div class="line">    <span class="comment">#初始化，传入基地址，是否只看楼主的参数</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,baseUrl,seeLZ,floorTag)</span>:</span></div><div class="line">        <span class="comment">#base链接地址</span></div><div class="line">        self.baseURL = baseUrl</div><div class="line">        <span class="comment">#是否只看楼主</span></div><div class="line">        self.seeLZ = <span class="string">'?see_lz='</span>+str(seeLZ)</div><div class="line">        <span class="comment">#HTML标签剔除工具类对象</span></div><div class="line">        self.tool = Tool()</div><div class="line">        <span class="comment">#全局file变量，文件写入操作对象</span></div><div class="line">        self.file = <span class="keyword">None</span></div><div class="line">        <span class="comment">#楼层标号，初始为1</span></div><div class="line">        self.floor = <span class="number">1</span></div><div class="line">        <span class="comment">#默认的标题，如果没有成功获取到标题的话则会用这个标题</span></div><div class="line">        self.defaultTitle = <span class="string">u"百度贴吧"</span></div><div class="line">        <span class="comment">#是否写入楼分隔符的标记</span></div><div class="line">        self.floorTag = floorTag</div><div class="line"></div><div class="line">    <span class="comment">#传入页码，获取该页帖子的代码</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getPage</span><span class="params">(self,pageNum)</span>:</span></div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            <span class="comment">#构建URL</span></div><div class="line">            url = self.baseURL+ self.seeLZ + <span class="string">'&amp;pn='</span> + str(pageNum)</div><div class="line">            request = urllib2.Request(url)</div><div class="line">            response = urllib2.urlopen(request)</div><div class="line">            <span class="comment">#返回UTF-8格式编码内容</span></div><div class="line">            <span class="keyword">return</span> response.read().decode(<span class="string">'utf-8'</span>)</div><div class="line">        <span class="comment">#无法连接，报错</span></div><div class="line">        <span class="keyword">except</span> urllib2.URLError, e:</div><div class="line">            <span class="keyword">if</span> hasattr(e,<span class="string">"reason"</span>):</div><div class="line">                <span class="keyword">print</span> <span class="string">u"连接百度贴吧失败,错误原因"</span>,e.reason</div><div class="line">                <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line"></div><div class="line">    <span class="comment">#获取帖子标题</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getTitle</span><span class="params">(self,page)</span>:</span></div><div class="line">        <span class="comment">#得到标题的正则表达式</span></div><div class="line">        pattern = re.compile(<span class="string">'&lt;h3 class="core_title_txt.*?&gt;(.*?)&lt;/h1&gt;'</span>,re.S)</div><div class="line">        result = re.search(pattern,page)</div><div class="line">        <span class="keyword">if</span> result:</div><div class="line">            <span class="comment">#如果存在，则返回标题</span></div><div class="line">            <span class="keyword">return</span> result.group(<span class="number">1</span>).strip()</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line"></div><div class="line">    <span class="comment">#获取帖子一共有多少页</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getPageNum</span><span class="params">(self,page)</span>:</span></div><div class="line">        <span class="comment">#获取帖子页数的正则表达式</span></div><div class="line">        pattern = re.compile(<span class="string">'&lt;li class="l_reply_num.*?&lt;/span&gt;.*?&lt;span.*?&gt;(.*?)&lt;/span&gt;'</span>,re.S)</div><div class="line">        result = re.search(pattern,page)</div><div class="line">        <span class="keyword">if</span> result:</div><div class="line">            <span class="keyword">return</span> result.group(<span class="number">1</span>).strip()</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line"></div><div class="line">    <span class="comment">#获取每一层楼的内容,传入页面内容</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getContent</span><span class="params">(self,page)</span>:</span></div><div class="line">        <span class="comment">#匹配所有楼层的内容</span></div><div class="line">        pattern = re.compile(<span class="string">'&lt;div id="post_content_.*?&gt;(.*?)&lt;/div&gt;'</span>,re.S)</div><div class="line">        items = re.findall(pattern,page)</div><div class="line">        contents = []</div><div class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> items:</div><div class="line">            <span class="comment">#将文本进行去除标签处理，同时在前后加入换行符</span></div><div class="line">            content = <span class="string">"\n"</span>+self.tool.replace(item)+<span class="string">"\n"</span></div><div class="line">            contents.append(content.encode(<span class="string">'utf-8'</span>))</div><div class="line">        <span class="keyword">return</span> contents</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setFileTitle</span><span class="params">(self,title)</span>:</span></div><div class="line">        <span class="comment">#如果标题不是为None，即成功获取到标题</span></div><div class="line">        <span class="keyword">if</span> title <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</div><div class="line">            self.file = open(title + <span class="string">".txt"</span>,<span class="string">"w+"</span>)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            self.file = open(self.defaultTitle + <span class="string">".txt"</span>,<span class="string">"w+"</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">writeData</span><span class="params">(self,contents)</span>:</span></div><div class="line">        <span class="comment">#向文件写入每一楼的信息</span></div><div class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> contents:</div><div class="line">            <span class="keyword">if</span> self.floorTag == <span class="string">'1'</span>:</div><div class="line">                <span class="comment">#楼之间的分隔符</span></div><div class="line">                floorLine = <span class="string">"\n"</span> + str(self.floor) + <span class="string">u"-----------------------------------------------------------------------------------------\n"</span></div><div class="line">                self.file.write(floorLine)</div><div class="line">            self.file.write(item)</div><div class="line">            self.floor += <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start</span><span class="params">(self)</span>:</span></div><div class="line">        indexPage = self.getPage(<span class="number">1</span>)</div><div class="line">        pageNum = self.getPageNum(indexPage)</div><div class="line">        title = self.getTitle(indexPage)</div><div class="line">        self.setFileTitle(title)</div><div class="line">        <span class="keyword">if</span> pageNum == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">print</span> <span class="string">"URL已失效，请重试"</span></div><div class="line">            <span class="keyword">return</span></div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            <span class="keyword">print</span> <span class="string">"该帖子共有"</span> + str(pageNum) + <span class="string">"页"</span></div><div class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,int(pageNum)+<span class="number">1</span>):</div><div class="line">                <span class="keyword">print</span> <span class="string">"正在写入第"</span> + str(i) + <span class="string">"页数据"</span></div><div class="line">                page = self.getPage(i)</div><div class="line">                contents = self.getContent(page)</div><div class="line">                self.writeData(contents)</div><div class="line">        <span class="comment">#出现写入异常</span></div><div class="line">        <span class="keyword">except</span> IOError,e:</div><div class="line">            <span class="keyword">print</span> <span class="string">"写入异常，原因"</span> + e.message</div><div class="line">        <span class="keyword">finally</span>:</div><div class="line">            <span class="keyword">print</span> <span class="string">"写入任务完成"</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">u"请输入帖子代号"</span></div><div class="line">baseURL = <span class="string">'http://tieba.baidu.com/p/'</span> + str(raw_input(<span class="string">u'http://tieba.baidu.com/p/'</span>))</div><div class="line">seeLZ = raw_input(<span class="string">"是否只获取楼主发言，是输入1，否输入0\n"</span>)</div><div class="line">floorTag = raw_input(<span class="string">"是否写入楼层信息，是输入1，否输入0\n"</span>)</div><div class="line">bdtb = BDTB(baseURL,seeLZ,floorTag)</div><div class="line">bdtb.start()</div></pre></td></tr></table></figure>
+<p><a href="&quot;http://cuiqingcai.com/993.html&quot;">repost</a></p>
+<h3 id="爬取妹子图照片-web-crawling-mzitu-com-using-python3-6"><a href="#爬取妹子图照片-web-crawling-mzitu-com-using-python3-6" class="headerlink" title="爬取妹子图照片/web crawling mzitu.com using python3.6"></a>爬取妹子图照片/web crawling mzitu.com using python3.6</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">mzitu</span><span class="params">()</span>:</span></div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">all_url</span><span class="params">(self, url)</span>:</span></div><div class="line">        html = self.request(url)<span class="comment">##调用request函数把套图地址传进去会返回给我们一个response</span></div><div class="line">        all_a = BeautifulSoup(html.text, <span class="string">'lxml'</span>).find(<span class="string">'div'</span>, class_=<span class="string">'all'</span>).find_all(<span class="string">'a'</span>)</div><div class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> all_a:</div><div class="line">            title = a.get_text()</div><div class="line">            print(<span class="string">u'开始保存：'</span>, title) <span class="comment">##加点提示不然太枯燥了</span></div><div class="line">            path = str(title).replace(<span class="string">"?"</span>, <span class="string">'_'</span>) <span class="comment">##我注意到有个标题带有 ？  这个符号Windows系统是不能创建文件夹的所以要替换掉</span></div><div class="line">            self.mkdir(path) <span class="comment">##调用mkdir函数创建文件夹！这儿path代表的是标题title哦！！！！！不要糊涂了哦！</span></div><div class="line">            href = a[<span class="string">'href'</span>]</div><div class="line">            self.html(href) <span class="comment">##调用html函数把href参数传递过去！href是啥还记的吧？ 就是套图的地址哦！！不要迷糊了哦！</span></div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">html</span><span class="params">(self, href)</span>:</span>   <span class="comment">##这个函数是处理套图地址获得图片的页面地址</span></div><div class="line">        html = self.request(href)</div><div class="line">        max_span = BeautifulSoup(html.text, <span class="string">'lxml'</span>).find(<span class="string">'div'</span>, class_=<span class="string">'pagenavi'</span>).find_all(<span class="string">'span'</span>)[<span class="number">-2</span>].get_text()</div><div class="line">        <span class="keyword">for</span> page <span class="keyword">in</span> range(<span class="number">1</span>, int(max_span) + <span class="number">1</span>):</div><div class="line">            page_url = href + <span class="string">'/'</span> + str(page)</div><div class="line">            self.img(page_url) <span class="comment">##调用img函数</span></div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">img</span><span class="params">(self, page_url)</span>:</span> <span class="comment">##这个函数处理图片页面地址获得图片的实际地址</span></div><div class="line">        img_html = self.request(page_url)</div><div class="line">        img_url = BeautifulSoup(img_html.text, <span class="string">'lxml'</span>).find(<span class="string">'div'</span>, class_=<span class="string">'main-image'</span>).find(<span class="string">'img'</span>)[<span class="string">'src'</span>]</div><div class="line">        self.save(img_url)</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">save</span><span class="params">(self, img_url)</span>:</span> <span class="comment">##这个函数保存图片</span></div><div class="line">        name = img_url[<span class="number">-9</span>:<span class="number">-4</span>]</div><div class="line">        img = self.request(img_url)</div><div class="line">        f = open(name + <span class="string">'.jpg'</span>, <span class="string">'ab'</span>)</div><div class="line">        f.write(img.content)</div><div class="line">        f.close()</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mkdir</span><span class="params">(self, path)</span>:</span> <span class="comment">##这个函数创建文件夹</span></div><div class="line">        path = path.strip()</div><div class="line">        isExists = os.path.exists(os.path.join(<span class="string">"D:\mzitu"</span>, path))</div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> isExists:</div><div class="line">            print(<span class="string">u'建了一个名字叫做'</span>, path, <span class="string">u'的文件夹！'</span>)</div><div class="line">            os.makedirs(os.path.join(<span class="string">"D:\mzitu"</span>, path))</div><div class="line">            os.chdir(os.path.join(<span class="string">"D:\mzitu"</span>, path)) <span class="comment">##切换到目录</span></div><div class="line">            <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            print(<span class="string">u'名字叫做'</span>, path, <span class="string">u'的文件夹已经存在了！'</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">request</span><span class="params">(self, url)</span>:</span></div><div class="line">      headers = &#123;</div><div class="line">     <span class="string">'Referer'</span>: url,</div><div class="line">      <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36'</span>&#125;</div><div class="line">      content = requests.get(url, headers=headers)</div><div class="line">      <span class="keyword">return</span> content</div><div class="line"> </div><div class="line">Mzitu = mzitu() <span class="comment">##实例化</span></div><div class="line">Mzitu.all_url(<span class="string">'http://www.mzitu.com/all'</span>) <span class="comment">##给函数all_url传入参数  你可以当作启动爬虫（就是入口）</span></div></pre></td></tr></table></figure>
+<p><a href="&quot;http://cuiqingcai.com/3179.html&quot;">repost</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/19/php 水印/" rel="next" title="PHP 水印和缩略图">
+                <i class="fa fa-chevron-left"></i> PHP 水印和缩略图
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/20/PHP MYSQL /" rel="prev" title="PHP MYSQL database function">
+                PHP MYSQL database function <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Daniel Lu" />
+          <p class="site-author-name" itemprop="name">Daniel Lu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/your-user-name" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="facebook">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      facebook
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.github.com" title="Github" target="_blank">Github</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#python3-6爬取糗事百科热门帖子例子-web-crawling-qiushibaike-com-using-python3-6"><span class="nav-number">1.</span> <span class="nav-text">python3.6爬取糗事百科热门帖子例子/web crawling qiushibaike.com using python3.6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python2-7爬取百度贴吧帖子-web-crawling-tieba-baidu-com-using-python2-7"><span class="nav-number">2.</span> <span class="nav-text">python2.7爬取百度贴吧帖子/web crawling tieba.baidu.com using python2.7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#爬取妹子图照片-web-crawling-mzitu-com-using-python3-6"><span class="nav-number">3.</span> <span class="nav-text">爬取妹子图照片/web crawling mzitu.com using python3.6</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daniel Lu</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
