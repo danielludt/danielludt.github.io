@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="PHP," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -94,18 +94,13 @@
 
 
 
-<meta name="description" content="php和mysql开发分页">
-<meta name="keywords" content="PHP">
-<meta property="og:type" content="article">
-<meta property="og:title" content="PHP pager function">
-<meta property="og:url" content="http://yoursite.com/2017/08/18/php pager/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Daniel Lu">
+<meta property="og:url" content="http://yoursite.com/archives/2017/page/2/index.html">
 <meta property="og:site_name" content="Daniel Lu">
-<meta property="og:description" content="php和mysql开发分页">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-08-23T02:39:02.291Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP pager function">
-<meta name="twitter:description" content="php和mysql开发分页">
+<meta name="twitter:title" content="Daniel Lu">
 
 
 
@@ -134,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/18/php pager/"/>
+  <link rel="canonical" href="http://yoursite.com/archives/2017/page/2/"/>
 
 
 
 
 
-  <title>PHP pager function | Daniel Lu</title>
+  <title>Archive | Daniel Lu</title>
   
 
 
@@ -165,7 +160,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  page-archive  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -303,305 +298,78 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-  
+      <span class="archive-page-counter">
+        
+        
+        
+          
+        
+        Um..! 11 posts in total. Keep on posting.
+      </span>
 
-  
-  
-  
+      
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+          </div>
+        
+        
+
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/php pager/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Daniel Lu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Daniel Lu">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2017/08/16/python jsondic/" itemprop="url">
+              
+                <span itemprop="name">python csv文件与字典，列表等之间的转换小结</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">PHP pager function</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T22:46:25+08:00">
-                2017-08-18
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-08-16T16:40:25+08:00"
+              content="2017-08-16" >
+          08-16
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>php和mysql开发分页<br><a id="more"></a></p>
-<h3 id="build-database-and-table"><a href="#build-database-and-table" class="headerlink" title="build database and table"></a>build database and table</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE `test` (</div><div class="line">`id` int(<span class="number">11</span>) NOT <span class="keyword">NULL</span> auto_increment,</div><div class="line">`name` varchar(<span class="number">50</span>) character set utf8 NOT <span class="keyword">NULL</span>,</div><div class="line">`sex` varchar(<span class="number">2</span>) character set utf8 NOT <span class="keyword">NULL</span>,</div><div class="line">PRIMARY KEY (`id`)</div><div class="line">) ENGINE=InnoDB <span class="keyword">DEFAULT</span> CHARSET=utf8 AUTO_INCREMENT=<span class="number">1</span> ;</div></pre></td></tr></table></figure>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">INSERT INTO `test` (`id`, `name`, `sex`) VALUES</div><div class="line">(<span class="number">1</span>, <span class="string">'张三'</span>, <span class="string">'男'</span>),</div><div class="line">(<span class="number">2</span>, <span class="string">'李四'</span>, <span class="string">'女'</span>),</div><div class="line">(<span class="number">3</span>, <span class="string">'王五'</span>, <span class="string">'男'</span>),</div><div class="line">(<span class="number">4</span>, <span class="string">'赵六'</span>, <span class="string">'女'</span>),</div><div class="line">(<span class="number">5</span>, <span class="string">'小七'</span>, <span class="string">'男'</span>),</div><div class="line">(<span class="number">6</span>, <span class="string">'小八'</span>, <span class="string">'男'</span>),</div><div class="line">(<span class="number">7</span>, <span class="string">'小九'</span>, <span class="string">'男'</span>),</div><div class="line">(<span class="number">8</span>, <span class="string">'小十'</span>, <span class="string">'女'</span>),</div><div class="line">(<span class="number">9</span>, <span class="string">'小十一'</span>, <span class="string">'男'</span>);</div></pre></td></tr></table></figure>
-<h3 id="full-code"><a href="#full-code" class="headerlink" title="full code"></a>full code</h3><pre><code class="php">&lt;html&gt;
-&lt;head&gt;
-    &lt;meta http-equiv=<span class="string">"CONTENT-TYPE"</span> content=<span class="string">"text/html;"</span>&gt;
-&lt;/head&gt;
-&lt;title&gt;分页&lt;/title&gt;
-&lt;style&gt;
-
-    div.page{
-        text-align: center;
-    }
-    div.page a{
-        border: <span class="comment">#aa0027 solid 1px;</span>
-        text-decoration: none;
-        padding: <span class="number">2</span>px <span class="number">5</span>px <span class="number">2</span>px <span class="number">5</span>px;
-        margin: <span class="number">2</span>px;
-    }
-    div.page span.current{
-        border: <span class="comment">#000099 1px solid;background-color: #992b6c;padding: 4px 6px 4px 6px;margin: 2px;color: #fff;</span>
-        font-weight: bold;
-    }
-    div.page form{
-        display: inline;
-    }
-    div.content{
-        height: <span class="number">200</span>px;
-    }
-&lt;/style&gt;
-&lt;body&gt;
-<span class="meta">&lt;?php</span>
-error_reporting(E_ALL ^ E_DEPRECATED);
-<span class="meta">?&gt;</span>
-<span class="meta">&lt;?php</span>
-<span class="comment">/** 1.传入页面 **/</span>
-$page= <span class="keyword">isset</span>($_GET[<span class="string">'p'</span>]) ? trim($_GET[<span class="string">'p'</span>]) : <span class="number">1</span>;
-<span class="comment">/** 2.根据页面取出数据：php-&gt;mysql **/</span>
-$host = <span class="string">"localhost"</span>;
-$username = <span class="string">'root'</span>;
-$password = <span class="string">''</span>;
-$db = <span class="string">'test'</span>;
-$PageSize=<span class="number">5</span>;
-$ShowPage=<span class="number">3</span>;
-<span class="comment">//连接数据库</span>
-$conn = <span class="keyword">new</span> mysqli($host, $username, $password,$db);
-<span class="keyword">if</span>(!$conn){
-    <span class="keyword">echo</span> <span class="string">"数据库连接失败"</span>;
-    <span class="keyword">exit</span>;
-}
-
-<span class="comment">// chinese</span>
-mysqli_query($conn,<span class="string">"set names utf8"</span>);
-<span class="comment">//编写sql获取分页数据：SELECT * FROM 表名 LIMIT 起始位置 , 显示条数</span>
-$sql = <span class="string">"SELECT*FROM test LIMIT "</span>.($page<span class="number">-1</span>)*$PageSize .<span class="string">",$PageSize"</span>;
-
-<span class="comment">//把sql语句传送到数据库</span>
-$result = mysqli_query($conn,$sql);
-<span class="comment">//处理我们的数据</span>
-<span class="keyword">echo</span> <span class="string">"&lt;div class='content'&gt;"</span>;
-<span class="keyword">echo</span> <span class="string">"&lt;table border=1 cellspacing=0 width=15% align='center'&gt;"</span>;
-<span class="keyword">echo</span> <span class="string">"&lt;tr&gt;&lt;td&gt;ID&lt;/td&gt;&lt;td&gt;名字&lt;/td&gt;&lt;td&gt;性别&lt;/td&gt;&lt;/tr&gt;"</span>;
-<span class="keyword">while</span>($row = mysqli_fetch_assoc($result)){
-    <span class="keyword">echo</span> <span class="string">"&lt;tr&gt;"</span>;
-    <span class="keyword">echo</span> <span class="string">"&lt;td&gt;{$row['id']}&lt;/td&gt;"</span>;
-    <span class="keyword">echo</span> <span class="string">"&lt;td&gt;{$row['name']}&lt;/td&gt;"</span>;
-    <span class="keyword">echo</span> <span class="string">"&lt;td&gt;{$row['sex']}&lt;/td&gt;"</span>;
-    <span class="keyword">echo</span> <span class="string">"&lt;tr&gt;"</span>;
-}
-<span class="keyword">echo</span> <span class="string">"&lt;/table&gt;"</span>;
-<span class="keyword">echo</span> <span class="string">"&lt;/div&gt;"</span>;
-<span class="comment">//释放结果</span>
-mysqli_free_result($result);
-
-<span class="comment">//获取数据总数</span>
-$to_sql=<span class="string">"SELECT COUNT(*)FROM test"</span>;
-$to_result=mysqli_fetch_array(mysqli_query($conn,$to_sql));
-$to=$to_result[<span class="number">0</span>];
-<span class="comment">//计算页数</span>
-$to_pages=ceil($to/$PageSize);
-mysqli_close($conn);
-<span class="comment">/** 3.显示数据+分页条 **/</span>
-$page_banner=<span class="string">"&lt;div class='page'&gt;"</span>;
-<span class="comment">//计算偏移量</span>
-$pageffset=($ShowPage<span class="number">-1</span>)/<span class="number">2</span>;
-<span class="keyword">if</span>($page&gt;<span class="number">1</span>){
-    $page_banner.=<span class="string">"&lt;a href='"</span>.$_SERVER[<span class="string">'PHP_SELF'</span>].<span class="string">"?p=1'&gt;首页&lt;/a&gt;"</span>;
-    $page_banner.=<span class="string">"&lt;a href='"</span>.$_SERVER[<span class="string">'PHP_SELF'</span>].<span class="string">"?p="</span>.($page<span class="number">-1</span>).<span class="string">"'&gt;&lt;上一页&lt;/a&gt;"</span>;
-}
-<span class="comment">//初始化数据</span>
-$start=<span class="number">1</span>;
-$end=$to_pages;
-<span class="keyword">if</span> ($to_pages&gt;$ShowPage){
-    <span class="keyword">if</span>($page&gt;$pageffset+<span class="number">1</span>){
-        $page_banner.=<span class="string">"..."</span>;
-    }
-    <span class="keyword">if</span> ($page&gt;$pageffset){
-        $start=$page-$pageffset;
-        $end=$to_pages&gt;$page+$pageffset?$page+$pageffset:$to_pages;
-    }<span class="keyword">else</span>{
-        $start=<span class="number">1</span>;
-        $end=$to_pages&gt;$ShowPage?$ShowPage:$to_pages;
-    }
-    <span class="keyword">if</span> ($page+$pageffset&gt;$to_pages){
-        $start=$start-($page+$pageffset-$end);
-    }
-}
-<span class="keyword">for</span>($i=$start;$i&lt;=$end;$i++) {
-    <span class="keyword">if</span> ($page == $i) {
-        $page_banner .= <span class="string">"&lt;span class='current'&gt;{$i}&lt;/span&gt;"</span>;
-    } <span class="keyword">else</span> {
-        $page_banner .= <span class="string">"&lt;a href='"</span> . $_SERVER[<span class="string">'PHP_SELF'</span>] . <span class="string">"?p="</span> . ($i) . <span class="string">"'&gt;{$i}&lt;/a&gt;"</span>;
-    }
-}
-<span class="comment">//尾部省略</span>
-<span class="keyword">if</span> ($to_pages&gt;$ShowPage&amp;&amp;$to_pages&gt;$page+$pageffset){
-    $page_banner.=<span class="string">"..."</span>;
-}
-<span class="keyword">if</span> ($page&lt;$to_pages){
-    $page_banner.=<span class="string">"&lt;a href='"</span>.$_SERVER[<span class="string">'PHP_SELF'</span>].<span class="string">"?p="</span>.($page+<span class="number">1</span>).<span class="string">"'&gt;下一页&gt;&lt;/a&gt;"</span>;
-    $page_banner.=<span class="string">"&lt;a href='"</span>.$_SERVER[<span class="string">'PHP_SELF'</span>].<span class="string">"?p="</span>.($to_pages).<span class="string">"'&gt;尾页&lt;/a&gt;"</span>;
-}
-
-$page_banner.=<span class="string">"共{$to_pages}页"</span>;
-$page_banner.=<span class="string">"&lt;form action='mupage.php' method='get'&gt;"</span>;
-$page_banner.=<span class="string">"到第&lt;input type='text'size='2'name='p'&gt;页"</span>;
-$page_banner.=<span class="string">"&lt;input type='submit'value='确定'&gt;"</span>;
-$page_banner.=<span class="string">"&lt;/form&gt;&lt;/div&gt;"</span>;
-<span class="keyword">echo</span> $page_banner;
-<span class="meta">?&gt;</span>
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/PHP/" rel="tag"># PHP</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/08/18/PHP search/" rel="next" title="PHP search function">
-                <i class="fa fa-chevron-left"></i> PHP search function
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/19/php 水印/" rel="prev" title="PHP 水印和缩略图">
-                PHP 水印和缩略图 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
       
+
     </div>
   </div>
+  
+  
+  
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/archives/2017/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2017/">1</a><span class="page-number current">2</span>
+  </nav>
+
+
 
 
           </div>
@@ -609,10 +377,6 @@ $page_banner.=<span class="string">"&lt;/form&gt;&lt;/div&gt;"</span>;
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -633,17 +397,8 @@ $page_banner.=<span class="string">"&lt;/form&gt;&lt;/div&gt;"</span>;
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -766,22 +521,6 @@ $page_banner.=<span class="string">"&lt;/form&gt;&lt;/div&gt;"</span>;
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#build-database-and-table"><span class="nav-number">1.</span> <span class="nav-text">build database and table</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#full-code"><span class="nav-number">2.</span> <span class="nav-text">full code</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
 
@@ -894,9 +633,11 @@ $page_banner.=<span class="string">"&lt;/form&gt;&lt;/div&gt;"</span>;
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
 
 
   
