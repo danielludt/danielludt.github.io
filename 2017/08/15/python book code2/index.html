@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="整理《web scraping with python》书中代码笔记">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web scraping with python 代码笔记&#x2F;code notes part2">
+<meta property="og:url" content="http://yoursite.com/2017/08/15/python book code2/index.html">
+<meta property="og:site_name" content="Daniel Lu">
+<meta property="og:description" content="整理《web scraping with python》书中代码笔记">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-08-30T12:55:43.416Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="web scraping with python 代码笔记&#x2F;code notes part2">
+<meta name="twitter:description" content="整理《web scraping with python》书中代码笔记">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/15/python book code2/"/>
+
+
+
+
+
+  <title>web scraping with python 代码笔记/code notes part2 | Daniel Lu</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Daniel Lu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Life is Now</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/15/python book code2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daniel Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daniel Lu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">web scraping with python 代码笔记/code notes part2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-15T16:40:25+08:00">
+                2017-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>整理《web scraping with python》书中代码笔记<br><a id="more"></a></p>
+<h3 id="Cleaning-Your-Dirty-Data"><a href="#Cleaning-Your-Dirty-Data" class="headerlink" title="Cleaning Your Dirty Data"></a>Cleaning Your Dirty Data</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</div><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="keyword">import</span> string</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">cleanInput</span><span class="params">(input)</span>:</span></div><div class="line">input = re.sub(<span class="string">'\n+'</span>, <span class="string">" "</span>, input)</div><div class="line">input = re.sub(<span class="string">'\[[0-9]*\]'</span>, <span class="string">""</span>, input)</div><div class="line">input = re.sub(<span class="string">' +'</span>, <span class="string">" "</span>, input)</div><div class="line">input = bytes(input, <span class="string">"UTF-8"</span>)</div><div class="line">input = input.decode(<span class="string">"ascii"</span>, <span class="string">"ignore"</span>)</div><div class="line">cleanInput = []</div><div class="line">input = input.split(<span class="string">' '</span>)</div><div class="line"><span class="keyword">for</span> item <span class="keyword">in</span> input:</div><div class="line">item = item.strip(string.punctuation)</div><div class="line"><span class="keyword">if</span> len(item) &gt; <span class="number">1</span> <span class="keyword">or</span> (item.lower() == <span class="string">'a'</span> <span class="keyword">or</span> item.lower() == <span class="string">'i'</span>):</div><div class="line">cleanInput.append(item)</div><div class="line"><span class="keyword">return</span> cleanInput</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">ngrams</span><span class="params">(input, n)</span>:</span></div><div class="line">input = cleanInput(input)</div><div class="line">output = []</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(input)-n+<span class="number">1</span>):</div><div class="line">output.append(input[i:i+n])</div><div class="line"><span class="keyword">return</span> output</div></pre></td></tr></table></figure>
+<h3 id="Reading-and-Writing-Natural-Languages"><a href="#Reading-and-Writing-Natural-Languages" class="headerlink" title="Reading and Writing Natural Languages"></a>Reading and Writing Natural Languages</h3><h4 id="Summarizing-Data"><a href="#Summarizing-Data" class="headerlink" title="Summarizing Data"></a>Summarizing Data</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</div><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="keyword">import</span> string</div><div class="line"><span class="keyword">import</span> operator</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">cleanInput</span><span class="params">(input)</span>:</span></div><div class="line">input = re.sub(<span class="string">'\n+'</span>, <span class="string">" "</span>, input).lower()</div><div class="line">input = re.sub(<span class="string">'\[[0-9]*\]'</span>, <span class="string">""</span>, input)</div><div class="line">input = re.sub(<span class="string">' +'</span>, <span class="string">" "</span>, input)</div><div class="line">input = bytes(input, <span class="string">"UTF-8"</span>)</div><div class="line">input = input.decode(<span class="string">"ascii"</span>, <span class="string">"ignore"</span>)</div><div class="line">cleanInput = []</div><div class="line">input = input.split(<span class="string">' '</span>)</div><div class="line"><span class="keyword">for</span> item <span class="keyword">in</span> input:</div><div class="line">item = item.strip(string.punctuation)</div><div class="line"><span class="keyword">if</span> len(item) &gt; <span class="number">1</span> <span class="keyword">or</span> (item.lower() == <span class="string">'a'</span> <span class="keyword">or</span> item.lower() == <span class="string">'i'</span>):</div><div class="line">cleanInput.append(item)</div><div class="line"><span class="keyword">return</span> cleanInput</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">ngrams</span><span class="params">(input, n)</span>:</span></div><div class="line">input = cleanInput(input)</div><div class="line">output = &#123;&#125;</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(input)-n+<span class="number">1</span>):</div><div class="line">ngramTemp = <span class="string">" "</span>.join(input[i:i+n])</div><div class="line"><span class="keyword">if</span> ngramTemp <span class="keyword">not</span> <span class="keyword">in</span> output:</div><div class="line">output[ngramTemp] = <span class="number">0</span></div><div class="line">output[ngramTemp] += <span class="number">1</span></div><div class="line"><span class="keyword">return</span> output</div><div class="line">content = str(</div><div class="line">urlopen(<span class="string">"http://pythonscraping.com/files/inaugurationSpeech.txt"</span>).read(),</div><div class="line"><span class="string">'utf-8'</span>)</div><div class="line">ngrams = ngrams(content, <span class="number">2</span>)</div><div class="line">sortedNGrams = sorted(ngrams.items(), key = operator.itemgetter(<span class="number">1</span>), reverse=<span class="keyword">True</span>)</div><div class="line">print(sortedNGrams)</div></pre></td></tr></table></figure>
+<h4 id="Markov-Models"><a href="#Markov-Models" class="headerlink" title="Markov Models"></a>Markov Models</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</div><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">wordListSum</span><span class="params">(wordList)</span>:</span></div><div class="line">sum = <span class="number">0</span></div><div class="line"><span class="keyword">for</span> word, value <span class="keyword">in</span> wordList.items():</div><div class="line">sum += value</div><div class="line"><span class="keyword">return</span> sum</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">retrieveRandomWord</span><span class="params">(wordList)</span>:</span></div><div class="line">randIndex = randint(<span class="number">1</span>, wordListSum(wordList))</div><div class="line"><span class="keyword">for</span> word, value <span class="keyword">in</span> wordList.items():</div><div class="line">randIndex -= value</div><div class="line"><span class="keyword">if</span> randIndex &lt;= <span class="number">0</span>:</div><div class="line"><span class="keyword">return</span> word</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">buildWordDict</span><span class="params">(text)</span>:</span></div><div class="line"><span class="comment">#Remove newlines and quotes</span></div><div class="line">text = text.replace(<span class="string">"\n"</span>, <span class="string">" "</span>);</div><div class="line">text = text.replace(<span class="string">"\""</span>, <span class="string">""</span>);</div><div class="line"><span class="comment">#Make sure punctuation marks are treated as their own "words,"</span></div><div class="line"><span class="comment">#so that they will be included in the Markov chain</span></div><div class="line">punctuation = [<span class="string">','</span>,<span class="string">'.'</span>,<span class="string">';'</span>,<span class="string">':'</span>]</div><div class="line"><span class="keyword">for</span> symbol <span class="keyword">in</span> punctuation:</div><div class="line">text = text.replace(symbol, <span class="string">" "</span>+symbol+<span class="string">" "</span>);</div><div class="line">words = text.split(<span class="string">" "</span>)</div><div class="line"><span class="comment">#Filter out empty words</span></div><div class="line">words = [word <span class="keyword">for</span> word <span class="keyword">in</span> words <span class="keyword">if</span> word != <span class="string">""</span>]</div><div class="line">wordDict = &#123;&#125;</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(words)):</div><div class="line"><span class="keyword">if</span> words[i<span class="number">-1</span>] <span class="keyword">not</span> <span class="keyword">in</span> wordDict:</div><div class="line"><span class="comment">#Create a new dictionary for this word</span></div><div class="line">wordDict[words[i<span class="number">-1</span>]] = &#123;&#125;</div><div class="line"><span class="keyword">if</span> words[i] <span class="keyword">not</span> <span class="keyword">in</span> wordDict[words[i<span class="number">-1</span>]]:</div><div class="line">wordDict[words[i<span class="number">-1</span>]][words[i]] = <span class="number">0</span></div><div class="line">wordDict[words[i<span class="number">-1</span>]][words[i]] = wordDict[words[i<span class="number">-1</span>]][words[</div><div class="line">i]] + <span class="number">1</span></div><div class="line"><span class="keyword">return</span> wordDict</div><div class="line">text = str(urlopen(<span class="string">"http://pythonscraping.com/files/inaugurationSpeech.txt"</span>)</div><div class="line">.read(), <span class="string">'utf-8'</span>)</div><div class="line">wordDict = buildWordDict(text)</div><div class="line"><span class="comment">#Generate a Markov chain of length 100</span></div><div class="line">length = <span class="number">100</span></div><div class="line">chain = <span class="string">""</span></div><div class="line">currentWord = <span class="string">"I"</span></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, length):</div><div class="line">chain += currentWord+<span class="string">" "</span></div><div class="line">currentWord = retrieveRandomWord(wordDict[currentWord])</div><div class="line">print(chain)</div></pre></td></tr></table></figure>
+<h4 id="natural-language-toolkit"><a href="#natural-language-toolkit" class="headerlink" title="natural language toolkit"></a>natural language toolkit</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> nltk.book <span class="keyword">import</span> *</div><div class="line"><span class="keyword">from</span> nltk <span class="keyword">import</span> ngrams</div><div class="line">fourgrams = ngrams(text6, <span class="number">4</span>)</div><div class="line"><span class="keyword">for</span> fourgram <span class="keyword">in</span> fourgrams:</div><div class="line"><span class="keyword">if</span> fourgram[<span class="number">0</span>] == <span class="string">"coconut"</span>:</div><div class="line">print(fourgram)</div></pre></td></tr></table></figure>
+<h3 id="Crawling-Through-Forms-and-Logins"><a href="#Crawling-Through-Forms-and-Logins" class="headerlink" title="Crawling Through Forms and Logins"></a>Crawling Through Forms and Logins</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div><div class="line">params = &#123;<span class="string">'firstname'</span>: <span class="string">'Ryan'</span>, <span class="string">'lastname'</span>: <span class="string">'Mitchell'</span>&#125;</div><div class="line">r = requests.post(<span class="string">"http://pythonscraping.com/files/processing.php"</span>, data=params)</div><div class="line">print(r.text)</div><div class="line"><span class="comment"># second example</span></div><div class="line"><span class="keyword">import</span> requests</div><div class="line">files = &#123;<span class="string">'uploadFile'</span>: open(<span class="string">'../files/Python-logo.png'</span>, <span class="string">'rb'</span>)&#125;</div><div class="line">r = requests.post(<span class="string">"http://pythonscraping.com/pages/processing2.php"</span>,</div><div class="line">files=files)</div><div class="line">print(r.text)</div><div class="line"><span class="comment"># third example</span></div><div class="line"><span class="keyword">import</span> requests</div><div class="line">session = requests.Session()</div><div class="line">params = &#123;<span class="string">'username'</span>: <span class="string">'username'</span>, <span class="string">'password'</span>: <span class="string">'password'</span>&#125;</div><div class="line">s = session.post(<span class="string">"http://pythonscraping.com/pages/cookies/welcome.php"</span>, params)</div><div class="line">print(<span class="string">"Cookie is set to:"</span>)</div><div class="line">print(s.cookies.get_dict())</div><div class="line">print(<span class="string">"-----------"</span>)</div><div class="line">print(<span class="string">"Going to profile page..."</span>)</div><div class="line">s = session.get(<span class="string">"http://pythonscraping.com/pages/cookies/profile.php"</span>)</div><div class="line">print(s.text)</div><div class="line"><span class="comment"># handle HTTP authentication:</span></div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">from</span> requests.auth <span class="keyword">import</span> AuthBase</div><div class="line"><span class="keyword">from</span> requests.auth <span class="keyword">import</span> HTTPBasicAuth</div><div class="line">auth = HTTPBasicAuth(<span class="string">'ryan'</span>, <span class="string">'password'</span>)</div><div class="line">r = requests.post(url=<span class="string">"http://pythonscraping.com/pages/auth/login.php"</span>, auth=auth)</div><div class="line">print(r.text)</div></pre></td></tr></table></figure>
+<h3 id="Scraping-JavaScript"><a href="#Scraping-JavaScript" class="headerlink" title="Scraping JavaScript"></a>Scraping JavaScript</h3><h4 id="Executing-JavaScript-in-Python-with-Selenium"><a href="#Executing-JavaScript-in-Python-with-Selenium" class="headerlink" title="Executing JavaScript in Python with Selenium"></a>Executing JavaScript in Python with Selenium</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</div><div class="line"><span class="keyword">import</span> time</div><div class="line">driver = webdriver.PhantomJS(executable_path=<span class="string">''</span>)</div><div class="line">driver.get(<span class="string">"http://pythonscraping.com/pages/javascript/ajaxDemo.html"</span>)</div><div class="line">time.sleep(<span class="number">3</span>)</div><div class="line">print(driver.find_element_by_id(<span class="string">"content"</span>).text)</div><div class="line">driver.close()</div><div class="line"><span class="comment"># second </span></div><div class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</div><div class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</div><div class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions <span class="keyword">as</span> EC</div><div class="line">driver = webdriver.PhantomJS(executable_path=<span class="string">''</span>)</div><div class="line">driver.get(<span class="string">"http://pythonscraping.com/pages/javascript/ajaxDemo.html"</span>)</div><div class="line"><span class="keyword">try</span>:</div><div class="line">element = WebDriverWait(driver, <span class="number">10</span>).until(</div><div class="line">EC.presence_of_element_located((By.ID, <span class="string">"loadedButton"</span>)))</div><div class="line"><span class="keyword">finally</span>:</div><div class="line">print(driver.find_element_by_id(<span class="string">"content"</span>).text)</div><div class="line">driver.close()</div></pre></td></tr></table></figure>
+<h4 id="Handling-Redirects"><a href="#Handling-Redirects" class="headerlink" title="Handling Redirects"></a>Handling Redirects</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</div><div class="line"><span class="keyword">import</span> time</div><div class="line"><span class="keyword">from</span> selenium.webdriver.remote.webelement <span class="keyword">import</span> WebElement</div><div class="line"><span class="keyword">from</span> selenium.common.exceptions <span class="keyword">import</span> StaleElementReferenceException</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">waitForLoad</span><span class="params">(driver)</span>:</span></div><div class="line">elem = driver.find_element_by_tag_name(<span class="string">"html"</span>)</div><div class="line">count = <span class="number">0</span></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">count += <span class="number">1</span></div><div class="line"><span class="keyword">if</span> count &gt; <span class="number">20</span>:</div><div class="line">print(<span class="string">"Timing out after 10 seconds and returning"</span>)</div><div class="line"><span class="keyword">return</span></div><div class="line">time.sleep(<span class="number">.5</span>)</div><div class="line"><span class="keyword">try</span>:</div><div class="line">elem == driver.find_element_by_tag_name(<span class="string">"html"</span>)</div><div class="line"><span class="keyword">except</span> StaleElementReferenceException:</div><div class="line"><span class="keyword">return</span></div><div class="line">driver = webdriver.PhantomJS(executable_path=<span class="string">'&lt;Path to Phantom JS&gt;'</span>)</div><div class="line">driver.get(<span class="string">"http://pythonscraping.com/pages/javascript/redirectDemo1.html"</span>)</div><div class="line">waitForLoad(driver)</div><div class="line">print(driver.page_source)</div></pre></td></tr></table></figure>
+<h3 id="Image-Processing-and-Text-Recognition"><a href="#Image-Processing-and-Text-Recognition" class="headerlink" title="Image Processing and Text Recognition"></a>Image Processing and Text Recognition</h3><h4 id="library"><a href="#library" class="headerlink" title="library"></a>library</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Pillow</span></div><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageFilter</div><div class="line">kitten = Image.open(<span class="string">"kitten.jpg"</span>)</div><div class="line">blurryKitten = kitten.filter(ImageFilter.GaussianBlur)</div><div class="line">blurryKitten.save(<span class="string">"kitten_blurred.jpg"</span>)</div><div class="line">blurryKitten.show()</div></pre></td></tr></table></figure>
+<h4 id="Processing-Well-Formatted-Text"><a href="#Processing-Well-Formatted-Text" class="headerlink" title="Processing Well-Formatted Text"></a>Processing Well-Formatted Text</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> subprocess</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">cleanFile</span><span class="params">(filePath, newFilePath)</span>:</span></div><div class="line">image = Image.open(filePath)</div><div class="line"><span class="comment">#Set a threshold value for the image, and save</span></div><div class="line">image = image.point(<span class="keyword">lambda</span> x: <span class="number">0</span> <span class="keyword">if</span> x&lt;<span class="number">143</span> <span class="keyword">else</span> <span class="number">255</span>)</div><div class="line">image.save(newFilePath)</div><div class="line"><span class="comment">#call tesseract to do OCR on the newly created image</span></div><div class="line">subprocess.call([<span class="string">"tesseract"</span>, newFilePath, <span class="string">"output"</span>])</div><div class="line"><span class="comment">#Open and read the resulting data file</span></div><div class="line">outputFile = open(<span class="string">"output.txt"</span>, <span class="string">'r'</span>)</div><div class="line">print(outputFile.read())</div><div class="line">outputFile.close()</div><div class="line">cleanFile(<span class="string">"text_2.png"</span>, <span class="string">"text_2_clean.png"</span>)</div><div class="line"><span class="comment"># Scraping Text from Images on Websites</span></div><div class="line"><span class="keyword">import</span> time</div><div class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlretrieve</div><div class="line"><span class="keyword">import</span> subprocess</div><div class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</div><div class="line"><span class="comment">#Create new Selenium driver</span></div><div class="line">driver = webdriver.PhantomJS(executable_path=<span class="string">'&lt;Path to Phantom JS&gt;'</span>)</div><div class="line"><span class="comment">#Sometimes, I've found that PhantomJS has problems finding elements on this</span></div><div class="line"><span class="comment">#page that Firefox does not. If this is the case when you run this,</span></div><div class="line"><span class="comment">#try using a Firefox browser with Selenium by uncommenting this line:</span></div><div class="line"><span class="comment">#driver = webdriver.Firefox()</span></div><div class="line">driver.get(</div><div class="line"><span class="string">"http://www.amazon.com/War-Peace-Leo-Nikolayevich-Tolstoy/dp/1427030200"</span>)</div><div class="line">time.sleep(<span class="number">2</span>)</div><div class="line"><span class="comment">#Click on the book preview button</span></div><div class="line">driver.find_element_by_id(<span class="string">"sitbLogoImg"</span>).click()</div><div class="line">imageList = set()</div><div class="line"><span class="comment">#Wait for the page to load</span></div><div class="line">time.sleep(<span class="number">5</span>)</div><div class="line"><span class="comment">#While the right arrow is available for clicking, turn through pages</span></div><div class="line"><span class="keyword">while</span> <span class="string">"pointer"</span> <span class="keyword">in</span> driver.find_element_by_id(<span class="string">"sitbReaderRightPageTurner"</span>)</div><div class="line">.get_attribute(<span class="string">"style"</span>):</div><div class="line">driver.find_element_by_id(<span class="string">"sitbReaderRightPageTurner"</span>).click()</div><div class="line">time.sleep(<span class="number">2</span>)</div><div class="line"><span class="comment">#Get any new pages that have loaded (multiple pages can load at once,</span></div><div class="line"><span class="comment">#but duplicates will not be added to a set)</span></div><div class="line">pages = driver.find_elements_by_xpath(<span class="string">"//div[@class='pageImage']/div/img"</span>)</div><div class="line"><span class="keyword">for</span> page <span class="keyword">in</span> pages:</div><div class="line">image = page.get_attribute(<span class="string">"src"</span>)</div><div class="line">imageList.add(image)</div><div class="line">driver.quit()</div><div class="line"><span class="comment">#Start processing the images we've collected URLs for with Tesseract</span></div><div class="line"><span class="keyword">for</span> image <span class="keyword">in</span> sorted(imageList):</div><div class="line">urlretrieve(image, <span class="string">"page.jpg"</span>)</div><div class="line">p = subprocess.Popen([<span class="string">"tesseract"</span>, <span class="string">"page.jpg"</span>, <span class="string">"page"</span>],</div><div class="line">stdout=subprocess.PIPE,stderr=subprocess.PIPE)</div><div class="line">p.wait()</div><div class="line">f = open(<span class="string">"page.txt"</span>, <span class="string">"r"</span>)</div><div class="line">print(f.read())</div></pre></td></tr></table></figure>
+<h4 id="Retrieving-CAPTCHAs-and-Submitting-Solutions"><a href="#Retrieving-CAPTCHAs-and-Submitting-Solutions" class="headerlink" title="Retrieving CAPTCHAs and Submitting Solutions"></a>Retrieving CAPTCHAs and Submitting Solutions</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlretrieve</div><div class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</div><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"><span class="keyword">import</span> subprocess</div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> ImageOps</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">cleanImage</span><span class="params">(imagePath)</span>:</span></div><div class="line">image = Image.open(imagePath)</div><div class="line">image = image.point(<span class="keyword">lambda</span> x: <span class="number">0</span> <span class="keyword">if</span> x&lt;<span class="number">143</span> <span class="keyword">else</span> <span class="number">255</span>)</div><div class="line">borderImage = ImageOps.expand(image,border=<span class="number">20</span>,fill=<span class="string">'white'</span>)</div><div class="line">borderImage.save(imagePath)</div><div class="line">html = urlopen(<span class="string">"http://www.pythonscraping.com/humans-only"</span>)</div><div class="line">bsObj = BeautifulSoup(html)</div><div class="line"><span class="comment">#Gather prepopulated form values</span></div><div class="line">imageLocation = bsObj.find(<span class="string">"img"</span>, &#123;<span class="string">"title"</span>: <span class="string">"Image CAPTCHA"</span>&#125;)[<span class="string">"src"</span>]</div><div class="line">formBuildId = bsObj.find(<span class="string">"input"</span>, &#123;<span class="string">"name"</span>:<span class="string">"form_build_id"</span>&#125;)[<span class="string">"value"</span>]</div><div class="line">captchaSid = bsObj.find(<span class="string">"input"</span>, &#123;<span class="string">"name"</span>:<span class="string">"captcha_sid"</span>&#125;)[<span class="string">"value"</span>]</div><div class="line">captchaToken = bsObj.find(<span class="string">"input"</span>, &#123;<span class="string">"name"</span>:<span class="string">"captcha_token"</span>&#125;)[<span class="string">"value"</span>]</div><div class="line">captchaUrl = <span class="string">"http://pythonscraping.com"</span>+imageLocation</div><div class="line">urlretrieve(captchaUrl, <span class="string">"captcha.jpg"</span>)</div><div class="line">cleanImage(<span class="string">"captcha.jpg"</span>)</div><div class="line">p = subprocess.Popen([<span class="string">"tesseract"</span>, <span class="string">"captcha.jpg"</span>, <span class="string">"captcha"</span>], stdout=</div><div class="line">subprocess.PIPE,stderr=subprocess.PIPE)</div><div class="line">p.wait()</div><div class="line">f = open(<span class="string">"captcha.txt"</span>, <span class="string">"r"</span>)</div><div class="line"><span class="comment">#Clean any whitespace characters</span></div><div class="line">captchaResponse = f.read().replace(<span class="string">" "</span>, <span class="string">""</span>).replace(<span class="string">"\n"</span>, <span class="string">""</span>)</div><div class="line">print(<span class="string">"Captcha solution attempt: "</span>+captchaResponse)</div><div class="line"><span class="keyword">if</span> len(captchaResponse) == <span class="number">5</span>:</div><div class="line">params = &#123;<span class="string">"captcha_token"</span>:captchaToken, <span class="string">"captcha_sid"</span>:captchaSid,</div><div class="line"><span class="string">"form_id"</span>:<span class="string">"comment_node_page_form"</span>, <span class="string">"form_build_id"</span>: formBuildId,</div><div class="line"><span class="string">"captcha_response"</span>:captchaResponse, <span class="string">"name"</span>:<span class="string">"Ryan Mitchell"</span>,</div><div class="line"><span class="string">"subject"</span>: <span class="string">"I come to seek the Grail"</span>,</div><div class="line"><span class="string">"comment_body[und][0][value]"</span>:</div><div class="line"><span class="string">"...and I am definitely not a bot"</span>&#125;</div><div class="line">r = requests.post(<span class="string">"http://www.pythonscraping.com/comment/reply/10"</span>,</div><div class="line">data=params)</div><div class="line">responseObj = BeautifulSoup(r.text)</div><div class="line"><span class="keyword">if</span> responseObj.find(<span class="string">"div"</span>, &#123;<span class="string">"class"</span>:<span class="string">"messages"</span>&#125;) <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</div><div class="line">print(responseObj.find(<span class="string">"div"</span>, &#123;<span class="string">"class"</span>:<span class="string">"messages"</span>&#125;).get_text())</div><div class="line"><span class="keyword">else</span>:</div><div class="line">print(<span class="string">"There was a problem reading the CAPTCHA correctly!"</span>)</div></pre></td></tr></table></figure>
+<h3 id="PySocks"><a href="#PySocks" class="headerlink" title="PySocks"></a>PySocks</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> socks</div><div class="line"><span class="keyword">import</span> socket</div><div class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</div><div class="line">socks.set_default_proxy(socks.SOCKS5, <span class="string">"localhost"</span>, <span class="number">9150</span>)</div><div class="line">socket.socket = socks.socksocket</div><div class="line">print(urlopen(<span class="string">'http://icanhazip.com'</span>).read())</div><div class="line"></div><div class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</div><div class="line">service_args = [ <span class="string">'--proxy=localhost:9150'</span>, <span class="string">'--proxy-type=socks5'</span>, ]</div><div class="line">driver = webdriver.PhantomJS(executable_path=<span class="string">'&lt;path to PhantomJS&gt;'</span>,</div><div class="line">service_args=service_args)</div><div class="line">driver.get(<span class="string">"http://icanhazip.com"</span>)</div><div class="line">print(driver.page_source)</div><div class="line">driver.close()</div></pre></td></tr></table></figure>
+<h3 id="Testing-Your-Website-with-Scrapers"><a href="#Testing-Your-Website-with-Scrapers" class="headerlink" title="Testing Your Website with Scrapers"></a>Testing Your Website with Scrapers</h3><h4 id="Testing-Wikipedia"><a href="#Testing-Wikipedia" class="headerlink" title="Testing Wikipedia"></a>Testing Wikipedia</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</div><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"><span class="keyword">import</span> unittest</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestWikipedia</span><span class="params">(unittest.TestCase)</span>:</span></div><div class="line">bsObj = <span class="keyword">None</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">setUpClass</span><span class="params">()</span>:</span></div><div class="line"><span class="keyword">global</span> bsObj</div><div class="line">url = <span class="string">"http://en.wikipedia.org/wiki/Monty_Python"</span></div><div class="line">bsObj = BeautifulSoup(urlopen(url))</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_titleText</span><span class="params">(self)</span>:</span></div><div class="line"><span class="keyword">global</span> bsObj</div><div class="line">pageTitle = bsObj.find(<span class="string">"h1"</span>).get_text()</div><div class="line">self.assertEqual(<span class="string">"Monty Python"</span>, pageTitle);</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_contentExists</span><span class="params">(self)</span>:</span></div><div class="line"><span class="keyword">global</span> bsObj</div><div class="line">content = bsObj.find(<span class="string">"div"</span>,&#123;<span class="string">"id"</span>:<span class="string">"mw-content-text"</span>&#125;)</div><div class="line">self.assertIsNotNone(content)</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">unittest.main()</div></pre></td></tr></table></figure>
+<h4 id="Interacting-with-the-Site"><a href="#Interacting-with-the-Site" class="headerlink" title="Interacting with the Site"></a>Interacting with the Site</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</div><div class="line"><span class="keyword">from</span> selenium.webdriver.remote.webelement <span class="keyword">import</span> WebElement</div><div class="line"><span class="keyword">from</span> selenium.webdriver.common.keys <span class="keyword">import</span> Keys</div><div class="line"><span class="keyword">from</span> selenium.webdriver <span class="keyword">import</span> ActionChains</div><div class="line">driver = webdriver.PhantomJS(executable_path=<span class="string">'&lt;Path to Phantom JS&gt;'</span>)</div><div class="line">driver.get(<span class="string">"http://pythonscraping.com/pages/files/form.html"</span>)</div><div class="line">firstnameField = driver.find_element_by_name(<span class="string">"firstname"</span>)</div><div class="line">lastnameField = driver.find_element_by_name(<span class="string">"lastname"</span>)</div><div class="line">submitButton = driver.find_element_by_id(<span class="string">"submit"</span>)</div><div class="line"><span class="comment">### METHOD 1 ###</span></div><div class="line">firstnameField.send_keys(<span class="string">"Ryan"</span>)</div><div class="line">lastnameField.send_keys(<span class="string">"Mitchell"</span>)</div><div class="line">submitButton.click()</div><div class="line"><span class="comment">################</span></div><div class="line"><span class="comment">### METHOD 2 ###</span></div><div class="line">actions = ActionChains(driver).click(firstnameField).send_keys(<span class="string">"Ryan"</span>)</div><div class="line">.click(lastnameField).send_keys(<span class="string">"Mitchell"</span>)</div><div class="line">.send_keys(Keys.RETURN)</div><div class="line">actions.perform()</div><div class="line"><span class="comment">################</span></div><div class="line">print(driver.find_element_by_tag_name(<span class="string">"body"</span>).text)</div><div class="line">driver.close()</div><div class="line"><span class="comment"># Drag and drop</span></div><div class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</div><div class="line"><span class="keyword">from</span> selenium.webdriver.remote.webelement <span class="keyword">import</span> WebElement</div><div class="line"><span class="keyword">from</span> selenium.webdriver <span class="keyword">import</span> ActionChains</div><div class="line">driver = webdriver.PhantomJS(executable_path=<span class="string">'&lt;Path to Phantom JS&gt;'</span>)</div><div class="line">driver.get(<span class="string">'http://pythonscraping.com/pages/javascript/draggableDemo.html'</span>)</div><div class="line">print(driver.find_element_by_id(<span class="string">"message"</span>).text)</div><div class="line">element = driver.find_element_by_id(<span class="string">"draggable"</span>)</div><div class="line">target = driver.find_element_by_id(<span class="string">"div2"</span>)</div><div class="line">actions = ActionChains(driver)</div><div class="line">actions.drag_and_drop(element, target).perform()</div><div class="line">print(driver.find_element_by_id(<span class="string">"message"</span>).text) </div><div class="line"><span class="comment"># Unittest or Selenium</span></div><div class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</div><div class="line"><span class="keyword">from</span> selenium.webdriver.remote.webelement <span class="keyword">import</span> WebElement</div><div class="line"><span class="keyword">from</span> selenium.webdriver <span class="keyword">import</span> ActionChains</div><div class="line"><span class="keyword">import</span> unittest</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestAddition</span><span class="params">(unittest.TestCase)</span>:</span></div><div class="line">driver = <span class="keyword">None</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">setUp</span><span class="params">(self)</span>:</span></div><div class="line"><span class="keyword">global</span> driver</div><div class="line">driver = webdriver.PhantomJS(executable_path=<span class="string">'&lt;Path to Phantom JS&gt;'</span>)</div><div class="line">url = <span class="string">'http://pythonscraping.com/pages/javascript/draggableDemo.html'</span></div><div class="line">driver.get(url)</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">tearDown</span><span class="params">(self)</span>:</span></div><div class="line">print(<span class="string">"Tearing down the test"</span>)</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_drag</span><span class="params">(self)</span>:</span></div><div class="line"><span class="keyword">global</span> driver</div><div class="line">element = driver.find_element_by_id(<span class="string">"draggable"</span>)</div><div class="line">target = driver.find_element_by_id(<span class="string">"div2"</span>)</div><div class="line">actions = ActionChains(driver)</div><div class="line">actions.drag_and_drop(element, target).perform()</div><div class="line">self.assertEqual(<span class="string">"You are definitely</span></div><div class="line"><span class="string">not a bot!"</span>, driver.find_element_by_id(</div><div class="line"><span class="string">"message"</span>).text)</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">unittest.main()</div><div class="line"><span class="comment"># Taking screenshots</span></div><div class="line">driver = webdriver.PhantomJS()</div><div class="line">driver.get(<span class="string">'http://www.pythonscraping.com/'</span>)</div><div class="line">driver.get_screenshot_as_file(<span class="string">'tmp/pythonscraping.png'</span>)</div></pre></td></tr></table></figure>
+<h3 id="Handling-Cookies"><a href="#Handling-Cookies" class="headerlink" title="Handling Cookies"></a>Handling Cookies</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</div><div class="line">driver = webdriver.PhantomJS(executable_path=<span class="string">'&lt;Path to Phantom JS&gt;'</span>)</div><div class="line">driver.get(<span class="string">"http://pythonscraping.com"</span>)</div><div class="line">driver.implicitly_wait(<span class="number">1</span>)</div><div class="line">print(driver.get_cookies())</div><div class="line"><span class="comment"># </span></div><div class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</div><div class="line">driver = webdriver.PhantomJS(executable_path=<span class="string">'&lt;Path to Phantom JS&gt;'</span>)</div><div class="line">driver.get(<span class="string">"http://pythonscraping.com"</span>)</div><div class="line">driver.implicitly_wait(<span class="number">1</span>)</div><div class="line">print(driver.get_cookies())</div><div class="line">savedCookies = driver.get_cookies()</div><div class="line">driver2 = webdriver.PhantomJS(executable_path=<span class="string">'&lt;Path to Phantom JS&gt;'</span>)</div><div class="line">driver2.get(<span class="string">"http://pythonscraping.com"</span>)</div><div class="line">driver2.delete_all_cookies()</div><div class="line"><span class="keyword">for</span> cookie <span class="keyword">in</span> savedCookies:</div><div class="line">driver2.add_cookie(cookie)</div><div class="line">driver2.get(<span class="string">"http://pythonscraping.com"</span>)</div><div class="line">driver.implicitly_wait(<span class="number">1</span>)</div><div class="line">print(driver2.get_cookies())</div><div class="line"><span class="comment"># Hidden Input Field Values</span></div><div class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</div><div class="line"><span class="keyword">from</span> selenium.webdriver.remote.webelement <span class="keyword">import</span> WebElement</div><div class="line">driver = webdriver.PhantomJS(executable_path=<span class="string">''</span>)</div><div class="line">driver.get(<span class="string">"http://pythonscraping.com/pages/itsatrap.html"</span>)</div><div class="line">links = driver.find_elements_by_tag_name(<span class="string">"a"</span>)</div><div class="line"><span class="keyword">for</span> link <span class="keyword">in</span> links:</div><div class="line"><span class="keyword">if</span> <span class="keyword">not</span> link.is_displayed():</div><div class="line">print(<span class="string">"The link "</span>+link.get_attribute(<span class="string">"href"</span>)+<span class="string">" is a trap"</span>)</div><div class="line">fields = driver.find_elements_by_tag_name(<span class="string">"input"</span>)</div><div class="line"><span class="keyword">for</span> field <span class="keyword">in</span> fields:</div><div class="line"><span class="keyword">if</span> <span class="keyword">not</span> field.is_displayed():</div><div class="line">print(<span class="string">"Do not change value of "</span>+field.get_attribute(<span class="string">"name"</span>))</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/15/python book code1/" rel="next" title="web scraping with python 代码笔记/code notes part1">
+                <i class="fa fa-chevron-left"></i> web scraping with python 代码笔记/code notes part1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/16/python jsondic/" rel="prev" title="python csv文件与字典，列表等之间的转换小结">
+                python csv文件与字典，列表等之间的转换小结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Daniel Lu" />
+          <p class="site-author-name" itemprop="name">Daniel Lu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/your-user-name" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="facebook">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      facebook
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.github.com" title="Github" target="_blank">Github</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cleaning-Your-Dirty-Data"><span class="nav-number">1.</span> <span class="nav-text">Cleaning Your Dirty Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-and-Writing-Natural-Languages"><span class="nav-number">2.</span> <span class="nav-text">Reading and Writing Natural Languages</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Summarizing-Data"><span class="nav-number">2.1.</span> <span class="nav-text">Summarizing Data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Markov-Models"><span class="nav-number">2.2.</span> <span class="nav-text">Markov Models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#natural-language-toolkit"><span class="nav-number">2.3.</span> <span class="nav-text">natural language toolkit</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Crawling-Through-Forms-and-Logins"><span class="nav-number">3.</span> <span class="nav-text">Crawling Through Forms and Logins</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scraping-JavaScript"><span class="nav-number">4.</span> <span class="nav-text">Scraping JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Executing-JavaScript-in-Python-with-Selenium"><span class="nav-number">4.1.</span> <span class="nav-text">Executing JavaScript in Python with Selenium</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Handling-Redirects"><span class="nav-number">4.2.</span> <span class="nav-text">Handling Redirects</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Image-Processing-and-Text-Recognition"><span class="nav-number">5.</span> <span class="nav-text">Image Processing and Text Recognition</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#library"><span class="nav-number">5.1.</span> <span class="nav-text">library</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Processing-Well-Formatted-Text"><span class="nav-number">5.2.</span> <span class="nav-text">Processing Well-Formatted Text</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Retrieving-CAPTCHAs-and-Submitting-Solutions"><span class="nav-number">5.3.</span> <span class="nav-text">Retrieving CAPTCHAs and Submitting Solutions</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PySocks"><span class="nav-number">6.</span> <span class="nav-text">PySocks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Testing-Your-Website-with-Scrapers"><span class="nav-number">7.</span> <span class="nav-text">Testing Your Website with Scrapers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Testing-Wikipedia"><span class="nav-number">7.1.</span> <span class="nav-text">Testing Wikipedia</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Interacting-with-the-Site"><span class="nav-number">7.2.</span> <span class="nav-text">Interacting with the Site</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Handling-Cookies"><span class="nav-number">8.</span> <span class="nav-text">Handling Cookies</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daniel Lu</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
