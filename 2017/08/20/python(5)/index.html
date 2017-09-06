@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="web crawling examples with python using scrapy">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python web crawling using scrapy(1)">
+<meta property="og:url" content="http://yoursite.com/2017/08/20/python(5)/index.html">
+<meta property="og:site_name" content="Daniel Lu">
+<meta property="og:description" content="web crawling examples with python using scrapy">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-09-06T03:40:16.716Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python web crawling using scrapy(1)">
+<meta name="twitter:description" content="web crawling examples with python using scrapy">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/20/python(5)/"/>
+
+
+
+
+
+  <title>python web crawling using scrapy(1) | Daniel Lu</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Daniel Lu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Let's code</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/20/python(5)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daniel Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daniel Lu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python web crawling using scrapy(1)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-20T16:40:25+08:00">
+                2017-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>web crawling examples with python using scrapy<br><a id="more"></a></p>
+<h3 id="QuotesBot-using-scrapy"><a href="#QuotesBot-using-scrapy" class="headerlink" title="QuotesBot using scrapy"></a>QuotesBot using scrapy</h3><h4 id="spider-py"><a href="#spider-py" class="headerlink" title="spider.py"></a>spider.py</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># toscrape-css.py</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> scrapy</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ToScrapeCSSSpider</span><span class="params">(scrapy.Spider)</span>:</span></div><div class="line">    name = <span class="string">"toscrape-css"</span></div><div class="line">    start_urls = [</div><div class="line">        <span class="string">'http://quotes.toscrape.com/'</span>,</div><div class="line">    ]</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></div><div class="line">        <span class="keyword">for</span> quote <span class="keyword">in</span> response.css(<span class="string">"div.quote"</span>):</div><div class="line">            <span class="keyword">yield</span> &#123;</div><div class="line">                <span class="string">'text'</span>: quote.css(<span class="string">"span.text::text"</span>).extract_first(),</div><div class="line">                <span class="string">'author'</span>: quote.css(<span class="string">"small.author::text"</span>).extract_first(),</div><div class="line">                <span class="string">'tags'</span>: quote.css(<span class="string">"div.tags &gt; a.tag::text"</span>).extract()</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        next_page_url = response.css(<span class="string">"li.next &gt; a::attr(href)"</span>).extract_first()</div><div class="line">        <span class="keyword">if</span> next_page_url <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">yield</span> scrapy.Request(response.urljoin(next_page_url))</div><div class="line"><span class="comment">#toscrape-xpath.py</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> scrapy</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ToScrapeSpiderXPath</span><span class="params">(scrapy.Spider)</span>:</span></div><div class="line">    name = <span class="string">'toscrape-xpath'</span></div><div class="line">    start_urls = [</div><div class="line">        <span class="string">'http://quotes.toscrape.com/'</span>,</div><div class="line">    ]</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></div><div class="line">        <span class="keyword">for</span> quote <span class="keyword">in</span> response.xpath(<span class="string">'//div[@class="quote"]'</span>):</div><div class="line">            <span class="keyword">yield</span> &#123;</div><div class="line">                <span class="string">'text'</span>: quote.xpath(<span class="string">'./span[@class="text"]/text()'</span>).extract_first(),</div><div class="line">                <span class="string">'author'</span>: quote.xpath(<span class="string">'.//small[@class="author"]/text()'</span>).extract_first(),</div><div class="line">                <span class="string">'tags'</span>: quote.xpath(<span class="string">'.//div[@class="tags"]/a[@class="tag"]/text()'</span>).extract()</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        next_page_url = response.xpath(<span class="string">'//li[@class="next"]/a/@href'</span>).extract_first()</div><div class="line">        <span class="keyword">if</span> next_page_url <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">yield</span> scrapy.Request(response.urljoin(next_page_url))</div></pre></td></tr></table></figure>
+<h4 id="Running-the-spiders"><a href="#Running-the-spiders" class="headerlink" title="Running the spiders"></a>Running the spiders</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ scrapy crawl toscrape-css -o quotes.json</div></pre></td></tr></table></figure>
+<p><a href="&quot;https://github.com/scrapy/quotesbot&quot;">repost site</a></p>
+<h3 id="w3school-com-cn"><a href="#w3school-com-cn" class="headerlink" title="w3school.com.cn"></a>w3school.com.cn</h3><h4 id="spider-py-1"><a href="#spider-py-1" class="headerlink" title="spider.py"></a>spider.py</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> scrapy</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">W3schoolSpider</span><span class="params">(scrapy.Spider)</span>:</span></div><div class="line">    <span class="string">"""爬取w3school标签"""</span></div><div class="line">    <span class="comment">#log.start("log",loglevel='INFO')</span></div><div class="line">    name = <span class="string">"w3school"</span></div><div class="line">    allowed_domains = [<span class="string">"w3school.com.cn"</span>]</div><div class="line">    start_urls = [</div><div class="line">        <span class="string">"http://www.w3school.com.cn/xml/xml_syntax.asp"</span></div><div class="line">    ]</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></div><div class="line">        <span class="keyword">for</span> site <span class="keyword">in</span> response.xpath(<span class="string">'//div[@id="navsecond"]/div[@id="course"]/ul[1]/li'</span>):        </div><div class="line">            <span class="keyword">yield</span> &#123;</div><div class="line">                <span class="string">'title'</span>: site.xpath(<span class="string">'a/text()'</span>).extract_first(),</div><div class="line">                <span class="string">'link'</span> : site.xpath(<span class="string">'a/@href'</span>).extract_first(),</div><div class="line">                <span class="string">'desc'</span> : site.xpath(<span class="string">'a/@title'</span>).extract()</div><div class="line">            &#125;</div></pre></td></tr></table></figure>
+<h4 id="settings-py"><a href="#settings-py" class="headerlink" title="settings.py"></a>settings.py</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FEED_EXPORT_ENCODING = <span class="string">'utf-8'</span> <span class="comment">#unicode to utf8</span></div></pre></td></tr></table></figure>
+<h3 id="csdnblog"><a href="#csdnblog" class="headerlink" title="csdnblog"></a>csdnblog</h3><h4 id="spider-py-2"><a href="#spider-py-2" class="headerlink" title="spider.py"></a>spider.py</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> scrapy</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CSDNBlogSpider</span><span class="params">(scrapy.Spider)</span>:</span></div><div class="line">    <span class="string">"""爬虫CSDNBlogSpider"""</span></div><div class="line"></div><div class="line">    name = <span class="string">"CSDNBlog"</span></div><div class="line"></div><div class="line">    <span class="comment">#减慢爬取速度 为1s</span></div><div class="line">    download_delay = <span class="number">1</span></div><div class="line">    start_urls = [</div><div class="line"></div><div class="line">        <span class="comment">#第一篇文章地址</span></div><div class="line">        <span class="string">"http://blog.csdn.net/u012150179/article/details/11749017"</span></div><div class="line">    ]</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></div><div class="line">        <span class="keyword">for</span> site <span class="keyword">in</span> response.xpath(<span class="string">'//div[@id="article_details"]/div[1]/h1/span'</span>):</div><div class="line">             <span class="keyword">yield</span> &#123;</div><div class="line">                  <span class="string">'article_url'</span> :  str(response.url),</div><div class="line">                  <span class="string">'article_name'</span> : site.xpath(<span class="string">'a/text()'</span>).extract_first()</div><div class="line">             &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">#获得下一篇文章的url</span></div><div class="line">        urls = response.xpath(<span class="string">'//li[@class="next_article"]/a/@href'</span>).extract_first()</div><div class="line">        <span class="keyword">if</span> urls <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">yield</span> scrapy.Request(response.urljoin(urls))</div></pre></td></tr></table></figure>
+<h4 id="settings-py-1"><a href="#settings-py-1" class="headerlink" title="settings.py"></a>settings.py</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FEED_EXPORT_ENCODING = <span class="string">'utf-8'</span> <span class="comment">#unicode to utf8</span></div></pre></td></tr></table></figure>
+<h3 id="stock163"><a href="#stock163" class="headerlink" title="stock163"></a>stock163</h3><p>转载自 <a href="http://blog.csdn.net/c406495762/article/details/77801899" target="_blank" rel="external">http://blog.csdn.net/c406495762/article/details/77801899</a> ，建表cwzb,lrb,fzb,llb,字段添加股票名和股票代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#-*- coding:UTF-8 -*-</span></div><div class="line"><span class="keyword">import</span> pymysql</div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span> json</div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="comment">#打开数据库连接:host-连接主机地址,port-端口号,user-用户名,passwd-用户密码,db-数据库名,charset-编码</span></div><div class="line">    conn = pymysql.connect(host=<span class="string">'127.0.0.1'</span>, port=<span class="number">3306</span>, user=<span class="string">'root'</span>, passwd=<span class="string">'yourpasswd'</span>,db=<span class="string">'financialdata'</span>,charset=<span class="string">'utf8'</span>)</div><div class="line">    <span class="comment">#使用cursor()方法获取操作游标</span></div><div class="line">    cursor = conn.cursor() </div><div class="line"></div><div class="line">    <span class="comment">#主要财务指标</span></div><div class="line">    cwzb_dict = &#123;<span class="string">'EPS'</span>:<span class="string">'基本每股收益'</span>,<span class="string">'EPS_DILUTED'</span>:<span class="string">'摊薄每股收益'</span>,<span class="string">'GROSS_MARGIN'</span>:<span class="string">'毛利率'</span>,</div><div class="line">        <span class="string">'CAPITAL_ADEQUACY'</span>:<span class="string">'资本充足率'</span>,<span class="string">'LOANS_DEPOSITS'</span>:<span class="string">'贷款回报率'</span>,<span class="string">'ROTA'</span>:<span class="string">'总资产收益率'</span>,</div><div class="line">        <span class="string">'ROEQUITY'</span>:<span class="string">'净资产收益率'</span>,<span class="string">'CURRENT_RATIO'</span>:<span class="string">'流动比率'</span>,<span class="string">'QUICK_RATIO'</span>:<span class="string">'速动比率'</span>,</div><div class="line">        <span class="string">'ROLOANS'</span>:<span class="string">'存贷比'</span>,<span class="string">'INVENTORY_TURNOVER'</span>:<span class="string">'存货周转率'</span>,<span class="string">'GENERAL_ADMIN_RATIO'</span>:<span class="string">'管理费用比率'</span>,</div><div class="line">        <span class="string">'TOTAL_ASSET2TURNOVER'</span>:<span class="string">'资产周转率'</span>,<span class="string">'FINCOSTS_GROSSPROFIT'</span>:<span class="string">'财务费用比率'</span>,<span class="string">'TURNOVER_CASH'</span>:<span class="string">'销售现金比率'</span>,<span class="string">'YEAREND_DATE'</span>:<span class="string">'报表日期'</span>&#125;</div><div class="line"></div><div class="line">    <span class="comment">#利润表</span></div><div class="line">    lrb_dict = &#123;<span class="string">'TURNOVER'</span>:<span class="string">'总营收'</span>,<span class="string">'OPER_PROFIT'</span>:<span class="string">'经营利润'</span>,<span class="string">'PBT'</span>:<span class="string">'除税前利润'</span>,</div><div class="line">        <span class="string">'NET_PROF'</span>:<span class="string">'净利润'</span>,<span class="string">'EPS'</span>:<span class="string">'每股基本盈利'</span>,<span class="string">'DPS'</span>:<span class="string">'每股派息'</span>,</div><div class="line">        <span class="string">'INCOME_INTEREST'</span>:<span class="string">'利息收益'</span>,<span class="string">'INCOME_NETTRADING'</span>:<span class="string">'交易收益'</span>,<span class="string">'INCOME_NETFEE'</span>:<span class="string">'费用收益'</span>,<span class="string">'YEAREND_DATE'</span>:<span class="string">'报表日期'</span>&#125;</div><div class="line"></div><div class="line">    <span class="comment">#资产负债表</span></div><div class="line">    fzb_dict = &#123;</div><div class="line">        <span class="string">'FIX_ASS'</span>:<span class="string">'固定资产'</span>,<span class="string">'CURR_ASS'</span>:<span class="string">'流动资产'</span>,<span class="string">'CURR_LIAB'</span>:<span class="string">'流动负债'</span>,</div><div class="line">        <span class="string">'INVENTORY'</span>:<span class="string">'存款'</span>,<span class="string">'CASH'</span>:<span class="string">'现金及银行存结'</span>,<span class="string">'OTHER_ASS'</span>:<span class="string">'其他资产'</span>,</div><div class="line">        <span class="string">'TOTAL_ASS'</span>:<span class="string">'总资产'</span>,<span class="string">'TOTAL_LIAB'</span>:<span class="string">'总负债'</span>,<span class="string">'EQUITY'</span>:<span class="string">'股东权益'</span>,</div><div class="line">        <span class="string">'CASH_SHORTTERMFUND'</span>:<span class="string">'库存现金及短期资金'</span>,<span class="string">'DEPOSITS_FROM_CUSTOMER'</span>:<span class="string">'客户存款'</span>,</div><div class="line">        <span class="string">'FINANCIALASSET_SALE'</span>:<span class="string">'可供出售之证券'</span>,<span class="string">'LOAN_TO_BANK'</span>:<span class="string">'银行同业存款及贷款'</span>,</div><div class="line">        <span class="string">'DERIVATIVES_LIABILITIES'</span>:<span class="string">'金融负债'</span>,<span class="string">'DERIVATIVES_ASSET'</span>:<span class="string">'金融资产'</span>,<span class="string">'YEAREND_DATE'</span>:<span class="string">'报表日期'</span>&#125;</div><div class="line"></div><div class="line">    <span class="comment">#现金流表</span></div><div class="line">    llb_dict = &#123;</div><div class="line">        <span class="string">'CF_NCF_OPERACT'</span>:<span class="string">'经营活动产生的现金流'</span>,<span class="string">'CF_INT_REC'</span>:<span class="string">'已收利息'</span>,<span class="string">'CF_INT_PAID'</span>:<span class="string">'已付利息'</span>,</div><div class="line">        <span class="string">'CF_INT_REC'</span>:<span class="string">'已收股息'</span>,<span class="string">'CF_DIV_PAID'</span>:<span class="string">'已派股息'</span>,<span class="string">'CF_INV'</span>:<span class="string">'投资活动产生现金流'</span>,</div><div class="line">        <span class="string">'CF_FIN_ACT'</span>:<span class="string">'融资活动产生现金流'</span>,<span class="string">'CF_BEG'</span>:<span class="string">'期初现金及现金等价物'</span>,<span class="string">'CF_CHANGE_CSH'</span>:<span class="string">'现金及现金等价物净增加额'</span>,</div><div class="line">        <span class="string">'CF_END'</span>:<span class="string">'期末现金及现金等价物'</span>,<span class="string">'CF_EXCH'</span>:<span class="string">'汇率变动影响'</span>,<span class="string">'YEAREND_DATE'</span>:<span class="string">'报表日期'</span>&#125;</div><div class="line"></div><div class="line">    <span class="comment">#总表</span></div><div class="line">    table_dict = &#123;<span class="string">'cwzb'</span>:cwzb_dict,<span class="string">'lrb'</span>:lrb_dict,<span class="string">'fzb'</span>:fzb_dict,<span class="string">'llb'</span>:llb_dict&#125;</div><div class="line"></div><div class="line">    <span class="comment">#请求头</span></div><div class="line">    headers = &#123;<span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'</span>,</div><div class="line">        <span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate'</span>,</div><div class="line">        <span class="string">'Accept-Language'</span>: <span class="string">'zh-CN,zh;q=0.8'</span>,</div><div class="line">        <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.109 Safari/537.36'</span>,&#125;</div><div class="line"></div><div class="line">    <span class="comment">#上市股票地址</span></div><div class="line">    target_url = <span class="string">'http://quotes.money.163.com/hkstock/cwsj_00700.html'</span></div><div class="line">    req = requests.get(url = target_url, headers = headers)</div><div class="line">    req.encoding = <span class="string">'utf-8'</span></div><div class="line">    html = req.text</div><div class="line">    page_bf = BeautifulSoup(html, <span class="string">'lxml'</span>)</div><div class="line">    <span class="comment">#股票名称，股票代码</span></div><div class="line">    name = page_bf.find_all(<span class="string">'span'</span>, class_ = <span class="string">'name'</span>)[<span class="number">0</span>].string</div><div class="line">    code = page_bf.find_all(<span class="string">'span'</span>, class_ = <span class="string">'code'</span>)[<span class="number">0</span>].string</div><div class="line">    code = re.findall(<span class="string">'\d+'</span>,code)[<span class="number">0</span>]</div><div class="line">    <span class="comment">#打印股票信息</span></div><div class="line">    print(name + <span class="string">':'</span> + code)</div><div class="line">    print(<span class="string">''</span>)</div><div class="line">    <span class="comment">#存储各个表名的列表</span></div><div class="line">    table_name_list = []</div><div class="line">    table_date_list = []</div><div class="line">    each_date_list = []</div><div class="line">    url_list = []</div><div class="line">    <span class="comment">#表名和表时间</span></div><div class="line">    table_name = page_bf.find_all(<span class="string">'div'</span>, class_ = <span class="string">'titlebar3'</span>)</div><div class="line">    <span class="keyword">for</span> each_table_name <span class="keyword">in</span> table_name:</div><div class="line">        <span class="comment">#表名</span></div><div class="line">        table_name_list.append(each_table_name.span.string)</div><div class="line">        <span class="comment">#表时间</span></div><div class="line">        <span class="keyword">for</span> each_table_date <span class="keyword">in</span> each_table_name.div.find_all(<span class="string">'select'</span>, id = re.compile(<span class="string">'.+1$'</span>)):</div><div class="line">            url_list.append(re.findall(<span class="string">'(\w+)1'</span>,each_table_date.get(<span class="string">'id'</span>))[<span class="number">0</span>])</div><div class="line">            <span class="keyword">for</span> each_date <span class="keyword">in</span> each_table_date.find_all(<span class="string">'option'</span>):</div><div class="line">                each_date_list.append(each_date.string)</div><div class="line">            table_date_list.append(each_date_list)</div><div class="line">            each_date_list = []</div><div class="line"></div><div class="line">    <span class="comment">#插入信息</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(table_name_list)):</div><div class="line">        print(<span class="string">'表名:'</span>,table_name_list[i])</div><div class="line">        print(<span class="string">''</span>)</div><div class="line"></div><div class="line">        <span class="comment">#获取数据地址</span></div><div class="line">        url = <span class="string">'http://quotes.money.163.com/hk/service/cwsj_service.php?symbol=&#123;&#125;&amp;start=&#123;&#125;&amp;end=&#123;&#125;&amp;type=&#123;&#125;&amp;unit=yuan'</span>.format(code,table_date_list[i][<span class="number">-1</span>],table_date_list[i][<span class="number">0</span>],url_list[i])</div><div class="line">        req_table = requests.get(url = url, headers = headers)</div><div class="line">        value_dict = &#123;&#125;</div><div class="line">        <span class="keyword">for</span> each_data <span class="keyword">in</span> req_table.json():</div><div class="line">            value_dict[<span class="string">'股票名'</span>] = name</div><div class="line">            value_dict[<span class="string">'股票代码'</span>] = code</div><div class="line">            <span class="keyword">for</span> key, value <span class="keyword">in</span> each_data.items():</div><div class="line">                <span class="keyword">if</span> key <span class="keyword">in</span> table_dict[url_list[i]]:</div><div class="line">                    value_dict[table_dict[url_list[i]][key]] = value</div><div class="line"></div><div class="line">            <span class="comment"># print(value_dict)</span></div><div class="line">            sql1 = <span class="string">"""</span></div><div class="line"><span class="string">            INSERT INTO %s (`股票名`,`股票代码`,`报表日期`) VALUES ('%s','%s','%s')"""</span> % (url_list[i],value_dict[<span class="string">'股票名'</span>],value_dict[<span class="string">'股票代码'</span>],value_dict[<span class="string">'报表日期'</span>])</div><div class="line">            print(sql1)</div><div class="line">            <span class="keyword">try</span>:</div><div class="line">                cursor.execute(sql1)</div><div class="line">                <span class="comment"># 执行sql语句</span></div><div class="line">                conn.commit()</div><div class="line">            <span class="keyword">except</span>:</div><div class="line">                <span class="comment"># 发生错误时回滚</span></div><div class="line">                conn.rollback()</div><div class="line"></div><div class="line">            <span class="keyword">for</span> key, value <span class="keyword">in</span> value_dict.items():</div><div class="line">                <span class="keyword">if</span> key <span class="keyword">not</span> <span class="keyword">in</span> [<span class="string">'股票名'</span>,<span class="string">'股票代码'</span>,<span class="string">'报表日期'</span>]:</div><div class="line">                    sql2 = <span class="string">"""</span></div><div class="line"><span class="string">                    UPDATE %s SET %s='%s' WHERE `股票名`='%s' AND `报表日期`='%s'"""</span> % (url_list[i],key,value,value_dict[<span class="string">'股票名'</span>],value_dict[<span class="string">'报表日期'</span>])</div><div class="line">                    print(sql2)</div><div class="line">                    <span class="keyword">try</span>:</div><div class="line">                        cursor.execute(sql2)</div><div class="line">                        <span class="comment"># 执行sql语句</span></div><div class="line">                        conn.commit()</div><div class="line">                    <span class="keyword">except</span>:</div><div class="line">                        <span class="comment"># 发生错误时回滚</span></div><div class="line">                        conn.rollback()</div><div class="line">            value_dict = &#123;&#125;</div><div class="line"></div><div class="line">    <span class="comment"># 关闭数据库连接</span></div><div class="line">    cursor.close() </div><div class="line">    conn.close()</div></pre></td></tr></table></figure></p>
+<h3 id="comic"><a href="#comic" class="headerlink" title="comic"></a>comic</h3><p>转载自<a href="http://blog.csdn.net/c406495762/article/details/72858983" target="_blank" rel="external">http://blog.csdn.net/c406495762/article/details/72858983</a></p>
+<h4 id="comic-py"><a href="#comic-py" class="headerlink" title="comic.py"></a>comic.py</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="keyword">import</span> scrapy</div><div class="line"><span class="keyword">from</span> scrapy <span class="keyword">import</span> Selector</div><div class="line"><span class="keyword">from</span> cartoon.items <span class="keyword">import</span> ComicItem</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ComicSpider</span><span class="params">(scrapy.Spider)</span>:</span></div><div class="line">    name = <span class="string">'comic'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="comment">#图片链接server域名</span></div><div class="line">        self.server_img = <span class="string">'http://n.1whour.com/'</span></div><div class="line">        <span class="comment">#章节链接server域名</span></div><div class="line">        self.server_link = <span class="string">'http://comic.kukudm.com'</span></div><div class="line">        self.allowed_domains = [<span class="string">'comic.kukudm.com'</span>]</div><div class="line">        self.start_urls = [<span class="string">'http://comic.kukudm.com/comiclist/3/'</span>]</div><div class="line">        <span class="comment">#匹配图片地址的正则表达式</span></div><div class="line">        self.pattern_img = re.compile(<span class="string">r'\+"(.+)\'&gt;&lt;span'</span>)</div><div class="line"></div><div class="line">    <span class="comment">#从start_requests发送请求</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start_requests</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">yield</span> scrapy.Request(url = self.start_urls[<span class="number">0</span>], callback = self.parse1)</div><div class="line"></div><div class="line">    <span class="comment">#解析response,获得章节图片链接地址</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse1</span><span class="params">(self, response)</span>:</span></div><div class="line">        hxs = Selector(response)</div><div class="line">        items = []</div><div class="line">        <span class="comment">#章节链接地址</span></div><div class="line">        urls = hxs.xpath(<span class="string">'//dd/a[1]/@href'</span>).extract()</div><div class="line">        <span class="comment">#章节名</span></div><div class="line">        dir_names = hxs.xpath(<span class="string">'//dd/a[1]/text()'</span>).extract()</div><div class="line">        <span class="comment">#保存章节链接和章节名</span></div><div class="line">        <span class="keyword">for</span> index <span class="keyword">in</span> range(len(urls)):</div><div class="line">            item = ComicItem()</div><div class="line">            item[<span class="string">'link_url'</span>] = self.server_link + urls[index]</div><div class="line">            item[<span class="string">'dir_name'</span>] = dir_names[index]</div><div class="line">            items.append(item)</div><div class="line"></div><div class="line">        <span class="comment">#根据每个章节的链接，发送Request请求，并传递item参数</span></div><div class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> items:</div><div class="line">            <span class="keyword">yield</span> scrapy.Request(url = item[<span class="string">'link_url'</span>], meta = &#123;<span class="string">'item'</span>:item&#125;, callback = self.parse2)</div><div class="line">        </div><div class="line">    <span class="comment">#解析获得章节第一页的页码数和图片链接 </span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse2</span><span class="params">(self, response)</span>:</span></div><div class="line">        <span class="comment">#接收传递的item</span></div><div class="line">        item = response.meta[<span class="string">'item'</span>]</div><div class="line">        <span class="comment">#获取章节的第一页的链接</span></div><div class="line">        item[<span class="string">'link_url'</span>] = response.url</div><div class="line">        hxs = Selector(response)</div><div class="line">        <span class="comment">#获取章节的第一页的图片链接</span></div><div class="line">        pre_img_url = hxs.xpath(<span class="string">'//script/text()'</span>).extract()</div><div class="line">        <span class="comment">#注意这里返回的图片地址,应该为列表,否则会报错</span></div><div class="line">        img_url = [self.server_img + re.findall(self.pattern_img, pre_img_url[<span class="number">0</span>])[<span class="number">0</span>]]</div><div class="line">        <span class="comment">#将获取的章节的第一页的图片链接保存到img_url中</span></div><div class="line">        item[<span class="string">'img_url'</span>] = img_url</div><div class="line">        <span class="comment">#返回item，交给item pipeline下载图片</span></div><div class="line">        <span class="keyword">yield</span> item</div><div class="line">        <span class="comment">#获取章节的页数</span></div><div class="line">        page_num = hxs.xpath(<span class="string">'//td[@valign="top"]/text()'</span>).re(<span class="string">u'共(\d+)页'</span>)[<span class="number">0</span>]</div><div class="line">        <span class="comment">#根据页数，整理出本章节其他页码的链接</span></div><div class="line">        pre_link = item[<span class="string">'link_url'</span>][:<span class="number">-5</span>]</div><div class="line">        <span class="keyword">for</span> each_link <span class="keyword">in</span> range(<span class="number">2</span>, int(page_num) + <span class="number">1</span>):</div><div class="line">            new_link = pre_link + str(each_link) + <span class="string">'.htm'</span></div><div class="line">            <span class="comment">#根据本章节其他页码的链接发送Request请求，用于解析其他页码的图片链接，并传递item</span></div><div class="line">            <span class="keyword">yield</span> scrapy.Request(url = new_link, meta = &#123;<span class="string">'item'</span>:item&#125;, callback = self.parse3)</div><div class="line"></div><div class="line">    <span class="comment">#解析获得本章节其他页面的图片链接</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse3</span><span class="params">(self, response)</span>:</span></div><div class="line">        <span class="comment">#接收传递的item</span></div><div class="line">        item = response.meta[<span class="string">'item'</span>]</div><div class="line">        <span class="comment">#获取该页面的链接</span></div><div class="line">        item[<span class="string">'link_url'</span>] = response.url</div><div class="line">        hxs = Selector(response)</div><div class="line">        pre_img_url = hxs.xpath(<span class="string">'//script/text()'</span>).extract()</div><div class="line">        <span class="comment">#注意这里返回的图片地址,应该为列表,否则会报错</span></div><div class="line">        img_url = [self.server_img + re.findall(self.pattern_img, pre_img_url[<span class="number">0</span>])[<span class="number">0</span>]]</div><div class="line">        <span class="comment">#将获取的图片链接保存到img_url中</span></div><div class="line">        item[<span class="string">'img_url'</span>] = img_url</div><div class="line">        <span class="comment">#返回item，交给item pipeline下载图片</span></div><div class="line">        <span class="keyword">yield</span> item</div></pre></td></tr></table></figure>
+<h4 id="pipelines-py"><a href="#pipelines-py" class="headerlink" title="pipelines.py"></a>pipelines.py</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> cartoon <span class="keyword">import</span> settings</div><div class="line"><span class="keyword">from</span> scrapy <span class="keyword">import</span> Request</div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span> os</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ComicImgDownloadPipeline</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></div><div class="line">        <span class="comment">#如果获取了图片链接，进行如下操作</span></div><div class="line">        <span class="keyword">if</span> <span class="string">'img_url'</span> <span class="keyword">in</span> item:</div><div class="line">            images = []</div><div class="line">            <span class="comment">#文件夹名字</span></div><div class="line">            dir_path = <span class="string">'%s/%s'</span> % (settings.IMAGES_STORE, item[<span class="string">'dir_name'</span>])</div><div class="line">            <span class="comment">#文件夹不存在则创建文件夹</span></div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(dir_path):</div><div class="line">                os.makedirs(dir_path)</div><div class="line">            <span class="comment">#获取每一个图片链接</span></div><div class="line">            <span class="keyword">for</span> image_url <span class="keyword">in</span> item[<span class="string">'img_url'</span>]:</div><div class="line">                <span class="comment">#解析链接，根据链接为图片命名</span></div><div class="line">                houzhui = image_url.split(<span class="string">'/'</span>)[<span class="number">-1</span>].split(<span class="string">'.'</span>)[<span class="number">-1</span>]</div><div class="line">                qianzhui = item[<span class="string">'link_url'</span>].split(<span class="string">'/'</span>)[<span class="number">-1</span>].split(<span class="string">'.'</span>)[<span class="number">0</span>]</div><div class="line">                <span class="comment">#图片名</span></div><div class="line">                image_file_name = <span class="string">'第'</span> + qianzhui + <span class="string">'页.'</span> + houzhui</div><div class="line">                <span class="comment">#图片保存路径</span></div><div class="line">                file_path = <span class="string">'%s/%s'</span> % (dir_path, image_file_name)</div><div class="line">                images.append(file_path)</div><div class="line">                <span class="keyword">if</span> os.path.exists(file_path):</div><div class="line">                    <span class="keyword">continue</span></div><div class="line">                <span class="comment">#保存图片</span></div><div class="line">                <span class="keyword">with</span> open(file_path, <span class="string">'wb'</span>) <span class="keyword">as</span> handle:</div><div class="line">                    response = requests.get(url = image_url)</div><div class="line">                    <span class="keyword">for</span> block <span class="keyword">in</span> response.iter_content(<span class="number">1024</span>):</div><div class="line">                        <span class="keyword">if</span> <span class="keyword">not</span> block:</div><div class="line">                            <span class="keyword">break</span></div><div class="line">                        handle.write(block)</div><div class="line">            <span class="comment">#返回图片保存路径</span></div><div class="line">            item[<span class="string">'image_paths'</span>] = images</div><div class="line">        <span class="keyword">return</span> item</div></pre></td></tr></table></figure>
+<h4 id="settings-py-2"><a href="#settings-py-2" class="headerlink" title="settings.py"></a>settings.py</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">BOT_NAME = <span class="string">'cartoon'</span></div><div class="line"></div><div class="line">SPIDER_MODULES = [<span class="string">'cartoon.spiders'</span>]</div><div class="line">NEWSPIDER_MODULE = <span class="string">'cartoon.spiders'</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># Crawl responsibly by identifying yourself (and your website) on the user-agent</span></div><div class="line"><span class="comment">#USER_AGENT = 'cartoon (+http://www.yourdomain.com)'</span></div><div class="line"></div><div class="line"><span class="comment"># Obey robots.txt rules</span></div><div class="line">ROBOTSTXT_OBEY = <span class="keyword">False</span></div><div class="line"></div><div class="line">ITEM_PIPELINES = &#123;</div><div class="line">    <span class="string">'cartoon.pipelines.ComicImgDownloadPipeline'</span>: <span class="number">1</span>,</div><div class="line">&#125; </div><div class="line"></div><div class="line">IMAGES_STORE = <span class="string">'D:/火影忍者'</span></div><div class="line"></div><div class="line">COOKIES_ENABLED = <span class="keyword">False</span></div><div class="line"></div><div class="line">DOWNLOAD_DELAY = <span class="number">0.25</span>    <span class="comment"># 250 ms of delay</span></div></pre></td></tr></table></figure>
+<h4 id="items-py"><a href="#items-py" class="headerlink" title="items.py"></a>items.py</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> scrapy</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ComicItem</span><span class="params">(scrapy.Item)</span>:</span></div><div class="line">    dir_name = scrapy.Field()</div><div class="line">    link_url = scrapy.Field()</div><div class="line">    img_url = scrapy.Field()</div><div class="line">    image_paths = scrapy.Field()</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/19/php 水印/" rel="next" title="PHP 水印和缩略图">
+                <i class="fa fa-chevron-left"></i> PHP 水印和缩略图
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/20/python(2)/" rel="prev" title="python web crawling(2)">
+                python web crawling(2) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Daniel Lu" />
+          <p class="site-author-name" itemprop="name">Daniel Lu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/your-user-name" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="facebook">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      facebook
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.github.com" title="Github" target="_blank">Github</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#QuotesBot-using-scrapy"><span class="nav-number">1.</span> <span class="nav-text">QuotesBot using scrapy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#spider-py"><span class="nav-number">1.1.</span> <span class="nav-text">spider.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Running-the-spiders"><span class="nav-number">1.2.</span> <span class="nav-text">Running the spiders</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#w3school-com-cn"><span class="nav-number">2.</span> <span class="nav-text">w3school.com.cn</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#spider-py-1"><span class="nav-number">2.1.</span> <span class="nav-text">spider.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#settings-py"><span class="nav-number">2.2.</span> <span class="nav-text">settings.py</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#csdnblog"><span class="nav-number">3.</span> <span class="nav-text">csdnblog</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#spider-py-2"><span class="nav-number">3.1.</span> <span class="nav-text">spider.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#settings-py-1"><span class="nav-number">3.2.</span> <span class="nav-text">settings.py</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stock163"><span class="nav-number">4.</span> <span class="nav-text">stock163</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#comic"><span class="nav-number">5.</span> <span class="nav-text">comic</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#comic-py"><span class="nav-number">5.1.</span> <span class="nav-text">comic.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pipelines-py"><span class="nav-number">5.2.</span> <span class="nav-text">pipelines.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#settings-py-2"><span class="nav-number">5.3.</span> <span class="nav-text">settings.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#items-py"><span class="nav-number">5.4.</span> <span class="nav-text">items.py</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daniel Lu</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
