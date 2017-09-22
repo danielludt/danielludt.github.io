@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="use jquery to build navbar">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="use jquery to build navbar">
+<meta property="og:url" content="http://yoursite.com/2017/08/15/js navbar/index.html">
+<meta property="og:site_name" content="Daniel Lu">
+<meta property="og:description" content="use jquery to build navbar">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-09-22T00:51:38.297Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="use jquery to build navbar">
+<meta name="twitter:description" content="use jquery to build navbar">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/15/js navbar/"/>
+
+
+
+
+
+  <title>use jquery to build navbar | Daniel Lu</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Daniel Lu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Let's code</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/15/js navbar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daniel Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daniel Lu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">use jquery to build navbar</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-15T22:46:25+08:00">
+                2017-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>use jquery to build navbar<br><a id="more"></a></p>
+<h3 id="example1"><a href="#example1" class="headerlink" title="example1"></a>example1</h3><p><a href="https://codepen.io/jmkulakowski/pen/JXMmVx" target="_blank" rel="external">https://codepen.io/jmkulakowski/pen/JXMmVx</a> use bootstrap and jquery</p>
+<h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Add some space at the top to accomodate fixed menu</span></div><div class="line">accountForFixedMenu(<span class="number">0.5</span>);</div><div class="line"><span class="comment">// Enable smooth scroll when navigating to various sections</span></div><div class="line"><span class="comment">// Change nav from transparent to white on scroll</span></div><div class="line">navDynamicStyles(<span class="number">100</span>);</div><div class="line"><span class="comment">// Add fade effect on page scroll to feature image and highlight main text</span></div><div class="line">fadeFeatureImgOnScroll(<span class="number">100</span>, <span class="number">1</span>);</div><div class="line"></div><div class="line"> </div><div class="line"><span class="comment">/*-- Parallax Effect --*/</span></div><div class="line"><span class="comment">// Target the background element to which effect will be applied</span></div><div class="line"><span class="keyword">var</span> jumbotron = <span class="built_in">document</span>.querySelector(<span class="string">'.jumbotron'</span>);</div><div class="line"><span class="keyword">var</span> container = jumbotron.children[<span class="number">0</span>];</div><div class="line"><span class="keyword">var</span> parallaxBg = container.children[<span class="number">0</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">parallax</span>(<span class="params"></span>)</span>&#123;</div><div class="line"> <span class="keyword">var</span> scrolltop = <span class="built_in">window</span>.pageYOffset; <span class="comment">// get number of pixels document has scrolled vertically </span></div><div class="line">  parallaxBg.style.top = scrolltop * <span class="number">0.2</span> + <span class="string">'px'</span>; <span class="comment">// move parallaxBg at 20% of scroll rate</span></div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="comment">// Attach the effect to the window scroll</span></div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">// on page scroll</span></div><div class="line"> requestAnimationFrame(parallax); <span class="comment">// call parallax() on next available screen paint</span></div><div class="line">&#125;, <span class="literal">false</span>) </div><div class="line"></div><div class="line"><span class="comment">/** -----------------------------------------------------------------</span></div><div class="line"><span class="comment">* Function Definitions</span></div><div class="line"><span class="comment">-------------------------------------------------------------------*/</span></div><div class="line"><span class="comment">// Add an event listener to any element</span></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment"> * When calling this function, make sure to enclose the element and listner</span></div><div class="line"><span class="comment"> * tags in quotes - i.e. addListener(myElement, "onload", doThisFunction) </span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addListener</span>(<span class="params">elementTag, listener, func</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> element = <span class="built_in">document</span>.querySelectorAll(elementTag);</div><div class="line"></div><div class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; element.length; i++) &#123;</div><div class="line">    element[i].addEventListener(listener, func, <span class="literal">false</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">accountForFixedMenu</span>(<span class="params">factor</span>) </span>&#123; <span class="comment">// factor from 0 - 1 (% to offset)</span></div><div class="line">  <span class="keyword">var</span> jumbotron = <span class="built_in">document</span>.querySelector(<span class="string">".jumbotron"</span>);</div><div class="line">  <span class="keyword">var</span> navbar = <span class="built_in">document</span>.querySelector(<span class="string">".navbar"</span>);</div><div class="line"></div><div class="line">  <span class="comment">// Add navbar height + percentage of jumbotron' bottom padding</span></div><div class="line">  <span class="keyword">var</span> targetTopPadding = <span class="built_in">Number</span>(navbar.offsetHeight) +</div><div class="line">    <span class="built_in">Number</span>($(jumbotron).css(<span class="string">"padding-bottom"</span>).replace(<span class="string">"px"</span>, <span class="string">""</span>) * factor);</div><div class="line"></div><div class="line">  <span class="comment">// Set top padding of jumbotron</span></div><div class="line">  jumbotron.style.paddingTop = targetTopPadding + <span class="string">"px"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">navDynamicStyles</span>(<span class="params">buffer</span>) </span>&#123;</div><div class="line">  $(<span class="built_in">window</span>).scroll(<span class="function"><span class="keyword">function</span>(<span class="params">i</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> scrollDistance = $(<span class="built_in">window</span>).scrollTop(); <span class="comment">// How far window id from top</span></div><div class="line">    <span class="comment">// Reference the navbar elements</span></div><div class="line">    <span class="keyword">var</span> navbar = jQuery(<span class="string">'.navbar'</span>);</div><div class="line">    <span class="keyword">var</span> brandImage = jQuery(<span class="string">'.navbar-brand &gt; img'</span>);</div><div class="line">    <span class="keyword">var</span> siteTitle = jQuery(<span class="string">'.navbar-brand p'</span>);</div><div class="line">    <span class="keyword">var</span> navLinks = jQuery(<span class="string">'.navbar-default .navbar-nav&gt;li&gt;a'</span>);</div><div class="line">    <span class="keyword">var</span> navDropMenu = jQuery(<span class="string">'.navbar-default .navbar-collapse, .navbar-default .navbar-form'</span>);</div><div class="line"></div><div class="line">    <span class="comment">/* -----------------------------</span></div><div class="line"><span class="comment">    --   Scrolled Nav Settings    --</span></div><div class="line"><span class="comment">    ------------------------------*/</span></div><div class="line">    <span class="comment">// If the window is scrolled beyond the buffer</span></div><div class="line">    <span class="keyword">if</span> (scrollDistance &gt; buffer) &#123;</div><div class="line">      navbar.css(&#123;</div><div class="line">        backgroundColor: <span class="string">"#fff"</span>,</div><div class="line">        background: <span class="string">"linear-gradient(#fff, #f8f8f8)"</span>,</div><div class="line">        background: <span class="string">"-webkit-linear-gradient(#fff, #f8f8f8)"</span>,</div><div class="line">        background: <span class="string">"-o-linear-gradient(#fff, #f8f8f8)"</span>,</div><div class="line">        background: <span class="string">"-moz-linear-gradient(#fff, #f8f8f8)"</span></div><div class="line">      &#125;);</div><div class="line"></div><div class="line">      brandImage.css(&#123;</div><div class="line">        background: <span class="string">"none"</span>,</div><div class="line">        boxShadow: <span class="string">"none"</span></div><div class="line">      &#125;);</div><div class="line"></div><div class="line">      siteTitle.css(&#123;</div><div class="line">        color: <span class="string">"#777"</span>,</div><div class="line">        padding:<span class="string">"10px"</span></div><div class="line">      &#125;);</div><div class="line"></div><div class="line">      siteTitle.hover(</div><div class="line">        <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          jQuery(<span class="keyword">this</span>).css(<span class="string">"color"</span>, <span class="string">"#aaa"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          jQuery(<span class="keyword">this</span>).css(<span class="string">"color"</span>, <span class="string">"#777"</span>);</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">      navLinks.css(&#123;</div><div class="line">        color: <span class="string">"#777"</span>,</div><div class="line">        padding:<span class="string">"20px"</span></div><div class="line">      &#125;);</div><div class="line"></div><div class="line">      navLinks.hover(</div><div class="line">        <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          jQuery(<span class="keyword">this</span>).css(<span class="string">"color"</span>, <span class="string">"#aaa"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          jQuery(<span class="keyword">this</span>).css(<span class="string">"color"</span>, <span class="string">"#777"</span>);</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">      navDropMenu.css(&#123;</div><div class="line">        borderColor: <span class="string">"#e7e7e7"</span></div><div class="line">      &#125;);</div><div class="line"></div><div class="line">    &#125; <span class="comment">// END if</span></div><div class="line">    <span class="comment">/* -----------------------------</span></div><div class="line"><span class="comment">    --  Transparent Nav Settings  --</span></div><div class="line"><span class="comment">    ------------------------------*/</span></div><div class="line">    <span class="comment">// If the window is scrolled to the top of the page</span></div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (scrollDistance &lt; buffer) &#123;</div><div class="line">      navbar.css(&#123;</div><div class="line">        background: <span class="string">"none"</span></div><div class="line">      &#125;);</div><div class="line"></div><div class="line">      brandImage.css(&#123;</div><div class="line">        backgroundColor: <span class="string">"#ccc"</span>,</div><div class="line">        boxShadow: <span class="string">"0 0 3px #ccc"</span></div><div class="line">      &#125;);</div><div class="line"></div><div class="line">      siteTitle.css(&#123;</div><div class="line">        color: <span class="string">"#ccc"</span>,</div><div class="line">        padding:<span class="string">"20px"</span></div><div class="line">      &#125;);</div><div class="line"></div><div class="line">      siteTitle.hover(</div><div class="line">        <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          jQuery(<span class="keyword">this</span>).css(<span class="string">"color"</span>, <span class="string">"#eee"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          jQuery(<span class="keyword">this</span>).css(<span class="string">"color"</span>, <span class="string">"#ccc"</span>);</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">      navLinks.css(&#123;</div><div class="line">        color: <span class="string">"#ccc"</span>,</div><div class="line">        padding:<span class="string">"30px"</span></div><div class="line">      &#125;);</div><div class="line"></div><div class="line">      navLinks.hover(</div><div class="line">        <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          jQuery(<span class="keyword">this</span>).css(<span class="string">"color"</span>, <span class="string">"#eee"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          jQuery(<span class="keyword">this</span>).css(<span class="string">"color"</span>, <span class="string">"#ccc"</span>);</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">      navDropMenu.css(&#123;</div><div class="line">        borderColor: <span class="string">"#444"</span></div><div class="line">      &#125;);</div><div class="line"></div><div class="line">    &#125; <span class="comment">// END else if</span></div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fadeFeatureImgOnScroll</span>(<span class="params">scrollDistance, parallaxFactor</span>) </span>&#123;</div><div class="line">  $(<span class="built_in">window</span>).scroll(<span class="function"><span class="keyword">function</span>(<span class="params">i</span>) </span>&#123;</div><div class="line">    <span class="comment">// Scroll distance from window top</span></div><div class="line">    <span class="keyword">var</span> scrollVar = $(<span class="built_in">window</span>).scrollTop();</div><div class="line">    <span class="comment">// The featured image</span></div><div class="line">    <span class="keyword">var</span> profileImage = $(<span class="string">'.jumbotron .container'</span>).children(<span class="string">'.profile-img'</span>);</div><div class="line">    <span class="comment">// The heading Text</span></div><div class="line">    <span class="keyword">var</span> headText = $(<span class="string">'.jumbotron .container h1'</span>);</div><div class="line">    <span class="keyword">var</span> subHeadText = $(<span class="string">'.jumbotron .container h4'</span>);</div><div class="line"></div><div class="line">    profileImage.css(&#123;</div><div class="line">      <span class="string">'top'</span>: parallaxFactor * scrollVar,</div><div class="line">      <span class="string">'opacity'</span>: (scrollDistance - scrollVar) / <span class="number">100</span></div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">// Add soft transition to head text</span></div><div class="line">    headText.addClass(<span class="string">'soft-transition'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// If the window is scrolled beyond the scrollDistance</span></div><div class="line">    <span class="comment">// and featured image is invisible</span></div><div class="line">    <span class="keyword">if</span> (scrollVar &gt; scrollDistance) &#123;</div><div class="line">      <span class="comment">// Add a text hightlight to the head text</span></div><div class="line">      headText.css(&#123;</div><div class="line">        textShadow: <span class="string">"0 0 10px #ccc"</span></div><div class="line">      &#125;);</div><div class="line">      subHeadText.css(&#123;</div><div class="line">        textShadow: <span class="string">"0 0 10px #ccc"</span></div><div class="line">      &#125;);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="comment">// Otherwise, remove the effect</span></div><div class="line">      headText.css(&#123;</div><div class="line">        textShadow: <span class="string">"none"</span></div><div class="line">      &#125;);</div><div class="line">      subHeadText.css(&#123;</div><div class="line">        textShadow: <span class="string">"none"</span></div><div class="line">      &#125;);</div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.soft-transition</span> &#123;</div><div class="line">  <span class="attribute">transition</span>: all <span class="number">0.25s</span> ease-out;</div><div class="line">  <span class="attribute">-webkit-transition</span>: all <span class="number">0.25s</span> ease-out;</div><div class="line">  <span class="attribute">-moz-transition</span>: all <span class="number">0.25s</span> ease-out;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">max-width</span>: <span class="number">1024px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.container-fluid</span> &#123;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*-- Navbar settings --*/</span></div><div class="line"><span class="selector-class">.navbar</span> &#123;</div><div class="line">  <span class="attribute">transition</span>: all <span class="number">0.5s</span> ease-out;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.navbar</span> &#123;</div><div class="line">  <span class="attribute">background</span>: none;</div><div class="line">  <span class="attribute">border</span>: none;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.navbar-brand</span> &#123;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>; <span class="comment">/* Allows more space for brand logo to expand */</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.navbar-brand</span> &gt; <span class="selector-tag">img</span> &#123;</div><div class="line">  <span class="attribute">max-height</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">  <span class="attribute">margin-right</span>: <span class="number">2px</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</div><div class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">3px</span> <span class="number">#ccc</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.navbar-brand</span> <span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#ccc</span>;</div><div class="line">  <span class="attribute">padding</span>:<span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.navbar-brand</span> <span class="selector-tag">p</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#eee</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.navbar-default</span> <span class="selector-class">.navbar-nav</span>&gt;<span class="selector-tag">li</span>&gt;<span class="selector-tag">a</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#ccc</span>;</div><div class="line">  <span class="attribute">padding</span>:<span class="number">30px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.navbar-default</span> <span class="selector-class">.navbar-nav</span>&gt;<span class="selector-tag">li</span>&gt;<span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#eee</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.navbar-default</span> <span class="selector-class">.navbar-collapse</span>, <span class="selector-class">.navbar-default</span> <span class="selector-class">.navbar-form</span> &#123;</div><div class="line">  <span class="attribute">border-color</span>: <span class="number">#444</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*-- Mobile nav --*/</span></div><div class="line"><span class="selector-class">.navbar-default</span> <span class="selector-class">.navbar-toggle</span>, <span class="selector-class">.navbar-default</span> <span class="selector-class">.navbar-toggle</span><span class="selector-pseudo">:focus</span>, <span class="selector-class">.navbar-default</span> <span class="selector-class">.navbar-toggle</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">  <span class="attribute">background</span>: none;</div><div class="line">  <span class="attribute">border</span>: none;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="comment">/*-- Jumbotron settings --*/</span></div><div class="line"><span class="selector-class">.jumbotron</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">text-align</span>: center;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#333</span>;</div><div class="line">  <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.jumbotron</span> <span class="selector-class">.container</span> <span class="selector-class">.profile-img</span>, <span class="selector-class">.jumbotron</span> <span class="selector-class">.container</span> <span class="selector-tag">h1</span>, <span class="selector-class">.jumbotron</span> <span class="selector-class">.container</span> <span class="selector-tag">h4</span>, <span class="selector-class">.jumbotron</span> <span class="selector-class">.container</span> <span class="selector-tag">hr</span>, <span class="selector-class">.jumbotron</span> <span class="selector-class">.container</span> <span class="selector-tag">a</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.jumbotron</span> <span class="selector-class">.parallax-img</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">z-index</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.jumbotron</span> <span class="selector-class">.profile-img</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">25%</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">20px</span> <span class="number">0</span>;</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">border</span>: <span class="number">8px</span> solid <span class="number">#eee</span>;</div><div class="line">  <span class="attribute">-moz-box-shadow</span>:    <span class="number">0px</span> <span class="number">0px</span> <span class="number">20px</span> <span class="number">#ccc</span>;</div><div class="line">  <span class="attribute">-webkit-box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">20px</span> <span class="number">#ccc</span>;</div><div class="line">  <span class="attribute">box-shadow</span>:         <span class="number">0px</span> <span class="number">0px</span> <span class="number">20px</span> <span class="number">#ccc</span>;</div><div class="line">  <span class="attribute">filter</span>: <span class="built_in">hue-rotate</span>(30deg);</div><div class="line">  <span class="attribute">-webkit-filter</span>: <span class="built_in">hue-rotate</span>(30deg);</div><div class="line">  <span class="attribute">-moz-filter</span>: <span class="built_in">hue-rotate</span>(30deg);</div><div class="line">  <span class="attribute">-o-filter</span>: <span class="built_in">hue-rotate</span>(30deg);</div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">  filter: saturate(0);</span></div><div class="line"><span class="comment">  -webkit-filter: saturate(0);</span></div><div class="line"><span class="comment">  -moz-filter: saturate(0);</span></div><div class="line"><span class="comment">  -o-filter: saturate(0);</span></div><div class="line"><span class="comment">*/</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.jumbotron</span> <span class="selector-tag">hr</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">50%</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.jumbotron</span> <span class="selector-tag">h4</span> &#123;</div><div class="line">    <span class="attribute">max-width</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*-- Custom Buttons --*/</span></div><div class="line"><span class="selector-class">.btn</span><span class="selector-pseudo">:focus</span>,<span class="selector-class">.btn</span><span class="selector-pseudo">:active</span> &#123;  <span class="comment">/* Prevent clue outline around boostrap buttons */</span></div><div class="line">   <span class="attribute">outline</span>: none <span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.btn-clear-light</span>, <span class="selector-class">.btn-clear-light</span><span class="selector-pseudo">:visited</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">  <span class="attribute">background</span>: none;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#fff</span>;</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.btn-clear-light</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#eee</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.btn-clear-light</span><span class="selector-pseudo">:active</span>, <span class="selector-class">.btn-clear-light</span><span class="selector-pseudo">:focus</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#ddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/* Flaired edges, by Tomas Theunissen */</span></div><div class="line"><span class="selector-tag">hr</span><span class="selector-class">.style-seven</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">30px</span>;</div><div class="line">    <span class="attribute">border-style</span>: solid;</div><div class="line">    <span class="attribute">border-color</span>: <span class="number">#eee</span>;</div><div class="line">    <span class="attribute">border-width</span>: <span class="number">1px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">hr</span><span class="selector-class">.style-seven</span><span class="selector-pseudo">:before</span> &#123; <span class="comment">/* Not really supposed to work, but does */</span></div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">content</span>: <span class="string">""</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">30px</span>;</div><div class="line">    <span class="attribute">margin-top</span>: -<span class="number">31px</span>;</div><div class="line">    <span class="attribute">border-style</span>: solid;</div><div class="line">    <span class="attribute">border-color</span>: <span class="number">#eee</span>;</div><div class="line">    <span class="attribute">border-width</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">1px</span> <span class="number">0</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*-----------------</span></div><div class="line"><span class="comment">* Mobile Settings *</span></div><div class="line"><span class="comment">-----------------*/</span></div><div class="line"><span class="comment">/* Make sure parallax image fills jumbotron */</span></div><div class="line">@media(max-width: 1200px) &#123;</div><div class="line">  <span class="selector-class">.jumbotron</span> <span class="selector-class">.parallax-img</span> &#123;</div><div class="line">      <span class="attribute">width</span>: auto;</div><div class="line">      <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*-- iPhone 6+ --*/</span></div><div class="line">@media(max-width: 736px) &#123;</div><div class="line">  <span class="comment">/* Expand feature image size */</span></div><div class="line">  <span class="selector-class">.jumbotron</span> <span class="selector-class">.profile-img</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">66%</span>;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<h4 id="html"><a href="#html" class="headerlink" title="html"></a>html</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"jumbotron"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://jimkulakowski.com/web-design/img/parallax-backgrounds/space.jpg"</span> <span class="attr">alt</span>=<span class="string">"Image of mac laptop on a desk"</span> <span class="attr">class</span>=<span class="string">"parallax-img"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://jimkulakowski.com/web-design/img/jim-at-piano.png"</span> <span class="attr">alt</span>=<span class="string">"jim at piano"</span> <span class="attr">class</span>=<span class="string">"profile-img"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Jim Kulakowski<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">hr</span> <span class="attr">class</span>=<span class="string">"style-seven"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h4</span>&gt;</span>Web Designer - Graphic Artist - User Interface Designer - Interactive Media Designer<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"btn btn-lg btn-clear-light soft-transition"</span> <span class="attr">href</span>=<span class="string">"https://twitter.com/j_kula"</span> <span class="attr">role</span>=<span class="string">"button"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-twitter"</span>&gt;</span> Twitter<span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"btn btn-lg btn-clear-light soft-transition"</span> <span class="attr">href</span>=<span class="string">"https://github.com/jmkulakowski"</span> <span class="attr">role</span>=<span class="string">"button"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-github-square"</span>&gt;</span> Github<span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"btn btn-lg btn-clear-light soft-transition"</span> <span class="attr">href</span>=<span class="string">"https://www.linkedin.com/in/jkulakowski</span></span></div><div class="line"><span class="tag"><span class="string">    "</span> <span class="attr">role</span>=<span class="string">"button"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-linkedin-square"</span>&gt;</span> LinkedIn<span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- Fixed Navbar --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"navbar navbar-default navbar-fixed-top"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="comment">&lt;!-- Mobile menu button --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"navbar-toggle collapsed"</span> <span class="attr">data-toggle</span>=<span class="string">"collapse"</span> <span class="attr">data-target</span>=<span class="string">"#bs-example-navbar-collapse-1"</span> <span class="attr">aria-expanded</span>=<span class="string">"false"</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"sr-only"</span>&gt;</span>Toggle navigation<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="comment">&lt;!-- Site Branding --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"navbar-header"</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"navbar-brand"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://jimkulakowski.com/web-design/img/jk-logo-space.png"</span> <span class="attr">alt</span>=<span class="string">"Jim Kulakowski Space Logo"</span> <span class="attr">class</span>=<span class="string">"site-logo"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>Jim Kulakowski<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="comment">&lt;!-- Collect the nav links, forms, and other content for toggling --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"collapse navbar-collapse navbar-right"</span> <span class="attr">id</span>=<span class="string">"bs-example-navbar-collapse-1"</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"nav navbar-nav"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#portfolio"</span>&gt;</span>Portfolio<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#about"</span>&gt;</span>About<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#skills"</span>&gt;</span>Skills<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#contact"</span>&gt;</span>Contact<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- END .navbar-collapse --&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="comment">&lt;!-- END .container --&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- END .container-fluid --&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="example2"><a href="#example2" class="headerlink" title="example2"></a>example2</h3><p><a href="https://codepen.io/j_holtslander/pen/waQQYm" target="_blank" rel="external">https://codepen.io/j_holtslander/pen/waQQYm</a><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h4 id="html-1"><a href="#html-1" class="headerlink" title="html"></a>html</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"navbar navbar-default"</span> <span class="attr">role</span>=<span class="string">"navigation"</span> &gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"navbar-header"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"navbar-toggle"</span> <span class="attr">data-toggle</span>=<span class="string">"collapse"</span></span></div><div class="line"><span class="tag">                <span class="attr">data-target</span>=<span class="string">"#example-navbar-collapse"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"sr-only"</span>&gt;</span>切换导航<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"navbar-brand"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>菜鸟教程<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"collapse navbar-collapse"</span> <span class="attr">id</span>=<span class="string">"example-navbar-collapse"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"nav navbar-nav"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>iOS<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>SVN<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"dropdown"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"dropdown-toggle"</span> <span class="attr">data-toggle</span>=<span class="string">"dropdown"</span>&gt;</span></div><div class="line">                    Java <span class="tag">&lt;<span class="name">b</span> <span class="attr">class</span>=<span class="string">"caret"</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"dropdown-menu"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>jmeter<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>EJB<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Jasper Report<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"divider"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>分离的链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"divider"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>另一个分离的链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"myCarousel"</span> <span class="attr">class</span>=<span class="string">"carousel slide"</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- Indicators --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">ol</span> <span class="attr">class</span>=<span class="string">"carousel-indicators"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-target</span>=<span class="string">"#myCarousel"</span> <span class="attr">data-slide-to</span>=<span class="string">"0"</span> <span class="attr">class</span>=<span class="string">"active"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-target</span>=<span class="string">"#myCarousel"</span> <span class="attr">data-slide-to</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-target</span>=<span class="string">"#myCarousel"</span> <span class="attr">data-slide-to</span>=<span class="string">"2"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="comment">&lt;!-- Wrapper for Slides --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"carousel-inner"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item active"</span>&gt;</span></div><div class="line">                <span class="comment">&lt;!-- Set the first background image using inline CSS below. --&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"fill"</span> <span class="attr">style</span>=<span class="string">"background-image:url('http://www.marchettidesign.net/demo/optimized-bootstrap/code.jpg');"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"carousel-caption"</span>&gt;</span></div><div class="line">                     <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"animated fadeInLeft"</span>&gt;</span>Caption Animation<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">                     <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"animated fadeInUp"</span>&gt;</span>Lorem ipsum dolor sit amet consectetur adipisicing elit<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">                     <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"animated fadeInUp"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"btn btn-transparent btn-rounded btn-large"</span>&gt;</span>Learn More<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span></div><div class="line">                <span class="comment">&lt;!-- Set the second background image using inline CSS below. --&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"fill"</span> <span class="attr">style</span>=<span class="string">"background-image:url('http://www.marchettidesign.net/demo/optimized-bootstrap/conference.jpg');"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"carousel-caption"</span>&gt;</span></div><div class="line">                     <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"animated fadeInDown"</span>&gt;</span>Caption Animation<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">                     <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"animated fadeInUp"</span>&gt;</span>Lorem ipsum dolor sit amet consectetur adipisicing elit<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">                     <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"animated fadeInUp"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"btn btn-transparent btn-rounded btn-large"</span>&gt;</span>Learn More<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span></div><div class="line">                <span class="comment">&lt;!-- Set the third background image using inline CSS below. --&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"fill"</span> <span class="attr">style</span>=<span class="string">"background-image:url('http://www.marchettidesign.net/demo/optimized-bootstrap/campus.jpg');"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"carousel-caption"</span>&gt;</span></div><div class="line">                     <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"animated fadeInRight"</span>&gt;</span>Caption Animation<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">                     <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"animated fadeInRight"</span>&gt;</span>Lorem ipsum dolor sit amet consectetur adipisicing elit<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">                     <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"animated fadeInRight"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"btn btn-transparent btn-rounded btn-large"</span>&gt;</span>Learn More<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="comment">&lt;!-- Controls --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"left carousel-control"</span> <span class="attr">href</span>=<span class="string">"#myCarousel"</span> <span class="attr">data-slide</span>=<span class="string">"prev"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-prev"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"right carousel-control"</span> <span class="attr">href</span>=<span class="string">"#myCarousel"</span> <span class="attr">data-slide</span>=<span class="string">"next"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-next"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="css-1"><a href="#css-1" class="headerlink" title="css"></a>css</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.carousel</span>,</div><div class="line"><span class="selector-class">.item</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">620px</span>;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="comment">/* Make sure parallax image fills jumbotron */</span></div><div class="line">@media(max-width: 1200px) &#123;</div><div class="line"> <span class="selector-class">.carousel</span>,</div><div class="line"><span class="selector-class">.item</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">620px</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*-- iPhone 6+ --*/</span></div><div class="line">@media(max-width: 736px) &#123;</div><div class="line">  <span class="comment">/* Expand feature image size */</span></div><div class="line"><span class="selector-class">.carousel</span>,</div><div class="line"><span class="selector-class">.item</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">580px</span>;</div><div class="line">   </div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.carousel-inner</span> &#123;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#000</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.carousel-caption</span>&#123;<span class="attribute">padding-bottom</span>:<span class="number">80px</span>;&#125;</div><div class="line"><span class="selector-class">.carousel-caption</span> <span class="selector-tag">h2</span>&#123;<span class="attribute">font-size</span>: <span class="number">50px</span>;&#125;</div><div class="line"><span class="selector-class">.carousel-caption</span> <span class="selector-tag">p</span>&#123;<span class="attribute">padding</span>: <span class="number">10px</span>;&#125;</div><div class="line"><span class="comment">/* Background images are set within the HTML using inline CSS, not here */</span></div><div class="line"></div><div class="line"><span class="selector-class">.fill</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">background-position</span>: center;</div><div class="line">    <span class="attribute">-webkit-background-size</span>: cover;</div><div class="line">    <span class="attribute">-moz-background-size</span>: cover;</div><div class="line">    <span class="attribute">background-size</span>: cover;</div><div class="line">    <span class="attribute">-o-background-size</span>: cover;</div><div class="line">    <span class="attribute">opacity</span>:<span class="number">0.6</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Button</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="selector-class">.btn-transparent</span> &#123;</div><div class="line">  <span class="attribute">background</span>: transparent;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">  <span class="attribute">border</span>: <span class="number">2px</span> solid <span class="number">#fff</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.btn-transparent</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#fff</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.btn-rounded</span> &#123;</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">70px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.btn-large</span> &#123;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">11px</span> <span class="number">45px</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">18px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Change animation duration</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="selector-class">.animated</span> &#123;</div><div class="line">  <span class="attribute">-webkit-animation-duration</span>: <span class="number">1.5s</span>;</div><div class="line">  <span class="attribute">animation-duration</span>: <span class="number">1.5s</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> fadeInRight &#123;</div><div class="line">  <span class="selector-tag">from</span> &#123;</div><div class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">translate3d</span>(100px, 0, 0);</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(100px, 0, 0);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="selector-tag">to</span> &#123;</div><div class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</div><div class="line">    <span class="attribute">-webkit-transform</span>: none;</div><div class="line">    <span class="attribute">transform</span>: none;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">keyframes</span> fadeInRight &#123;</div><div class="line">  <span class="selector-tag">from</span> &#123;</div><div class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">translate3d</span>(100px, 0, 0);</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(100px, 0, 0);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="selector-tag">to</span> &#123;</div><div class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</div><div class="line">    <span class="attribute">-webkit-transform</span>: none;</div><div class="line">    <span class="attribute">transform</span>: none;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.fadeInRight</span> &#123;</div><div class="line">  <span class="attribute">-webkit-animation-name</span>: fadeInRight;</div><div class="line">  <span class="attribute">animation-name</span>: fadeInRight;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.navbar</span><span class="selector-class">.navbar-default</span>&#123;</div><div class="line">   <span class="attribute">margin-bottom</span>: <span class="number">0px</span>;</div><div class="line">   <span class="attribute">background-color</span>:<span class="number">#fff</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="js-1"><a href="#js-1" class="headerlink" title="js"></a>js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span>  mn = $(<span class="string">".navbar.navbar-default"</span>);</div><div class="line"><span class="keyword">var</span>  mns = <span class="string">"navbar-fixed-top"</span>;</div><div class="line"><span class="keyword">var</span>  hdr = $(<span class="string">'.carousel'</span>).height(); </div><div class="line"></div><div class="line">$(<span class="built_in">window</span>).scroll(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>( $(<span class="keyword">this</span>).scrollTop() &gt; (hdr+<span class="number">80</span>) ) &#123;</div><div class="line">    mn.addClass(mns);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    mn.removeClass(mns);</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="example-3-toggle-navbar-when-you-scroll-up-or-the-down-pages"><a href="#example-3-toggle-navbar-when-you-scroll-up-or-the-down-pages" class="headerlink" title="example 3: toggle navbar when you scroll up or the down pages"></a>example 3: toggle navbar when you scroll up or the down pages</h3><h4 id="js-2"><a href="#js-2" class="headerlink" title="js"></a>js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">jQuery(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params">$</span>) </span>&#123;</div><div class="line"><span class="keyword">var</span>  mn = $(<span class="string">".iu"</span>);</div><div class="line"><span class="keyword">var</span>  mns = $(<span class="string">".yu"</span>);</div><div class="line"><span class="keyword">var</span> mnn= $(<span class="string">".pu"</span>);</div><div class="line"><span class="keyword">var</span>  hdr = $(<span class="string">'.yt'</span>).height(); </div><div class="line"><span class="keyword">var</span> hdu = $(<span class="string">'.yi'</span>).height();</div><div class="line"><span class="keyword">var</span> hde = $(<span class="built_in">document</span>).scrollTop();</div><div class="line">$(<span class="built_in">window</span>).scroll(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> hdd = $(<span class="built_in">document</span>).scrollTop();</div><div class="line">  <span class="keyword">if</span>( hdd &lt; hde ) &#123; </div><div class="line">    mn.fadeIn(<span class="number">500</span>);</div><div class="line">    mns.fadeOut(<span class="number">500</span>);</div><div class="line">    mnn.fadeOut(<span class="number">500</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> <span class="keyword">if</span>(hdd&gt;hde)&#123;</div><div class="line">    <span class="keyword">if</span> (hdd&gt;(hdr+hdu)) &#123;</div><div class="line">    mn.fadeOut(<span class="number">500</span>);</div><div class="line">    mnn.fadeIn(<span class="number">500</span>);</div><div class="line">    mns.fadeOut(<span class="number">500</span>);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(hdd&gt;hdr)&#123;</div><div class="line">    mn.fadeOut(<span class="number">500</span>);</div><div class="line">    mns.fadeIn(<span class="number">500</span>);</div><div class="line">    mnn.fadeOut(<span class="number">500</span>);</div><div class="line">    &#125; <span class="keyword">else</span>&#123;</div><div class="line">    mn.fadeOut(<span class="number">500</span>);</div><div class="line">    mns.fadeIn(<span class="number">500</span>);</div><div class="line">    mnn.fadeOut(<span class="number">500</span>);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  hde=hdd;</div><div class="line">&#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h4 id="html-2"><a href="#html-2" class="headerlink" title="html"></a>html</h4><p>3 navbar like this<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"iu navbar navbar-default navbar-fixed-top"</span> <span class="attr">role</span>=<span class="string">"navigation"</span> &gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"navbar-header"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"navbar-toggle"</span> <span class="attr">data-toggle</span>=<span class="string">"collapse"</span></span></div><div class="line"><span class="tag">                <span class="attr">data-target</span>=<span class="string">"#example-navbar-collapse"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"sr-only"</span>&gt;</span>切换导航<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"navbar-brand"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>菜鸟教程<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"collapse navbar-collapse"</span> <span class="attr">id</span>=<span class="string">"example-navbar-collapse"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"nav navbar-nav"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"active"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>iOS<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>SVN<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"dropdown"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"dropdown-toggle"</span> <span class="attr">data-toggle</span>=<span class="string">"dropdown"</span>&gt;</span></div><div class="line">                    Java <span class="tag">&lt;<span class="name">b</span> <span class="attr">class</span>=<span class="string">"caret"</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"dropdown-menu"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>jmeter<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>EJB<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Jasper Report<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"divider"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>分离的链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"divider"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>另一个分离的链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"yu"</span>&gt;</span><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"pu"</span>&gt;</span><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"yt container-fluid"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"yi container-fluid"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"yo container-fluid"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h4 id="css-2"><a href="#css-2" class="headerlink" title="css"></a>css</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.yu</span>&#123;<span class="attribute">display</span>:none;&#125;</div><div class="line"><span class="selector-class">.yt</span>&#123;<span class="attribute">height</span>: <span class="number">300px</span>;</div><div class="line"><span class="attribute">background-color</span>: <span class="number">#999</span>;&#125;</div><div class="line"><span class="selector-class">.yi</span>&#123;<span class="attribute">height</span>: <span class="number">500px</span>;</div><div class="line"><span class="attribute">background-color</span>: <span class="number">#111</span>;&#125;</div><div class="line"><span class="selector-class">.yo</span>&#123;<span class="attribute">height</span>: <span class="number">1500px</span>;</div><div class="line"><span class="attribute">background-color</span>: <span class="number">#222</span>;&#125;</div><div class="line"><span class="selector-class">.pu</span>&#123;<span class="attribute">display</span>:none;&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/15/python book code2/" rel="next" title="web scraping with python 代码笔记/code notes part2">
+                <i class="fa fa-chevron-left"></i> web scraping with python 代码笔记/code notes part2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/16/python jsondic/" rel="prev" title="python csv文件与字典，列表等之间的转换小结">
+                python csv文件与字典，列表等之间的转换小结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Daniel Lu" />
+          <p class="site-author-name" itemprop="name">Daniel Lu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/your-user-name" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="facebook">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      facebook
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.github.com" title="Github" target="_blank">Github</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#example1"><span class="nav-number">1.</span> <span class="nav-text">example1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#js"><span class="nav-number">1.1.</span> <span class="nav-text">js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css"><span class="nav-number">1.2.</span> <span class="nav-text">css</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html"><span class="nav-number">1.3.</span> <span class="nav-text">html</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example2"><span class="nav-number">2.</span> <span class="nav-text">example2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#html-1"><span class="nav-number">2.1.</span> <span class="nav-text">html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css-1"><span class="nav-number">2.2.</span> <span class="nav-text">css</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js-1"><span class="nav-number">2.3.</span> <span class="nav-text">js</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example-3-toggle-navbar-when-you-scroll-up-or-the-down-pages"><span class="nav-number">3.</span> <span class="nav-text">example 3: toggle navbar when you scroll up or the down pages</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#js-2"><span class="nav-number">3.1.</span> <span class="nav-text">js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html-2"><span class="nav-number">3.2.</span> <span class="nav-text">html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css-2"><span class="nav-number">3.3.</span> <span class="nav-text">css</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daniel Lu</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
