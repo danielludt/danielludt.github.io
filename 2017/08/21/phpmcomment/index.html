@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="php," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="use php to build multi level comment system">
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="use php to build multi level comment system">
+<meta property="og:url" content="http://yoursite.com/2017/08/21/phpmcomment/index.html">
+<meta property="og:site_name" content="Daniel Lu">
+<meta property="og:description" content="use php to build multi level comment system">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-09-26T00:26:37.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="use php to build multi level comment system">
+<meta name="twitter:description" content="use php to build multi level comment system">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/21/phpmcomment/"/>
+
+
+
+
+
+  <title>use php to build multi level comment system | Daniel Lu</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Daniel Lu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Let's code</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/21/phpmcomment/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daniel Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daniel Lu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">use php to build multi level comment system</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-21T22:46:25+08:00">
+                2017-08-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>use php to build multi level comment system<br><a id="more"></a></p>
+<h3 id="multi-level-comment-system"><a href="#multi-level-comment-system" class="headerlink" title="multi level comment system"></a>multi level comment system</h3><p><a href="http://www.roytuts.com/nested-comment-system-in-php-ajax/" target="_blank" rel="external">http://www.roytuts.com/nested-comment-system-in-php-ajax/</a></p>
+<h4 id="index-php"><a href="#index-php" class="headerlink" title="index.php"></a>index.php</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;Nested <span class="keyword">or</span> hierarchical comment system in PHP, AJAX, Jquery&lt;/title&gt;</div><div class="line">        &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"comments.css"</span>&gt;</div><div class="line">        &lt;script src=<span class="string">"js/jquery-1.9.1.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">        &lt;script src=<span class="string">"js/jquery-ui-1.10.3-custom.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">        &lt;script src=<span class="string">"js/jquery-migrate-1.2.1.js"</span>&gt;&lt;/script&gt;</div><div class="line">        &lt;script src=<span class="string">"js/jquery.blockUI.js"</span>&gt;&lt;/script&gt;</div><div class="line">        &lt;script src=<span class="string">"comments_blog.js"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        <span class="meta">&lt;?php</span></div><div class="line">        <span class="keyword">require</span>(<span class="string">"comments.php"</span>);</div><div class="line">        <span class="meta">?&gt;</span></div><div class="line">        &lt;div style=<span class="string">"width: 600px;"</span>&gt;</div><div class="line">            &lt;div id=<span class="string">"comment_wrapper"</span>&gt;</div><div class="line">                &lt;div id=<span class="string">"comment_form_wrapper"</span>&gt;</div><div class="line">                    &lt;div id=<span class="string">"comment_resp"</span>&gt;&lt;/div&gt;</div><div class="line">                    &lt;h4&gt;Please Leave a Reply&lt;a href=<span class="string">"javascript:void(0);"</span> id=<span class="string">"cancel-comment-reply-link"</span>&gt;Cancel Reply&lt;/a&gt;&lt;/h4&gt;</div><div class="line">                    &lt;form id=<span class="string">"comment_form"</span> name=<span class="string">"comment_form"</span> action=<span class="string">""</span> method=<span class="string">"post"</span>&gt;</div><div class="line">                        &lt;div&gt;</div><div class="line">                            Name&lt;input type=<span class="string">"text"</span> name=<span class="string">"comment_name"</span> id=<span class="string">"comment_name"</span> size=<span class="string">"54"</span>/&gt;</div><div class="line">                        &lt;/div&gt;</div><div class="line">                        &lt;div&gt;</div><div class="line">                            Email&lt;input type=<span class="string">"text"</span> name=<span class="string">"comment_email"</span> id=<span class="string">"comment_email"</span> size=<span class="string">"54"</span>/&gt;</div><div class="line">                        &lt;/div&gt;</div><div class="line">                        &lt;div&gt;</div><div class="line">                            Website&lt;input type=<span class="string">"text"</span> name=<span class="string">"comment_web"</span> id=<span class="string">"comment_web"</span> size=<span class="string">"54"</span>/&gt;</div><div class="line">                        &lt;/div&gt;</div><div class="line">                        &lt;div&gt;</div><div class="line">                            Comment&lt;textarea name=<span class="string">"comment_text"</span> id=<span class="string">"comment_text"</span> rows=<span class="string">"6"</span>&gt;&lt;/textarea&gt;</div><div class="line">                        &lt;/div&gt;</div><div class="line">                        &lt;div&gt;</div><div class="line">                            &lt;input type=<span class="string">"hidden"</span> name=<span class="string">"reply_id"</span> id=<span class="string">"reply_id"</span> value=<span class="string">""</span>/&gt;</div><div class="line">                            &lt;input type=<span class="string">"hidden"</span> name=<span class="string">"depth_level"</span> id=<span class="string">"depth_level"</span> value=<span class="string">""</span>/&gt;</div><div class="line">                            &lt;input type="submit" name="comment_submit" id="comment_submit" value="Post Comment" class="button"/&gt;</div><div class="line">                        &lt;/div&gt;</div><div class="line">                    &lt;/form&gt;</div><div class="line">                &lt;/div&gt;</div><div class="line">                <span class="meta">&lt;?php</span></div><div class="line">                <span class="keyword">echo</span> $comments;</div><div class="line">                <span class="meta">?&gt;</span></div><div class="line">            &lt;/div&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h4 id="create-table-in-mysql"><a href="#create-table-in-mysql" class="headerlink" title="create table in mysql"></a>create table in mysql</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`comment`</span> (</div><div class="line"><span class="string">`comment_id`</span> <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</div><div class="line"><span class="string">`comment_text`</span> <span class="built_in">text</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`parent_id`</span> <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`ip_address`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`email_address`</span> <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`web_address`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`created_date`</span> <span class="keyword">timestamp</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">CURRENT_TIMESTAMP</span>,</div><div class="line"><span class="string">`created_by`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">PRIMARY <span class="keyword">KEY</span> (<span class="string">`comment_id`</span>)</div><div class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">1</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</div></pre></td></tr></table></figure>
+<h4 id="comments-php"><a href="#comments-php" class="headerlink" title="comments.php"></a>comments.php</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> <span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">require</span>(<span class="string">"helper.php"</span>);</div><div class="line"><span class="keyword">require</span>(<span class="string">"config.php"</span>);</div><div class="line">$sql = <span class="string">"SELECT * FROM comment"</span>;</div><div class="line">$results = mysqli_query($con,$sql);</div><div class="line">$items = <span class="keyword">array</span>();</div><div class="line"><span class="keyword">while</span> ($row = mysqli_fetch_assoc($results)) &#123;</div><div class="line">    $items[] = $row;</div><div class="line">&#125;</div><div class="line">$comments = format_comments($items);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="config-php"><a href="#config-php" class="headerlink" title="config.php"></a>config.php</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$hostname = <span class="string">'localhost'</span>; <span class="comment">//it's localhost in all all cases</span></div><div class="line">$db_username = <span class="string">'root'</span>;</div><div class="line">$db_password = <span class="string">''</span>;</div><div class="line">$dbname = <span class="string">'comments'</span>;</div><div class="line">$con = <span class="keyword">new</span> mysqli($hostname, $db_username, $db_password,$dbname);</div><div class="line"><span class="keyword">if</span> (mysqli_connect_errno($con)) </div><div class="line">&#123; </div><div class="line">    <span class="keyword">echo</span> <span class="string">"Error: "</span> . mysqli_connect_error(); </div><div class="line">&#125; </div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="helper-php"><a href="#helper-php" class="headerlink" title="helper.php"></a>helper.php</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">format_comments</span><span class="params">($comments)</span> </span>&#123;</div><div class="line">    $html = <span class="keyword">array</span>();</div><div class="line">    $root_id = <span class="number">0</span>;</div><div class="line">    <span class="keyword">foreach</span> ($comments <span class="keyword">as</span> $comment)</div><div class="line">        $children[$comment[<span class="string">'parent_id'</span>]][] = $comment;</div><div class="line"> </div><div class="line">    <span class="comment">// loop will be false if the root has no children (i.e., an empty comment!)</span></div><div class="line">    $loop = !<span class="keyword">empty</span>($children[$root_id]);</div><div class="line"> </div><div class="line">    <span class="comment">// initializing $parent as the root</span></div><div class="line">    $parent = $root_id;</div><div class="line">    $parent_stack = <span class="keyword">array</span>();</div><div class="line"> </div><div class="line">    <span class="comment">// HTML wrapper for the menu (open)</span></div><div class="line">    $html[] = <span class="string">'&lt;ul class="comment"&gt;'</span>;</div><div class="line"> </div><div class="line">    <span class="keyword">while</span> ($loop &amp;&amp; ( ( $option = each($children[$parent]) ) || ( $parent &gt; $root_id ) )) &#123;</div><div class="line">        <span class="keyword">if</span> ($option === <span class="keyword">false</span>) &#123;</div><div class="line">            $parent = array_pop($parent_stack);</div><div class="line"> </div><div class="line">            <span class="comment">// HTML for comment item containing childrens (close)</span></div><div class="line">            $html[] = str_repeat(<span class="string">"\t"</span>, ( count($parent_stack) + <span class="number">1</span> ) * <span class="number">2</span>) . <span class="string">'&lt;/ul&gt;'</span>;</div><div class="line">            $html[] = str_repeat(<span class="string">"\t"</span>, ( count($parent_stack) + <span class="number">1</span> ) * <span class="number">2</span> - <span class="number">1</span>) . <span class="string">'&lt;/li&gt;'</span>;</div><div class="line">        &#125; <span class="keyword">elseif</span> (!<span class="keyword">empty</span>($children[$option[<span class="string">'value'</span>][<span class="string">'comment_id'</span>]])) &#123;</div><div class="line">            $tab = str_repeat(<span class="string">"\t"</span>, ( count($parent_stack) + <span class="number">1</span> ) * <span class="number">2</span> - <span class="number">1</span>);</div><div class="line">            $keep_track_depth = count($parent_stack);</div><div class="line">            <span class="keyword">if</span> ($keep_track_depth &lt;= <span class="number">3</span>) &#123;</div><div class="line">                $reply_link = <span class="string">'%1$s%1$s&lt;a href="#" class="reply_button" id="%2$s"&gt;reply&lt;/a&gt;&lt;br/&gt;%1$s'</span>;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                $reply_link = <span class="string">''</span>;</div><div class="line">            &#125;</div><div class="line">            $name = strlen($option[<span class="string">'value'</span>][<span class="string">'created_by'</span>]) ? $option[<span class="string">'value'</span>][<span class="string">'created_by'</span>] : <span class="string">'anonymous_user'</span>;</div><div class="line">            <span class="comment">//$reply_link = '%1$s%1$s&lt;a href="#" class="reply_button" id="%2$s"&gt;reply&lt;/a&gt;&lt;br/&gt;';</span></div><div class="line">            <span class="comment">// HTML for comment item containing childrens (open)</span></div><div class="line">            $html[] = sprintf(</div><div class="line">                    <span class="string">'%1$s&lt;li id="li_comment_%2$s" data-depth-level="'</span> . $keep_track_depth . <span class="string">'"&gt;'</span> .</div><div class="line">                    <span class="string">'%1$s%1$s&lt;div&gt;&lt;span class="commenter"&gt;%3$s&lt;/span&gt;&amp;nbsp;'</span> .</div><div class="line">                    <span class="string">'&lt;span class="comment_date"&gt;%5$s&lt;/span&gt;&lt;/div&gt;'</span> .</div><div class="line">                    <span class="string">'%1$s%1$s&lt;div style="margin-top:4px;"&gt;%4$s&lt;/div&gt;'</span> .</div><div class="line">                    $reply_link . <span class="string">'&lt;/li&gt;'</span>, $tab, <span class="comment">// %1$s = tabulation</span></div><div class="line">                    $option[<span class="string">'value'</span>][<span class="string">'comment_id'</span>], <span class="comment">//%2$s id</span></div><div class="line">                    $name . <span class="string">' says'</span>, <span class="comment">// %3$s = commenter</span></div><div class="line">                    $option[<span class="string">'value'</span>][<span class="string">'comment_text'</span>], <span class="comment">// %4$s = comment</span></div><div class="line">                    <span class="string">', '</span> . $option[<span class="string">'value'</span>][<span class="string">'created_date'</span>] <span class="comment">// %5$s = comment created_date</span></div><div class="line">            );</div><div class="line">            <span class="comment">//$check_status = "";</span></div><div class="line">            $html[] = $tab . <span class="string">"\t"</span> . <span class="string">'&lt;ul class="comment"&gt;'</span>;</div><div class="line"> </div><div class="line">            array_push($parent_stack, $option[<span class="string">'value'</span>][<span class="string">'parent_id'</span>]);</div><div class="line">            $parent = $option[<span class="string">'value'</span>][<span class="string">'comment_id'</span>];</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            $name = strlen($option[<span class="string">'value'</span>][<span class="string">'created_by'</span>]) ? $option[<span class="string">'value'</span>][<span class="string">'created_by'</span>] : <span class="string">'anonymous user'</span>;</div><div class="line">            $keep_track_depth = count($parent_stack);</div><div class="line">            <span class="keyword">if</span> ($keep_track_depth &lt;= <span class="number">3</span>) &#123;</div><div class="line">                $reply_link = <span class="string">'%1$s%1$s&lt;a href="#" class="reply_button" id="%2$s"&gt;reply&lt;/a&gt;&lt;br/&gt;%1$s'</span>;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                $reply_link = <span class="string">''</span>;</div><div class="line">            &#125;</div><div class="line"> </div><div class="line">            <span class="comment">//$reply_link = '%1$s%1$s&lt;a href="#" class="reply_button" id="%2$s"&gt;reply&lt;/a&gt;&lt;br/&gt;%1$s&lt;/li&gt;';</span></div><div class="line">            <span class="comment">// HTML for comment item with no children (aka "leaf")</span></div><div class="line">            $html[] = sprintf(</div><div class="line">                    <span class="string">'%1$s&lt;li id="li_comment_%2$s" data-depth-level="'</span> . $keep_track_depth . <span class="string">'"&gt;'</span> .</div><div class="line">                    <span class="string">'%1$s%1$s&lt;div&gt;&lt;span class="commenter"&gt;%3$s&lt;/span&gt;&amp;nbsp;'</span> .</div><div class="line">                    <span class="string">'&lt;span class="comment_date"&gt;%5$s&lt;/span&gt;&lt;/div&gt;'</span> .</div><div class="line">                    <span class="string">'%1$s%1$s&lt;div style="margin-top:4px;"&gt;%4$s&lt;/div&gt;'</span> .</div><div class="line">                    $reply_link . <span class="string">'&lt;/li&gt;'</span>, str_repeat(<span class="string">"\t"</span>, ( count($parent_stack) + <span class="number">1</span> ) * <span class="number">2</span> - <span class="number">1</span>), <span class="comment">// %1$s = tabulation</span></div><div class="line">                    $option[<span class="string">'value'</span>][<span class="string">'comment_id'</span>], <span class="comment">//%2$s id</span></div><div class="line">                    $name . <span class="string">' says'</span>, <span class="comment">// %3$s = commenter</span></div><div class="line">                    $option[<span class="string">'value'</span>][<span class="string">'comment_text'</span>], <span class="comment">// %4$s = comment</span></div><div class="line">                    <span class="string">', '</span> . $option[<span class="string">'value'</span>][<span class="string">'created_date'</span>] <span class="comment">// %5$s = comment created_date</span></div><div class="line">            );</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="comment">// HTML wrapper for the comment (close)</span></div><div class="line">    $html[] = <span class="string">'&lt;/ul&gt;'</span>;</div><div class="line">    <span class="keyword">return</span> implode(<span class="string">"\r\n"</span>, $html);</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="add-comment-php"><a href="#add-comment-php" class="headerlink" title="add_comment.php"></a>add_comment.php</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"> </div><div class="line"><span class="keyword">require</span>(<span class="string">"config.php"</span>);</div><div class="line"><span class="keyword">require</span>(<span class="string">"helper.php"</span>);</div><div class="line"> </div><div class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_POST)) &#123;</div><div class="line">    $parent_id = ($_POST[<span class="string">'reply_id'</span>] == <span class="keyword">NULL</span> || $_POST[<span class="string">'reply_id'</span>] == <span class="string">''</span>) ? <span class="number">0</span> : $_POST[<span class="string">'reply_id'</span>];</div><div class="line">    $email = $_POST[<span class="string">'comment_email'</span>];</div><div class="line">    $name = $_POST[<span class="string">'comment_name'</span>];</div><div class="line">    $web = $_POST[<span class="string">'comment_web'</span>];</div><div class="line">    $comment_text = $_POST[<span class="string">'comment_text'</span>];</div><div class="line">    $depth_level = $_POST[<span class="string">'depth_level'</span>];</div><div class="line">    $sql = <span class="string">"INSERT INTO comment(comment_text, parent_id, ip_address, email_address, web_address, created_by) VALUES('$comment_text', $parent_id, '"</span> . $_SERVER[<span class="string">'REMOTE_ADDR'</span>] . <span class="string">"', '$email', '$web', '$name')"</span>;</div><div class="line">    $query = mysqli_query($con,$sql);</div><div class="line">    $inserted_id = mysqli_insert_id($con);</div><div class="line">    $sql = <span class="string">"SELECT * FROM comment WHERE comment_id="</span> . $inserted_id;</div><div class="line">    $results = mysqli_query($con,$sql);</div><div class="line">    <span class="keyword">if</span> ($results) &#123;</div><div class="line">        <span class="keyword">while</span> ($row = mysqli_fetch_assoc($results)) &#123;</div><div class="line">            <span class="keyword">if</span> ($depth_level &lt; <span class="number">3</span>) &#123;</div><div class="line">                $reply_link = <span class="string">"&lt;a href=\"#\" class=\"reply_button\" id=\"&#123;$row['comment_id']&#125;\"&gt;reply&lt;/a&gt;&lt;br/&gt;"</span>;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                $reply_link = <span class="string">''</span>;</div><div class="line">            &#125;</div><div class="line">            $depth = $depth_level + <span class="number">1</span>;</div><div class="line">            $name = strlen($row[<span class="string">'created_by'</span>]) ? $row[<span class="string">'created_by'</span>] : <span class="string">'anonymous user'</span>;</div><div class="line">            <span class="keyword">echo</span> <span class="string">"&lt;li id=\"li_comment_&#123;$row['comment_id']&#125;\" data-depth-level=\"&#123;$depth&#125;\"&gt;"</span> .</div><div class="line">            <span class="string">"&lt;div&gt;&lt;span class=\"commenter\"&gt;&#123;$name&#125; says&lt;/span&gt;&amp;nbsp;&lt;span class=\"comment_date\"&gt;,  &#123;$row['created_date']&#125;&lt;/span&gt;&lt;/div&gt;"</span> .</div><div class="line">            <span class="string">"&lt;div style=\"margin-top:4px;\"&gt;&#123;$row['comment_text']&#125;&lt;/div&gt;"</span> .</div><div class="line">            $reply_link . <span class="string">"&lt;/li&gt;"</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">echo</span> <span class="string">'&lt;div class="success"&gt;Comment successfully posted&lt;/div&gt;'</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">echo</span> <span class="string">'&lt;div class="error"&gt;Error in adding comment&lt;/div&gt;'</span>;</div><div class="line">    &#125;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">'&lt;div class="error"&gt;Please enter required fields&lt;/div&gt;'</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment"> * End of add_comment.php</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="comments-blog-js"><a href="#comments-blog-js" class="headerlink" title="comments_blog.js"></a>comments_blog.js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="string">"#cancel-comment-reply-link"</span>).hide();</div><div class="line">    $(<span class="string">".reply_button"</span>).live(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">        event.preventDefault();</div><div class="line">        <span class="keyword">var</span> id = $(<span class="keyword">this</span>).attr(<span class="string">"id"</span>);</div><div class="line">        <span class="keyword">if</span> ($(<span class="string">"#li_comment_"</span> + id).find(<span class="string">'ul'</span>).size() &gt; <span class="number">0</span>) &#123;</div><div class="line">            $(<span class="string">"#li_comment_"</span> + id + <span class="string">" ul:first"</span>).prepend($(<span class="string">"#comment_form_wrapper"</span>));</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            $(<span class="string">"#li_comment_"</span> + id).append($(<span class="string">"#comment_form_wrapper"</span>));</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> depth_level = $(<span class="string">'#li_comment_'</span> + id).data(<span class="string">'depth-level'</span>);</div><div class="line">        $(<span class="string">"#reply_id"</span>).attr(<span class="string">"value"</span>, id);</div><div class="line">        $(<span class="string">"#depth_level"</span>).attr(<span class="string">"value"</span>, depth_level);</div><div class="line">        $(<span class="string">"#cancel-comment-reply-link"</span>).show();</div><div class="line">    &#125;);</div><div class="line"> </div><div class="line">    $(<span class="string">"#cancel-comment-reply-link"</span>).bind(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">        event.preventDefault();</div><div class="line">        $(<span class="string">"#reply_id"</span>).attr(<span class="string">"value"</span>, <span class="string">""</span>);</div><div class="line">        $(<span class="string">"#comment_wrapper"</span>).prepend($(<span class="string">"#comment_form_wrapper"</span>));</div><div class="line">        $(<span class="keyword">this</span>).hide();</div><div class="line">    &#125;);</div><div class="line"> </div><div class="line">    $(<span class="string">"#comment_form"</span>).bind(<span class="string">"submit"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">        event.preventDefault();</div><div class="line">        <span class="keyword">if</span> ($(<span class="string">"#comment_name"</span>).val() == <span class="string">""</span>)</div><div class="line">        &#123;</div><div class="line">            alert(<span class="string">"Please enter your name"</span>);</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> ($(<span class="string">"#comment_email"</span>).val() == <span class="string">""</span>)</div><div class="line">        &#123;</div><div class="line">            alert(<span class="string">"Please enter your email"</span>);</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> regex_email = <span class="regexp">/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]&#123;2,4&#125;)$/</span>;</div><div class="line">        <span class="keyword">if</span> (regex_email.test($(<span class="string">"#comment_email"</span>).val()) == <span class="literal">false</span>) &#123;</div><div class="line">            alert(<span class="string">'Invalid Email Address'</span>);</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> regex_web = <span class="regexp">/^((ftp|https?):\/\/)?(www\.)?[a-z0-9\-\.]&#123;3,&#125;\.[a-z]&#123;2,3&#125;$/</span>;</div><div class="line">        <span class="keyword">if</span> ($(<span class="string">"#comment_web"</span>).val() != <span class="string">""</span> &amp;&amp; regex_web.test($(<span class="string">"#comment_web"</span>).val()) == <span class="literal">false</span>) &#123;</div><div class="line">            alert(<span class="string">'Invalid Website Address'</span>);</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> ($(<span class="string">"#comment_text"</span>).val() == <span class="string">""</span>)</div><div class="line">        &#123;</div><div class="line">            alert(<span class="string">"Please enter your comment"</span>);</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">        $.ajax(&#123;</div><div class="line">            type: <span class="string">"POST"</span>,</div><div class="line">            <span class="comment">//async: false,</span></div><div class="line">            url: <span class="string">"add_comment.php"</span>,</div><div class="line">            data: $(<span class="string">'#comment_form'</span>).serialize(),</div><div class="line">            dataType: <span class="string">"html"</span>,</div><div class="line">            cache: <span class="literal">false</span>,</div><div class="line">            beforeSend: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                $(<span class="string">'#comment_wrapper'</span>).block(&#123;</div><div class="line">                    message: <span class="string">'Please wait....'</span>,</div><div class="line">                    css: &#123;</div><div class="line">                        border: <span class="string">'none'</span>,</div><div class="line">                        padding: <span class="string">'15px'</span>,</div><div class="line">                        backgroundColor: <span class="string">'#ccc'</span>,</div><div class="line">                        <span class="string">'-webkit-border-radius'</span>: <span class="string">'10px'</span>,</div><div class="line">                        <span class="string">'-moz-border-radius'</span>: <span class="string">'10px'</span></div><div class="line">                    &#125;,</div><div class="line">                    overlayCSS: &#123;</div><div class="line">                        backgroundColor: <span class="string">'#ffe'</span></div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line">            &#125;,</div><div class="line">            success: <span class="function"><span class="keyword">function</span>(<span class="params">comment</span>) </span>&#123;</div><div class="line">                <span class="keyword">var</span> reply_id = $(<span class="string">"#reply_id"</span>).val();</div><div class="line">                <span class="keyword">if</span> (reply_id == <span class="string">""</span>) &#123;</div><div class="line">                    $(<span class="string">"#comment_wrapper ul:first"</span>).prepend(comment);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">if</span> ($(<span class="string">"#li_comment_"</span> + reply_id).find(<span class="string">'ul'</span>).size() &gt; <span class="number">0</span>) &#123;</div><div class="line">                        $(<span class="string">"#li_comment_"</span> + reply_id + <span class="string">" ul:first"</span>).prepend(comment);</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">else</span> &#123;</div><div class="line">                        $(<span class="string">"#li_comment_"</span> + reply_id).append(<span class="string">'&lt;ul class="comment"&gt;'</span> + comment + <span class="string">'&lt;/ul&gt;'</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                $(<span class="string">"#comment_name"</span>).attr(<span class="string">"value"</span>, <span class="string">""</span>);</div><div class="line">                $(<span class="string">"#comment_email"</span>).attr(<span class="string">"value"</span>, <span class="string">""</span>);</div><div class="line">                $(<span class="string">"#comment_web"</span>).attr(<span class="string">"value"</span>, <span class="string">""</span>);</div><div class="line">                $(<span class="string">"#comment_text"</span>).attr(<span class="string">"value"</span>, <span class="string">""</span>);</div><div class="line">                $(<span class="string">"#reply_id"</span>).attr(<span class="string">"value"</span>, <span class="string">""</span>);</div><div class="line">                $(<span class="string">"#cancel-comment-reply-link"</span>).hide();</div><div class="line">                $(<span class="string">"#comment_wrapper"</span>).prepend($(<span class="string">"#comment_form_wrapper"</span>));</div><div class="line">                $(<span class="string">'#comment_wrapper'</span>).unblock();</div><div class="line">            &#125;,</div><div class="line">            error: <span class="function"><span class="keyword">function</span>(<span class="params">jqXHR, textStatus, errorThrown</span>) </span>&#123;</div><div class="line">                <span class="comment">//console.log(textStatus, errorThrown);</span></div><div class="line">                alert(textStatus + <span class="string">" "</span> + errorThrown);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="comments-css"><a href="#comments-css" class="headerlink" title="comments.css"></a>comments.css</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#comment_wrapper</span> &#123;</div><div class="line"><span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line"><span class="attribute">font-family</span>:serif,sans-serif,cursive;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="selector-id">#comment_form_wrapper</span> &#123;</div><div class="line"><span class="attribute">margin</span>: <span class="number">12px</span> <span class="number">12px</span> <span class="number">12px</span> <span class="number">12px</span>;</div><div class="line"><span class="attribute">padding</span>: <span class="number">12px</span> <span class="number">0px</span> <span class="number">12px</span> <span class="number">12px</span>; <span class="comment">/* Note 0px padding right */</span></div><div class="line"><span class="attribute">background-color</span>: <span class="number">#ebefee</span>;</div><div class="line"><span class="attribute">border</span>: thin dotted <span class="number">#39C</span>;</div><div class="line"> </div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="selector-id">#comment_name</span>&#123;</div><div class="line"><span class="attribute">padding</span>: <span class="number">4px</span> <span class="number">2px</span> <span class="number">4px</span> <span class="number">5px</span>;</div><div class="line"><span class="attribute">margin</span>: <span class="number">3px</span> <span class="number">0</span> <span class="number">3px</span> <span class="number">13px</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="selector-id">#comment_email</span>&#123;</div><div class="line"><span class="attribute">padding</span>: <span class="number">4px</span> <span class="number">2px</span> <span class="number">4px</span> <span class="number">5px</span>;</div><div class="line"><span class="attribute">margin</span>: <span class="number">3px</span> <span class="number">0</span> <span class="number">3px</span> <span class="number">15px</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="selector-id">#comment_web</span>&#123;</div><div class="line"><span class="attribute">padding</span>: <span class="number">4px</span> <span class="number">2px</span> <span class="number">4px</span> <span class="number">5px</span>;</div><div class="line"><span class="attribute">margin</span>: <span class="number">3px</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="selector-id">#comment_form</span> <span class="selector-tag">textarea</span> &#123;</div><div class="line"><span class="attribute">width</span>: <span class="number">93.4%</span>;</div><div class="line"><span class="attribute">background</span>: white;</div><div class="line"><span class="comment">/*border: 4px solid #EEE;*/</span></div><div class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</div><div class="line"><span class="comment">/* -moz-border-radius: 5px;</span></div><div class="line"><span class="comment">border-radius: 5px;*/</span></div><div class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line"><span class="attribute">margin-left</span>: <span class="number">5px</span>;</div><div class="line"><span class="attribute">font-family</span>:serif,sans-serif,cursive;</div><div class="line"><span class="attribute">font-size</span>:<span class="number">14px</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="selector-id">#comment_resp_err</span>&#123;</div><div class="line"><span class="attribute">color</span>: red;</div><div class="line"><span class="attribute">font-size</span>: <span class="number">13px</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="selector-tag">ul</span><span class="selector-class">.comment</span> &#123;</div><div class="line"><span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line"><span class="comment">/* margin: 12px 12px 12px 0px;</span></div><div class="line"><span class="comment">padding: 3px 3px 3px 3px;*/</span></div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="selector-tag">ul</span><span class="selector-class">.comment</span> <span class="selector-tag">li</span> &#123;</div><div class="line"><span class="attribute">margin</span>: <span class="number">12px</span> <span class="number">12px</span> <span class="number">12px</span> <span class="number">12px</span>;</div><div class="line"><span class="attribute">padding</span>: <span class="number">12px</span> <span class="number">0px</span> <span class="number">12px</span> <span class="number">12px</span>; <span class="comment">/* Note 0px padding right */</span></div><div class="line"><span class="attribute">list-style</span>: none; <span class="comment">/* no glyphs before a list item */</span></div><div class="line"><span class="attribute">background-color</span>: <span class="number">#ebefee</span>;</div><div class="line"><span class="attribute">border</span>: thin dotted <span class="number">#39C</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="selector-tag">ul</span><span class="selector-class">.comment</span> <span class="selector-tag">li</span> <span class="selector-tag">span</span><span class="selector-class">.commenter</span> &#123;</div><div class="line"><span class="attribute">font-weight</span>:bold;</div><div class="line"><span class="attribute">color</span>:<span class="number">#369</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="selector-tag">ul</span><span class="selector-class">.comment</span> <span class="selector-tag">li</span> <span class="selector-tag">span</span><span class="selector-class">.comment_date</span> &#123;</div><div class="line"><span class="attribute">color</span>:<span class="number">#666</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="selector-id">#comment_wrapper</span> <span class="selector-class">.button</span>,</div><div class="line"><span class="selector-id">#comment_wrapper</span> <span class="selector-class">.reply_button</span> &#123;</div><div class="line"><span class="attribute">background</span>: none repeat scroll <span class="number">0</span> <span class="number">0</span> <span class="number">#5394A8</span>;</div><div class="line"><span class="attribute">color</span>: <span class="number">#FFFFFF</span>;</div><div class="line"><span class="attribute">float</span>: right;</div><div class="line"><span class="attribute">font-size</span>: <span class="number">10px</span>;</div><div class="line"><span class="attribute">font-weight</span>: bold;</div><div class="line"><span class="attribute">margin</span>: -<span class="number">10px</span> <span class="number">5px</span> ;</div><div class="line"><span class="attribute">padding</span>: <span class="number">3px</span> <span class="number">10px</span>;</div><div class="line"><span class="attribute">text-transform</span>: uppercase;</div><div class="line"><span class="attribute">text-decoration</span>: none;</div><div class="line"><span class="attribute">cursor</span>: pointer;</div><div class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#369</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#comment_wrapper</span> <span class="selector-id">#comment_submit</span> &#123;</div><div class="line"><span class="attribute">float</span>:none;</div><div class="line"><span class="attribute">margin</span>: <span class="number">0px</span> <span class="number">5px</span> ;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="selector-id">#comment_wrapper</span> <span class="selector-class">.button</span><span class="selector-pseudo">:hover</span>,</div><div class="line"><span class="selector-id">#comment_wrapper</span> <span class="selector-class">.reply_button</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line"><span class="attribute">background</span>: none repeat scroll <span class="number">0</span> <span class="number">0</span> <span class="number">#069</span>;</div><div class="line"><span class="attribute">text-decoration</span>: underline;</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#cancel-comment-reply-link</span> &#123;</div><div class="line"><span class="attribute">color</span>: <span class="number">#666</span>;</div><div class="line"><span class="attribute">margin-left</span>: <span class="number">10px</span>;</div><div class="line"><span class="attribute">margin-right</span>:<span class="number">10px</span>;</div><div class="line"><span class="attribute">text-decoration</span>: none;</div><div class="line"><span class="attribute">font-size</span>: <span class="number">10px</span>;</div><div class="line"><span class="attribute">font-weight</span>: normal;</div><div class="line"><span class="attribute">float</span>:right;</div><div class="line"><span class="attribute">text-transform</span>: uppercase;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="selector-id">#cancel-comment-reply-link</span><span class="selector-pseudo">:hover</span>&#123;</div><div class="line"><span class="attribute">text-decoration</span>: underline;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="comment-plugin-commentics-3-2"><a href="#comment-plugin-commentics-3-2" class="headerlink" title="comment plugin:commentics-3.2"></a>comment plugin:commentics-3.2</h3><p><a href="https://www.commentics.org" target="_blank" rel="external">https://www.commentics.org</a></p>
+<h3 id="Thinkphp带表情的无限评论回复"><a href="#Thinkphp带表情的无限评论回复" class="headerlink" title="Thinkphp带表情的无限评论回复"></a>Thinkphp带表情的无限评论回复</h3><p><a href="http://www.thinkphp.cn/code/1691.html" target="_blank" rel="external">http://www.thinkphp.cn/code/1691.html</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/20/php loginsignup/" rel="next" title="PHP loginsignup function">
+                <i class="fa fa-chevron-left"></i> PHP loginsignup function
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/22/python scraping(3)/" rel="prev" title="python web crawling(3)">
+                python web crawling(3) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Daniel Lu" />
+          <p class="site-author-name" itemprop="name">Daniel Lu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/your-user-name" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="facebook">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      facebook
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.github.com" title="Github" target="_blank">Github</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-level-comment-system"><span class="nav-number">1.</span> <span class="nav-text">multi level comment system</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#index-php"><span class="nav-number">1.1.</span> <span class="nav-text">index.php</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#create-table-in-mysql"><span class="nav-number">1.2.</span> <span class="nav-text">create table in mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#comments-php"><span class="nav-number">1.3.</span> <span class="nav-text">comments.php</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#config-php"><span class="nav-number">1.4.</span> <span class="nav-text">config.php</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#helper-php"><span class="nav-number">1.5.</span> <span class="nav-text">helper.php</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#add-comment-php"><span class="nav-number">1.6.</span> <span class="nav-text">add_comment.php</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#comments-blog-js"><span class="nav-number">1.7.</span> <span class="nav-text">comments_blog.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#comments-css"><span class="nav-number">1.8.</span> <span class="nav-text">comments.css</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#comment-plugin-commentics-3-2"><span class="nav-number">2.</span> <span class="nav-text">comment plugin:commentics-3.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thinkphp带表情的无限评论回复"><span class="nav-number">3.</span> <span class="nav-text">Thinkphp带表情的无限评论回复</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daniel Lu</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
