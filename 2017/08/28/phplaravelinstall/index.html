@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="wordpress learning," />
+  <meta name="keywords" content="php," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="写写WordPress模板常用函数，以免遗忘。">
-<meta name="keywords" content="wordpress learning">
+<meta name="description" content="about how to install laravel and homestead in win7">
+<meta name="keywords" content="php">
 <meta property="og:type" content="article">
-<meta property="og:title" content="wordpress常用函数">
-<meta property="og:url" content="http://yoursite.com/2017/08/18/wordpress函数/index.html">
+<meta property="og:title" content="about how to install laravel and homestead in win7">
+<meta property="og:url" content="http://yoursite.com/2017/08/28/phplaravelinstall/index.html">
 <meta property="og:site_name" content="Daniel Lu">
-<meta property="og:description" content="写写WordPress模板常用函数，以免遗忘。">
+<meta property="og:description" content="about how to install laravel and homestead in win7">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-08-23T02:39:37.277Z">
+<meta property="og:updated_time" content="2017-09-27T08:00:01.912Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wordpress常用函数">
-<meta name="twitter:description" content="写写WordPress模板常用函数，以免遗忘。">
+<meta name="twitter:title" content="about how to install laravel and homestead in win7">
+<meta name="twitter:description" content="about how to install laravel and homestead in win7">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/18/wordpress函数/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/28/phplaravelinstall/"/>
 
 
 
 
 
-  <title>wordpress常用函数 | Daniel Lu</title>
+  <title>about how to install laravel and homestead in win7 | Daniel Lu</title>
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/wordpress函数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/28/phplaravelinstall/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Daniel Lu">
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">wordpress常用函数</h1>
+          <h1 class="post-title" itemprop="name headline">about how to install laravel and homestead in win7</h1>
         
 
         <div class="post-meta">
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T20:46:25+08:00">
-                2017-08-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-28T22:46:25+08:00">
+                2017-08-28
               </time>
             
 
@@ -369,8 +369,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/wordpress-learning/" itemprop="url" rel="index">
-                    <span itemprop="name">wordpress learning</span>
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
                   </a>
                 </span>
 
@@ -406,78 +406,24 @@
       
 
       
-        <p>写写WordPress模板常用函数，以免遗忘。<br><a id="more"></a></p>
-<h2 id="WordPress模板常用函数"><a href="#WordPress模板常用函数" class="headerlink" title="WordPress模板常用函数"></a>WordPress模板常用函数</h2><h3 id="WordPress基本模板文件"><a href="#WordPress基本模板文件" class="headerlink" title="WordPress基本模板文件"></a>WordPress基本模板文件</h3><p>style.css : CSS(样式表)文件</p>
-<p>index.php : 主页模板</p>
-<p>archive.php : Archive/Category模板</p>
-<p>404.php : Not Found 错误页模板</p>
-<p>comments.php : 留言/回复模板</p>
-<p>footer.php : Footer模板</p>
-<p>header.php : Header模板</p>
-<p>sidebar.php : 侧栏模板</p>
-<p>page.php : 内容页(Page)模板</p>
-<p>single.php : 内容页(Post)模板</p>
-<p>searchform.php : 搜索表单模板</p>
-<p>search.php : 搜索结果模板</p>
-<h3 id="基本条件判断Tag"><a href="#基本条件判断Tag" class="headerlink" title="基本条件判断Tag"></a>基本条件判断Tag</h3><p>is_home() : 是否为主页</p>
-<p>is_single() : 是否为内容页(Post)</p>
-<p>is_page() : 是否为内容页(Page)</p>
-<p>is_category() : 是否为Category/Archive页</p>
-<p>is_tag() : 是否为Tag存档页</p>
-<p>is_date() : 是否为指定日期存档页</p>
-<p>is_year() : 是否为指定年份存档页</p>
-<p>is_month() : 是否为指定月份存档页</p>
-<p>is_day() : 是否为指定日存档页</p>
-<p>is_time() : 是否为指定时间存档页</p>
-<p>is_archive() : 是否为存档页</p>
-<p>is_search() : 是否为搜索结果页</p>
-<p>is_404() : 是否为 “HTTP 404: Not Found” 错误页</p>
-<p>is_paged() : 主页/Category/Archive页是否以多页显示</p>
-<h3 id="Header部分常用到的PHP函数"><a href="#Header部分常用到的PHP函数" class="headerlink" title="Header部分常用到的PHP函数"></a>Header部分常用到的PHP函数</h3><p>&lt;?php bloginfo(’name’); ?&gt; : 博客名称(Title)</p>
-<p>&lt;?php bloginfo(’stylesheet_url’); ?&gt; : CSS文件路径</p>
-<p>&lt;?php bloginfo(’pingback_url’); ?&gt; : PingBack Url</p>
-<p>&lt;?php bloginfo(’template_url’); ?&gt; : 模板文件路径</p>
-<p>&lt;?php bloginfo(’version’); ?&gt; : WordPress版本</p>
-<p>&lt;?php bloginfo(’atom_url’); ?&gt; : Atom Url</p>
-<p>&lt;?php bloginfo(’rss2_url’); ?&gt; : RSS 2.o Url</p>
-<p>&lt;?php bloginfo(’url’); ?&gt; : 博客 Url</p>
-<p>&lt;?php bloginfo(’html_type’); ?&gt; : 博客网页Html类型</p>
-<p>&lt;?php bloginfo(’charset’); ?&gt; : 博客网页编码</p>
-<p>&lt;?php bloginfo(’description’); ?&gt; : 博客描述</p>
-<p>&lt;?php wp_title(); ?&gt; : 特定内容页(Post/Page)的标题</p>
-<h3 id="模板常用的PHP函数及命令"><a href="#模板常用的PHP函数及命令" class="headerlink" title="模板常用的PHP函数及命令"></a>模板常用的PHP函数及命令</h3><p>&lt;?php get_header(); ?&gt; : 调用Header模板</p>
-<p>&lt;?php get_sidebar(); ?&gt; : 调用Sidebar模板</p>
-<p>&lt;?php get_footer(); ?&gt; : 调用Footer模板</p>
-<p>&lt;?php the_content(); ?&gt; : 显示内容(Post/Page)</p>
-<p>&lt;?php if(have_posts()) : ?&gt; : 检查是否存在Post/Page</p>
-<p>&lt;?php while(have_posts()) : the_post(); ?&gt; : 如果存在Post/Page则予以显示</p>
-<p>&lt;?php endwhile; ?&gt; : While 结束</p>
-<p>&lt;?php endif; ?&gt; : If 结束</p>
-<p>&lt;?php the_time(’字符串’) ?&gt; : 显示时间，时间格式由“字符串”参数决定，具体参考PHP手册</p>
-<p>&lt;?php comments_popup_link(); ?&gt; : 正文中的留言链接。如果使用 comments_popup_script() ，则留言会在新窗口中打开，反之，则在当前窗口打开</p>
-<p>&lt;?php the_title(); ?&gt; : 内容页(Post/Page)标题</p>
-<p>&lt;?php the_permalink() ?&gt; : 内容页(Post/Page) Url</p>
-<p>&lt;?php the_category(’, ‘) ?&gt; : 特定内容页(Post/Page)所属Category</p>
-<p>&lt;?php the_author(); ?&gt; : 作者</p>
-<p>&lt;?php the_ID(); ?&gt; : 特定内容页(Post/Page) ID</p>
-<p>&lt;?php edit_post_link(); ?&gt; : 如果用户已登录并具有权限，显示编辑链接</p>
-<p>&lt;?php get_links_list(); ?&gt; : 显示Blogroll中的链接</p>
-<p>&lt;?php comments_template(); ?&gt; : 调用留言/回复模板</p>
-<p>&lt;?php wp_list_pages(); ?&gt; : 显示Page列表</p>
-<p>&lt;?php wp_list_categories(); ?&gt; : 显示Categories列表</p>
-<p>&lt;?php next_post_link(’ %link ‘); ?&gt; : 下一篇文章链接</p>
-<p>&lt;?php previous_post_link(’%link’); ?&gt; : 上一篇文章链接</p>
-<p>&lt;?php get_calendar(); ?&gt; : 日历</p>
-<p>&lt;?php wp_get_archives() ?&gt; : 显示内容存档</p>
-<p>&lt;?php posts_nav_link(); ?&gt; : 导航，显示上一篇/下一篇文章链接</p>
-<p>&lt;?php include(TEMPLATEPATH . ‘/文件名’); ?&gt; : 嵌入其他文件，可为定制的模板或其他类型文件</p>
-<h3 id="与模板相关的其他函数"><a href="#与模板相关的其他函数" class="headerlink" title="与模板相关的其他函数"></a>与模板相关的其他函数</h3><p>&lt;?php _e(’Message’); ?&gt; : 输出相应信息</p>
-<p>&lt;?php wp_register(); ?&gt; : 显示注册链接</p>
-<p>&lt;?php wp_loginout(); ?&gt; : 显示登录/注销链接</p>
-<p>&lt;!–next page–&gt; : 将当前内容分页</p>
-<p>&lt;!–more–&gt; : 将当前内容截断，以不在主页/目录页显示全部内容</p>
-<p>&lt;?php timer_stop(1); ?&gt; : 网页加载时间(秒)</p>
-<p>&lt;?php echo get_num_queries(); ?&gt; : 网页加载查询量</p>
+        <p>about how to install laravel and homestead in win7<br><a id="more"></a></p>
+<h3 id="install-homestead"><a href="#install-homestead" class="headerlink" title="install homestead"></a>install homestead</h3><p><a href="http://www.jianshu.com/p/ae9d1261bbd8" target="_blank" rel="external">http://www.jianshu.com/p/ae9d1261bbd8</a></p>
+<h4 id="first-step"><a href="#first-step" class="headerlink" title="first step"></a>first step</h4><p>install virtualbox <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="external">https://www.virtualbox.org/wiki/Downloads</a><br>install vagrant <a href="https://www.vagrantup.com/downloads.html" target="_blank" rel="external">https://www.vagrantup.com/downloads.html</a><br>install composer <a href="https://getcomposer.org/download/" target="_blank" rel="external">https://getcomposer.org/download/</a></p>
+<h4 id="second-step"><a href="#second-step" class="headerlink" title="second step"></a>second step</h4><p>1 install vagrant box<br>links：<a href="http://pan.baidu.com/s/1dEJdHj7" target="_blank" rel="external">http://pan.baidu.com/s/1dEJdHj7</a><br>pw：kzlc<br>rename the file as homestead.box and then put it in D:/homestead/<br>2 install homestead<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/laravel/homestead.git Homestead</div></pre></td></tr></table></figure></p>
+<p>run init.bat or bash init.sh<br>change Homestead.yaml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">authorize: D:/homestead/ssh/id_rsa.pub</div><div class="line">keys:</div><div class="line">    - D:/homestead/ssh/id_rsa</div><div class="line">folders:</div><div class="line">- map: D:/homestead/code  #（这是我本地的文件夹）</div><div class="line">to: /home/vagrant/Code</div><div class="line">sites:</div><div class="line">- map: homestead.app</div><div class="line">to: /home/vagrant/Code/laravel/public</div></pre></td></tr></table></figure></p>
+<p>go to C:\Windows\System32\drivers\etc\hosts<br>add 192.168.10.10 homestead.app in file<br>3 create homestead.json<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"><span class="attr">"name"</span>: <span class="string">"laravel/homestead"</span>,</div><div class="line"><span class="attr">"versions"</span>: [&#123;</div><div class="line"><span class="attr">"version"</span>: <span class="string">"1.0.1"</span>,</div><div class="line"><span class="attr">"providers"</span>: [&#123;</div><div class="line"><span class="attr">"name"</span>: <span class="string">"virtualbox"</span>,</div><div class="line"><span class="attr">"url"</span>: <span class="string">"file://D:/homestead/homestead.box"</span></div><div class="line">&#125;]</div><div class="line">&#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>then<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant box add homestead.json</div></pre></td></tr></table></figure></p>
+<p>then<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant box list</div></pre></td></tr></table></figure></p>
+<p>4 ssh key<br>create D:/homestead/ssh/id_rsa file<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen</div></pre></td></tr></table></figure></p>
+<p>input D:/homestead/ssh/id_rsa as ssh place<br>5 change homestead/scripts/homestead.rb<br>config.vm.box_version = settings[“version”]||=”&gt;=1.0.0”</p>
+<h4 id="third-step"><a href="#third-step" class="headerlink" title="third step"></a>third step</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/laravel/laravel.git <span class="string">"D:/homestead/code"</span></div><div class="line"><span class="built_in">cd</span> D:/homestead/code</div><div class="line">composer config -g repo.packagist composer https://packagist.phpcomposer.com</div><div class="line">composer install</div></pre></td></tr></table></figure>
+<p>Rename .env.example file to .env<br>php artisan key:generate</p>
+<p>or<br>cd D:/homestead/code<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">composer config -g repo.packagist composer https://packagist.phpcomposer.com</div><div class="line">composer create-project laravel/laravel=5.2.* --prefer-dist</div></pre></td></tr></table></figure></p>
+<p>then<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant up</div></pre></td></tr></table></figure></p>
+<p>close:vagrant halt</p>
+<p>then first load  Homestead.yaml must<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant provision</div></pre></td></tr></table></figure></p>
+<p>then<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant up</div></pre></td></tr></table></figure></p>
+<p>OK!<br>see laravel in homestead.app or 192.168.10.10</p>
 
       
     </div>
@@ -495,7 +441,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/wordpress-learning/" rel="tag"># wordpress learning</a>
+            <a href="/tags/php/" rel="tag"># php</a>
           
         </div>
       
@@ -508,8 +454,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/17/js sidebar/" rel="next" title="use jquery to build sidebar">
-                <i class="fa fa-chevron-left"></i> use jquery to build sidebar
+              <a href="/2017/08/26/python(7)/" rel="next" title="python web crawling(5)">
+                <i class="fa fa-chevron-left"></i> python web crawling(5)
               </a>
             
           </div>
@@ -517,10 +463,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/18/PHP search/" rel="prev" title="PHP search function">
-                PHP search function <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -714,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WordPress模板常用函数"><span class="nav-number">1.</span> <span class="nav-text">WordPress模板常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WordPress基本模板文件"><span class="nav-number">1.1.</span> <span class="nav-text">WordPress基本模板文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本条件判断Tag"><span class="nav-number">1.2.</span> <span class="nav-text">基本条件判断Tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Header部分常用到的PHP函数"><span class="nav-number">1.3.</span> <span class="nav-text">Header部分常用到的PHP函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板常用的PHP函数及命令"><span class="nav-number">1.4.</span> <span class="nav-text">模板常用的PHP函数及命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与模板相关的其他函数"><span class="nav-number">1.5.</span> <span class="nav-text">与模板相关的其他函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#install-homestead"><span class="nav-number">1.</span> <span class="nav-text">install homestead</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#first-step"><span class="nav-number">1.1.</span> <span class="nav-text">first step</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#second-step"><span class="nav-number">1.2.</span> <span class="nav-text">second step</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#third-step"><span class="nav-number">1.3.</span> <span class="nav-text">third step</span></a></li></ol></li></ol></div>
             
 
           </div>
