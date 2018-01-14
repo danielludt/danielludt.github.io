@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="matplotlib 绘图知识整理">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="matplotlib 绘图知识整理">
+<meta property="og:url" content="http://yoursite.com/2017/10/02/matplotlib/index.html">
+<meta property="og:site_name" content="Daniel Lu">
+<meta property="og:description" content="matplotlib 绘图知识整理">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-01-14T09:52:21.483Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="matplotlib 绘图知识整理">
+<meta name="twitter:description" content="matplotlib 绘图知识整理">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/02/matplotlib/"/>
+
+
+
+
+
+  <title>matplotlib 绘图知识整理 | Daniel Lu</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Daniel Lu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Let's code</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/02/matplotlib/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daniel Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daniel Lu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">matplotlib 绘图知识整理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-02T22:46:25+08:00">
+                2017-10-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="matplotlib-绘图知识整理"><a href="#matplotlib-绘图知识整理" class="headerlink" title="matplotlib 绘图知识整理"></a>matplotlib 绘图知识整理</h3><a id="more"></a>
+<h4 id="matplotlib图标正常显示中文"><a href="#matplotlib图标正常显示中文" class="headerlink" title="matplotlib图标正常显示中文"></a>matplotlib图标正常显示中文</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>]=[<span class="string">'SimHei'</span>] <span class="comment">#用来正常显示中文标签</span></div><div class="line">plt.rcParams[<span class="string">'axes.unicode_minus'</span>]=<span class="keyword">False</span> <span class="comment">#用来正常显示负号</span></div></pre></td></tr></table></figure>
+<h4 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h4><p>axex: 设置坐标轴边界和表面的颜色、坐标刻度值大小和网格的显示<br>backend: 设置目标暑促TkAgg和GTKAgg<br>figure: 控制dpi、边界颜色、图形大小、和子区( subplot)设置<br>font: 字体集（font family）、字体大小和样式设置<br>grid: 设置网格颜色和线性<br>legend: 设置图例和其中的文本的显示<br>line: 设置线条（颜色、线型、宽度等）和标记<br>patch: 是填充2D空间的图形对象，如多边形和圆。控制线宽、颜色和抗锯齿设置等。<br>savefig: 可以对保存的图形进行单独设置。例如，设置渲染的文件的背景为白色。<br>verbose: 设置matplotlib在执行期间信息输出，如silent、helpful、debug和debug-annoying。<br>xticks和yticks: 为x,y轴的主刻度和次刻度设置颜色、大小、方向，以及标签大小。</p>
+<h4 id="确定坐标范围"><a href="#确定坐标范围" class="headerlink" title="确定坐标范围"></a>确定坐标范围</h4><p>plt.axis([xmin, xmax, ymin, ymax])<br>上面例子里的axis()命令给定了坐标范围。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">%matplotlib inline</div><div class="line"> </div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> *</div><div class="line"> </div><div class="line">x = np.arange(<span class="number">-5.0</span>, <span class="number">5.0</span>, <span class="number">0.02</span>)</div><div class="line">y1 = np.sin(x)</div><div class="line"> </div><div class="line">plt.figure(<span class="number">1</span>)</div><div class="line">plt.subplot(<span class="number">211</span>)</div><div class="line">plt.plot(x, y1)</div><div class="line"> </div><div class="line">plt.subplot(<span class="number">212</span>)</div><div class="line"><span class="comment">#设置x轴范围</span></div><div class="line">xlim(<span class="number">-2.5</span>, <span class="number">2.5</span>)</div><div class="line"><span class="comment">#设置y轴范围</span></div><div class="line">ylim(<span class="number">-1</span>, <span class="number">1</span>)</div><div class="line">plt.plot(x, y1)</div><div class="line">``` </div><div class="line"><span class="comment">#### 叠加图</span></div><div class="line">``` python</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"> </div><div class="line"><span class="comment"># evenly sampled time at 200ms intervals</span></div><div class="line">t = np.arange(<span class="number">0.</span>, <span class="number">5.</span>, <span class="number">0.2</span>)</div><div class="line"> </div><div class="line"><span class="comment"># red dashes, blue squares and green triangles</span></div><div class="line">plt.plot(t, t, <span class="string">'r--'</span>, t, t**<span class="number">2</span>, <span class="string">'bs'</span>, t, t**<span class="number">3</span>, <span class="string">'g^'</span>)</div><div class="line">plt.show()</div></pre></td></tr></table></figure></p>
+<h4 id="plt-figure"><a href="#plt-figure" class="headerlink" title="plt.figure()"></a>plt.figure()</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line">plt.figure(<span class="number">1</span>)                <span class="comment"># 第一张图</span></div><div class="line">plt.subplot(<span class="number">211</span>)             <span class="comment"># 第一张图中的第一张子图</span></div><div class="line">plt.plot([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</div><div class="line">plt.subplot(<span class="number">212</span>)             <span class="comment"># 第一张图中的第二张子图</span></div><div class="line">plt.plot([<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>])</div><div class="line"> </div><div class="line"> </div><div class="line">plt.figure(<span class="number">2</span>)                <span class="comment"># 第二张图</span></div><div class="line">plt.plot([<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>])            <span class="comment"># 默认创建子图subplot(111)</span></div><div class="line"> </div><div class="line">plt.figure(<span class="number">1</span>)                <span class="comment"># 切换到figure 1 ; 子图subplot(212)仍旧是当前图</span></div><div class="line">plt.subplot(<span class="number">211</span>)             <span class="comment"># 令子图subplot(211)成为figure1的当前图</span></div><div class="line">plt.title(<span class="string">'Easy as 1,2,3'</span>)   <span class="comment"># 添加subplot 211 的标题</span></div></pre></td></tr></table></figure>
+<h4 id="plt-text-添加文字说明"><a href="#plt-text-添加文字说明" class="headerlink" title="plt.text()添加文字说明"></a>plt.text()添加文字说明</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"> </div><div class="line">mu, sigma = <span class="number">100</span>, <span class="number">15</span></div><div class="line">x = mu + sigma * np.random.randn(<span class="number">10000</span>)</div><div class="line"> </div><div class="line"><span class="comment"># 数据的直方图</span></div><div class="line">n, bins, patches = plt.hist(x, <span class="number">50</span>, normed=<span class="number">1</span>, facecolor=<span class="string">'g'</span>, alpha=<span class="number">0.75</span>)</div><div class="line"><span class="comment"># xlable(), ylable()用于添加x轴和y轴标签</span></div><div class="line">plt.xlabel(<span class="string">'Smarts'</span>)</div><div class="line">plt.ylabel(<span class="string">'Probability'</span>)</div><div class="line"><span class="comment">#添加标题</span></div><div class="line">plt.title(<span class="string">'Histogram of IQ'</span>)</div><div class="line"><span class="comment">#添加文字</span></div><div class="line">plt.text(<span class="number">60</span>, <span class="number">.025</span>, <span class="string">r'$mu=100, sigma=15$'</span>)</div><div class="line">plt.axis([<span class="number">40</span>, <span class="number">160</span>, <span class="number">0</span>, <span class="number">0.03</span>])</div><div class="line">plt.grid(<span class="keyword">True</span>)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<h4 id="plt-annotate-文本注释"><a href="#plt-annotate-文本注释" class="headerlink" title="plt.annotate()文本注释"></a>plt.annotate()文本注释</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line">ax = plt.subplot(<span class="number">111</span>)</div><div class="line">t = np.arange(<span class="number">0.0</span>, <span class="number">5.0</span>, <span class="number">0.01</span>)</div><div class="line">s = np.cos(<span class="number">2</span>*np.pi*t)</div><div class="line">line, = plt.plot(t, s, lw=<span class="number">2</span>)</div><div class="line">plt.annotate(<span class="string">'local max'</span>, xy=(<span class="number">2</span>, <span class="number">1</span>), xytext=(<span class="number">3</span>, <span class="number">1.5</span>),</div><div class="line">            arrowprops=dict(facecolor=<span class="string">'black'</span>, shrink=<span class="number">0.05</span>),</div><div class="line">            )</div><div class="line"> </div><div class="line">plt.ylim(<span class="number">-2</span>,<span class="number">2</span>)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<h4 id="plt-xticks-plt-yticks-设置轴记号"><a href="#plt-xticks-plt-yticks-设置轴记号" class="headerlink" title="plt.xticks()/plt.yticks()设置轴记号"></a>plt.xticks()/plt.yticks()设置轴记号</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 导入 matplotlib 的所有内容（nympy 可以用 np 这个名字来使用）</span></div><div class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> *</div><div class="line"> </div><div class="line"><span class="comment"># 创建一个 8 * 6 点（point）的图，并设置分辨率为 80</span></div><div class="line">figure(figsize=(<span class="number">8</span>,<span class="number">6</span>), dpi=<span class="number">80</span>)</div><div class="line"> </div><div class="line"><span class="comment"># 创建一个新的 1 * 1 的子图，接下来的图样绘制在其中的第 1 块（也是唯一的一块）</span></div><div class="line">subplot(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)</div><div class="line"> </div><div class="line">X = np.linspace(-np.pi, np.pi, <span class="number">256</span>,endpoint=<span class="keyword">True</span>)</div><div class="line">C,S = np.cos(X), np.sin(X)</div><div class="line"> </div><div class="line"><span class="comment"># 绘制余弦曲线，使用蓝色的、连续的、宽度为 1 （像素）的线条</span></div><div class="line">plot(X, C, color=<span class="string">"blue"</span>, linewidth=<span class="number">1.0</span>, linestyle=<span class="string">"-"</span>)</div><div class="line"> </div><div class="line"><span class="comment"># 绘制正弦曲线，使用绿色的、连续的、宽度为 1 （像素）的线条</span></div><div class="line">plot(X, S, color=<span class="string">"r"</span>, lw=<span class="number">4.0</span>, linestyle=<span class="string">"-"</span>)</div><div class="line"> </div><div class="line">plt.axis([<span class="number">-4</span>,<span class="number">4</span>,<span class="number">-1.2</span>,<span class="number">1.2</span>])</div><div class="line"><span class="comment"># 设置轴记号</span></div><div class="line"> </div><div class="line">xticks([-np.pi, -np.pi/<span class="number">2</span>, <span class="number">0</span>, np.pi/<span class="number">2</span>, np.pi],</div><div class="line">       [<span class="string">r'$-pi$'</span>, <span class="string">r'$-pi/2$'</span>, <span class="string">r'$0$'</span>, <span class="string">r'$+pi/2$'</span>, <span class="string">r'$+pi$'</span>])</div><div class="line"> </div><div class="line">yticks([<span class="number">-1</span>, <span class="number">0</span>, +<span class="number">1</span>],</div><div class="line">       [<span class="string">r'$-1$'</span>, <span class="string">r'$0$'</span>, <span class="string">r'$+1$'</span>])</div><div class="line"><span class="comment"># 在屏幕上显示</span></div><div class="line">show()</div></pre></td></tr></table></figure>
+<h4 id="移动脊柱-坐标系"><a href="#移动脊柱-坐标系" class="headerlink" title="移动脊柱 坐标系"></a>移动脊柱 坐标系</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ax = gca()</div><div class="line">ax.spines[<span class="string">'right'</span>].set_color(<span class="string">'none'</span>)</div><div class="line">ax.spines[<span class="string">'top'</span>].set_color(<span class="string">'none'</span>)</div><div class="line">ax.xaxis.set_ticks_position(<span class="string">'bottom'</span>)</div><div class="line">ax.spines[<span class="string">'bottom'</span>].set_position((<span class="string">'data'</span>,<span class="number">0</span>))</div><div class="line">ax.yaxis.set_ticks_position(<span class="string">'left'</span>)</div><div class="line">ax.spines[<span class="string">'left'</span>].set_position((<span class="string">'data'</span>,<span class="number">0</span>))</div></pre></td></tr></table></figure>
+<h4 id="plt-legend-添加图例"><a href="#plt-legend-添加图例" class="headerlink" title="plt.legend()添加图例"></a>plt.legend()添加图例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">plot(X, C, color=<span class="string">"blue"</span>, linewidth=<span class="number">2.5</span>, linestyle=<span class="string">"-"</span>, label=<span class="string">"cosine"</span>)</div><div class="line">plot(X, S, color=<span class="string">"red"</span>,  linewidth=<span class="number">2.5</span>, linestyle=<span class="string">"-"</span>, label=<span class="string">"sine"</span>)</div><div class="line">legend(loc=<span class="string">'upper left'</span>)</div></pre></td></tr></table></figure>
+<h4 id="matplotlib-pyplot"><a href="#matplotlib-pyplot" class="headerlink" title="matplotlib.pyplot"></a>matplotlib.pyplot</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Import necessary packages</span></div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line">%matplotlib inline</div><div class="line"> </div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line">plt.style.use(<span class="string">'ggplot'</span>)</div><div class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</div><div class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> linear_model</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="comment"># Load data</span></div><div class="line">boston = datasets.load_boston()</div><div class="line">yb = boston.target.reshape(<span class="number">-1</span>, <span class="number">1</span>)</div><div class="line">Xb = boston[<span class="string">'data'</span>][:,<span class="number">5</span>].reshape(<span class="number">-1</span>, <span class="number">1</span>)</div><div class="line"><span class="comment"># Plot data</span></div><div class="line">plt.scatter(Xb,yb)</div><div class="line">plt.ylabel(<span class="string">'value of house /1000 ($)'</span>)</div><div class="line">plt.xlabel(<span class="string">'number of rooms'</span>)</div><div class="line"><span class="comment"># Create linear regression object</span></div><div class="line">regr = linear_model.LinearRegression()</div><div class="line"><span class="comment"># Train the model using the training sets</span></div><div class="line">regr.fit( Xb, yb)</div><div class="line"><span class="comment"># Plot outputs</span></div><div class="line">plt.scatter(Xb, yb,  color=<span class="string">'black'</span>)</div><div class="line">plt.plot(Xb, regr.predict(Xb), color=<span class="string">'blue'</span>,</div><div class="line">         linewidth=<span class="number">3</span>)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<h4 id="给特殊点做注释"><a href="#给特殊点做注释" class="headerlink" title="给特殊点做注释"></a>给特殊点做注释</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">t = <span class="number">2</span>*np.pi/<span class="number">3</span></div><div class="line"><span class="comment"># 作一条垂直于x轴的线段，由数学知识可知，横坐标一致的两个点就在垂直于坐标轴的直线上了。这两个点是起始点。</span></div><div class="line">plot([t,t],[<span class="number">0</span>,np.cos(t)], color =<span class="string">'blue'</span>, linewidth=<span class="number">2.5</span>, linestyle=<span class="string">"--"</span>)</div><div class="line">scatter([t,],[np.cos(t),], <span class="number">50</span>, color =<span class="string">'blue'</span>)</div><div class="line"> </div><div class="line">annotate(<span class="string">r'$sin(frac&#123;2pi&#125;&#123;3&#125;)=frac&#123;sqrt&#123;3&#125;&#125;&#123;2&#125;$'</span>,</div><div class="line">         xy=(t, np.sin(t)), xycoords=<span class="string">'data'</span>,</div><div class="line">         xytext=(+<span class="number">10</span>, +<span class="number">30</span>), textcoords=<span class="string">'offset points'</span>, fontsize=<span class="number">16</span>,</div><div class="line">         arrowprops=dict(arrowstyle=<span class="string">"-&gt;"</span>, connectionstyle=<span class="string">"arc3,rad=.2"</span>))</div><div class="line"> </div><div class="line">plot([t,t],[<span class="number">0</span>,np.sin(t)], color =<span class="string">'red'</span>, linewidth=<span class="number">2.5</span>, linestyle=<span class="string">"--"</span>)</div><div class="line">scatter([t,],[np.sin(t),], <span class="number">50</span>, color =<span class="string">'red'</span>)</div><div class="line"> </div><div class="line">annotate(<span class="string">r'$cos(frac&#123;2pi&#125;&#123;3&#125;)=-frac&#123;1&#125;&#123;2&#125;$'</span>,</div><div class="line">         xy=(t, np.cos(t)), xycoords=<span class="string">'data'</span>,</div><div class="line">         xytext=(<span class="number">-90</span>, <span class="number">-50</span>), textcoords=<span class="string">'offset points'</span>, fontsize=<span class="number">16</span>,</div><div class="line">         arrowprops=dict(arrowstyle=<span class="string">"-&gt;"</span>, connectionstyle=<span class="string">"arc3,rad=.2"</span>))</div></pre></td></tr></table></figure>
+<h4 id="plt-axes"><a href="#plt-axes" class="headerlink" title="plt.axes()"></a>plt.axes()</h4><p>在matplotlib中，整个图像为一个Figure对象。在Figure对象中可以包含一个，或者多个Axes对象。每个Axes对象都是一个拥有自己坐标系统的绘图区域。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"> </div><div class="line"><span class="comment"># create some data to use for the plot</span></div><div class="line">dt = <span class="number">0.001</span></div><div class="line">t = np.arange(<span class="number">0.0</span>, <span class="number">10.0</span>, dt)</div><div class="line">r = np.exp(-t[:<span class="number">1000</span>]/<span class="number">0.05</span>)               <span class="comment"># impulse response</span></div><div class="line">x = np.random.randn(len(t))</div><div class="line">s = np.convolve(x, r)[:len(x)]*dt  <span class="comment"># colored noise</span></div><div class="line"> </div><div class="line"><span class="comment"># the main axes is subplot(111) by default</span></div><div class="line">plt.plot(t, s)</div><div class="line">plt.axis([<span class="number">0</span>, <span class="number">1</span>, <span class="number">1.1</span>*np.amin(s), <span class="number">2</span>*np.amax(s)])</div><div class="line">plt.xlabel(<span class="string">'time (s)'</span>)</div><div class="line">plt.ylabel(<span class="string">'current (nA)'</span>)</div><div class="line">plt.title(<span class="string">'Gaussian colored noise'</span>)</div><div class="line"> </div><div class="line"><span class="comment"># this is an inset axes over the main axes</span></div><div class="line">a = plt.axes([<span class="number">.65</span>, <span class="number">.6</span>, <span class="number">.2</span>, <span class="number">.2</span>], axisbg=<span class="string">'y'</span>)</div><div class="line">n, bins, patches = plt.hist(s, <span class="number">400</span>, normed=<span class="number">1</span>)</div><div class="line">plt.title(<span class="string">'Probability'</span>)</div><div class="line">plt.xticks([])</div><div class="line">plt.yticks([])</div><div class="line"> </div><div class="line"><span class="comment"># this is another inset axes over the main axes</span></div><div class="line">a = plt.axes([<span class="number">0.2</span>, <span class="number">0.6</span>, <span class="number">.2</span>, <span class="number">.2</span>], axisbg=<span class="string">'y'</span>)</div><div class="line">plt.plot(t[:len(r)], r)</div><div class="line">plt.title(<span class="string">'Impulse response'</span>)</div><div class="line">plt.xlim(<span class="number">0</span>, <span class="number">0.2</span>)</div><div class="line">plt.xticks([])</div><div class="line">plt.yticks([])</div><div class="line"> </div><div class="line">plt.show()</div></pre></td></tr></table></figure></p>
+<p>转载自 <a href="http://python.jobbole.com/85106/" target="_blank" rel="external">http://python.jobbole.com/85106/</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/28/phplaravelinstall/" rel="next" title="about how to install laravel and homestead in win7">
+                <i class="fa fa-chevron-left"></i> about how to install laravel and homestead in win7
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Daniel Lu" />
+          <p class="site-author-name" itemprop="name">Daniel Lu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/your-user-name" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="facebook">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      facebook
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.github.com" title="Github" target="_blank">Github</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#matplotlib-绘图知识整理"><span class="nav-number">1.</span> <span class="nav-text">matplotlib 绘图知识整理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#matplotlib图标正常显示中文"><span class="nav-number">1.1.</span> <span class="nav-text">matplotlib图标正常显示中文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置项"><span class="nav-number">1.2.</span> <span class="nav-text">配置项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确定坐标范围"><span class="nav-number">1.3.</span> <span class="nav-text">确定坐标范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#plt-figure"><span class="nav-number">1.4.</span> <span class="nav-text">plt.figure()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#plt-text-添加文字说明"><span class="nav-number">1.5.</span> <span class="nav-text">plt.text()添加文字说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#plt-annotate-文本注释"><span class="nav-number">1.6.</span> <span class="nav-text">plt.annotate()文本注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#plt-xticks-plt-yticks-设置轴记号"><span class="nav-number">1.7.</span> <span class="nav-text">plt.xticks()/plt.yticks()设置轴记号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移动脊柱-坐标系"><span class="nav-number">1.8.</span> <span class="nav-text">移动脊柱 坐标系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#plt-legend-添加图例"><span class="nav-number">1.9.</span> <span class="nav-text">plt.legend()添加图例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#matplotlib-pyplot"><span class="nav-number">1.10.</span> <span class="nav-text">matplotlib.pyplot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给特殊点做注释"><span class="nav-number">1.11.</span> <span class="nav-text">给特殊点做注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#plt-axes"><span class="nav-number">1.12.</span> <span class="nav-text">plt.axes()</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daniel Lu</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
