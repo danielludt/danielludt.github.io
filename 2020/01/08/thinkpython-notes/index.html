@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="整理think python学习笔记">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="numpy库学习笔记">
+<meta property="og:url" content="http://yoursite.com/2020/01/08/thinkpython-notes/index.html">
+<meta property="og:site_name" content="Mingjun">
+<meta property="og:description" content="整理think python学习笔记">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-01-09T15:36:07.056Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="numpy库学习笔记">
+<meta name="twitter:description" content="整理think python学习笔记">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/01/08/thinkpython-notes/"/>
+
+
+
+
+
+  <title>numpy库学习笔记 | Mingjun</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mingjun</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Code House</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/08/thinkpython-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mingjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mingjun">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">numpy库学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-08T22:46:25-05:00">
+                2020-01-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>整理think python学习笔记<br><a id="more"></a></p>
+<h3 id="Chapter-1-The-Way-of-the-Program"><a href="#Chapter-1-The-Way-of-the-Program" class="headerlink" title="Chapter 1 : The Way of the Program"></a>Chapter 1 : The Way of the Program</h3><h4 id="What-Is-a-Program"><a href="#What-Is-a-Program" class="headerlink" title="What Is a Program?"></a><strong><em>What Is a Program?</em></strong></h4><p>A program is a sequence of instructions that specifies how to perform a computation.<br></p>
+<p><strong>input:</strong><br>Get data from the keyboard, a file, the network, or some other device.<br><br><strong>output:</strong><br>Display data on the screen, save it in a file, send it over the network, etc.<br><br><strong>math:</strong><br>Perform basic mathematical operations like addition and multiplication.<br><br><strong>conditional execution:</strong><br>Check for certain conditions and run the appropriate code.<br><br><strong>repetition:</strong><br>Perform some action repeatedly, usually with some variation.<br></p>
+<h3 id="Chapter-2-Variables-Expressions-and-Statements"><a href="#Chapter-2-Variables-Expressions-and-Statements" class="headerlink" title="Chapter 2: Variables, Expressions and Statements"></a>Chapter 2: Variables, Expressions and Statements</h3><h4 id="Order-of-Operations"><a href="#Order-of-Operations" class="headerlink" title="Order of Operations"></a><strong><em>Order of Operations</em></strong></h4><p>Parentheses have the highest precedence and can be used to force an expression to evaluate in the order you want <br><br>括号（Parentheses）具有最高的优先级，并且可以强制表达式按你希望的顺序计算<br><br>Exponentiation has the next highest precedence, <br><br>指数运算（Exponentiation）具有次高的优先级，<br><br>Multiplication and Division have higher precedence than Addition and Subtraction <br><br>乘法（Multiplication）和除法（Division）有相同的优先级，比加法（Addition）和减法（Subtraction）高，加法和减法也具有相同的优先级。<br><br>Operators with the same precedence are evaluated from left to right (except exponentiation)<br><br>具有相同优先级的运算符按照从左到右的顺序进行计算 <br></p>
+<h4 id="String-Operations"><a href="#String-Operations" class="headerlink" title="String Operations"></a><strong><em>String Operations</em></strong></h4><p>The + operator performs string concatenation, which means it joins the strings by linking them end-to-end.<br><br>加号运算符 + 可用于 字符串拼接  <br></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>first = <span class="string">'throat'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>second = <span class="string">'warbler'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>first + second</div><div class="line">throatwarbler</div></pre></td></tr></table></figure>
+<p>The <em> operator also works on strings; it performs repetition.<br><br>乘法运算符 </em> 也可应用于字符串；它执行重复运算 <br></p>
+<h3 id="Chapter-3-Function"><a href="#Chapter-3-Function" class="headerlink" title="Chapter 3: Function"></a>Chapter 3: Function</h3><h4 id="函数调用（-function-call）"><a href="#函数调用（-function-call）" class="headerlink" title="函数调用（ function call）"></a>函数调用（ function call）</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>type(<span class="number">42</span>)</div><div class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">int</span>'&gt;</span></div><div class="line"><span class="class">``` </span></div><div class="line"><span class="class">这个函数的名字是 <span class="title">type</span>。括号中的表达式被称为这个函数的 实参（ <span class="title">argument</span>） 。这个函数执行的结果，就是实参的类型。&lt;<span class="title">br</span>&gt;</span></div><div class="line"><span class="class"></span></div><div class="line"><span class="class"><span class="title">int</span> 能将浮点数转换为整型数，但是它并不进行舍入；只是截掉了小数点部分&lt;<span class="title">br</span>&gt;</span></div><div class="line"><span class="class"></span></div><div class="line"><span class="class"><span class="title">float</span> 可以将整型数和字符串转换为浮点数&lt;<span class="title">br</span>&gt;</span></div><div class="line"><span class="class"></span></div><div class="line"><span class="class"><span class="title">str</span> 可以将其实参转换成字符串 &lt;<span class="title">br</span>&gt;</span></div><div class="line"><span class="class"></span></div><div class="line"><span class="class">#### 数学函数</span></div><div class="line"><span class="class">想要访问其中的一个函数，你必须指定该模块的名字以及函数名，并以点号（也被叫做句号）分隔开来。这种形式被称作点标记法（ <span class="title">dot</span> <span class="title">notation</span>) 。</span></div><div class="line"><span class="class"></span></div><div class="line"><span class="class">#### 组合</span></div><div class="line"><span class="class">只有一个例外：赋值语句的左侧必须是一个变量名。左侧放其他任何表达式都会产生语法错误 &lt;<span class="title">br</span>&gt;</span></div><div class="line"><span class="class">编程语言的最有用特征之一，是能够将小块构建材料（<span class="title">building</span> <span class="title">blocks</span>）组合（ <span class="title">compose</span>）在一起。例如，函数的实参可以是任意类型的表达式，包括算术运算符&lt;<span class="title">br</span>&gt;</span></div><div class="line"><span class="class">``` <span class="title">python</span></span></div><div class="line">&gt;&gt;&gt; hours * 60 = minutes # </div><div class="line">SyntaxError: can<span class="string">'t assign to operator</span></div></pre></td></tr></table></figure>
+<h4 id="函数定义（-function-definition"><a href="#函数定义（-function-definition" class="headerlink" title="函数定义（ function definition)"></a>函数定义（ function definition)</h4><p> 指定了新函数的名称以及当函数被调用时执行的语句序列. <br><br>def 是一个关键字，表明这是一个函数定义, 函数的命名规则与变量名相同：字母、数字以及下划线是合法的，但是第一个字符不能是数字。<br><br>不能使用关键字作为函数名，并应该避免变量和函数同名 <br></p>
+<p>函数名后面的圆括号是空的，表明该函数不接受任何实参。<br><br>函数定义的第一行被称作函数头（ header） ；其余部分被称作函数体（ body） 。函数头必须以冒号结尾，而函数体必须缩进。按照惯例，缩进总是 4 个空格。函数体能包含任意条语句。<br></p>
+<p>所有引号（单引号和双引号）必须是“直引号（straight quotes）”，它们通常位于键盘上 Enter 键的旁边。像这句话中使用的‘弯引号（curly quotes）’，在 Python 语言中则是不合法的。<br></p>
+<p>函数名后面的圆括号是空的，表明该函数不接受任何实参 <br></p>
+<p>为了结束函数定义，你必须输入一个空行。<br><br>定义一个函数会创建一个 函数对象（ function object） ，其类型是 function：<br></p>
+<p>该程序包含两个函数定义： print_lyrics 和 repeat_lyrics。函数定义和其它语句一样，都会被执行，但是其作用是创建函数对象。函数内部的语句在函数被调用之前，是不会执行的，而且函数定义不会产生任何输出 <br></p>
+<p>函数定义不改变程序执行的流程，但是请记住，函数不被调用的话，函数内部的语句是不会执行的。<br><br>函数调用像是在执行流程上绕了一个弯路。执行流程没有进入下一条语句，而是跳入了函数体，开始执行那里的语句，然后再回到它离开的位置。<br><br>这听起来足够简单，至少在你想起一个函数可以调用另一个函数之前。当一个函数执行到中间的时候，程序可能必须执行另一个函数里的语句。然后在执行那个新函数的时候，程序可能又得执行另外一个函数！<br></p>
+<h4 id="形参（-parameters"><a href="#形参（-parameters" class="headerlink" title="形参（ parameters"></a>形参（ parameters</h4><p>在函数内部，实参被赋给称作形参（ parameters） 的变量。下面的代码定义了一个接受一个实参的函数：<br><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_twice</span><span class="params">(bruce)</span>:</span></div><div class="line">print(bruce)</div><div class="line">print(bruce)</div></pre></td></tr></table></figure></p>
+<p>这个函数将实参赋给名为 bruce 的形参。当函数被调用的时候，它会打印形参（无论它是什么）的值两次。<br></p>
+<p>当你在函数里面创建变量时，这个变量是局部的（ local） ，也就是说它只在函数内部存在。<br><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>line1 = <span class="string">'Bing tiddle '</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>line2 = <span class="string">'tiddle bang.'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>cat_twice(line1, line2)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(cat)</div><div class="line">NameError: name <span class="string">'cat'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</div></pre></td></tr></table></figure></p>
+<p>形参也都是局部的。例如，在 print_twice 函数的外部并没有 bruce 这个变量 <br></p>
+<h4 id="堆栈图-stack-diagram"><a href="#堆栈图-stack-diagram" class="headerlink" title="堆栈图  stack diagram"></a>堆栈图  stack diagram</h4><p>可以帮助你跟踪哪个变量能在哪儿用。与状态图类似，堆栈图要说明每个变量的值，但是它们也要说明每个变量所属的函数。<br><br>每个函数用一个栈帧（ frame） 表示。一个栈帧就是一个线框，函数名在旁边，形参以及函数内部的变量则在里面 <br></p>
+<p>这些线框排列成栈的形式，说明了哪个函数调用了哪个函数等信息。在此例中，print_twice 被 cat_twice 调用， cat<em>twice 又被 <strong>main</strong> 调用， <br><strong>main</strong> 是一个表示最上层栈帧的特殊名字。当你在所有函数之外创建一个变量时，它就属于 __main</em>. <br></p>
+<p>每个形参都指向其对应实参的值。因此， part1 和 line1 的值相同， part2 和 line2 的值相同， bruce 和 cat 的值相同。<br><br>如果函数调用时发生错误， Python 会打印出错函数的名字以及调用它的函数的名字，以及调用 后面这个函数的函数的名字，一直追溯到 <strong>main</strong> 为止 <br></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Traceback (innermost last):</div><div class="line">File <span class="string">"test.py"</span>, line <span class="number">13</span>, <span class="keyword">in</span> __main__</div><div class="line">cat_twice(line1, line2)</div><div class="line">File <span class="string">"test.py"</span>, line <span class="number">5</span>, <span class="keyword">in</span> cat_twice</div><div class="line">print_twice(cat)</div><div class="line">File <span class="string">"test.py"</span>, line <span class="number">9</span>, <span class="keyword">in</span> print_twice</div><div class="line">print(cat)</div><div class="line">NameError: name <span class="string">'cat'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</div></pre></td></tr></table></figure>
+<p>这个函数列表被称作回溯（ traceback） 。它告诉你发生错误的是哪个程序文件，错误在哪一行，以及当时在执行哪个函数。它还会显示引起错误的那一行代码。<br></p>
+<h4 id="有返回值函数和无返回值函数-fruitful-functions-void-functions"><a href="#有返回值函数和无返回值函数-fruitful-functions-void-functions" class="headerlink" title="有返回值函数和无返回值函数  fruitful functions void functions"></a>有返回值函数和无返回值函数  fruitful functions void functions</h4><p>无返回值函数可能在屏幕上打印输出结果，或者产生其它的影响，但是它们并没有返回值。如果你试图将无返回值函数的结果赋给一个变量，你会得到一个被称作 None 的特殊值 <br></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>result = print_twice(<span class="string">'Bing'</span>)</div><div class="line">Bing</div><div class="line">Bing</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(result)</div><div class="line"><span class="keyword">None</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(type(<span class="keyword">None</span>))</div><div class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">NoneType</span>'&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="为什么写函数"><a href="#为什么写函数" class="headerlink" title="为什么写函数"></a>为什么写函数</h4><p>• 创建一个新的函数可以让你给一组语句命名，这可以让你的程序更容易阅读和调试。<br><br>• 通过消除重复的代码，函数精简了程序。以后，如果你要做个变动，你只需在一处修改即可。<br><br>• 将一个长程序分解为多个函数，可以让你一次调试一部分，然后再将它们组合为一个可行的整体。<br><br>• 设计良好的函数经常对多个程序都有帮助。一旦你写出并调试好一个函数，你就可以重复使用它。<br></p>
+<h3 id="chapter-4"><a href="#chapter-4" class="headerlink" title="chapter 4"></a>chapter 4</h3><p>方法（method）：与对象相关联的函数，并使用点标记法（dot notation）调用。<br><br>循环（loop）：程序中能够重复执行的那部分代码。<br><br>封装（encapsulation）：将一个语句序列转换成函数定义的过程。<br><br>泛化（generalization）：使用某种可以算是比较通用的东西（像变量和形参），替代某些没必要那么具体的东西（像一个数字）的过程。<br><br>关键字实参（keyword argument）：包括了形参名称作为“关键字”的实参。<br><br>接口（interface）：对如何使用一个函数的᧿述，包括函数名、参数说明和返回值。<br><br>重构（refactoring）：修改一个正常运行的函数，改善函数接口及其他方面代码质量的过程。<br><br>开发计划（development plan）：编写程序的一种过程。<br><br>文档字符串（docstring）：出现在函数定义顶部的一个字符串，用于记录函数的接口。<br><br>先决条件（preconditions）：在函数运行之前，调用者应该满足的要求。 ends.<br><br>后置条件（postconditions）：函数终止之前应该满足的条件<br></p>
+<h3 id="chapter-5-条件和递归"><a href="#chapter-5-条件和递归" class="headerlink" title="chapter 5 条件和递归"></a>chapter 5 条件和递归</h3><ol>
+<li><p>地板除运算符 (floor division operator) // 先做除法，然后将结果保留到整数。<br>求余运算符 (modulus operator) % ，它会将两个数相除，返回余数</p>
+</li>
+<li><p>布尔表达式（ boolean expression） 的结果要么为真要么为假。下面的例子使用 == 运算符。它比较两个运算数，如果它们相等，则结果为 True ，否则结果为 False </p>
+</li>
+</ol>
+<p>True 和 False 是属于 bool 类型的特殊值；它们不是字符串<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>type(<span class="keyword">True</span>)</div><div class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">bool</span>'&gt;</span></div><div class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(False)</span></span></div><div class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">bool</span>'&gt;</span></div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>有三个逻辑运算符（ logical operators） ： and 、 or 和 not。not 运算符对一个布尔表达式取反</p>
+</li>
+<li><p>if 之后的布尔表达式被称作条件（ condition） 。如果它为真，则缩进的语句会被执行。<br>如果不是，则什么也不会发生。<br>if 语句和函数定义有相同的结构：一个语句头跟着一个缩进的语句体。类似的语句被<br>称作复合语句（ compound statements） 。</p>
+</li>
+<li><p>if 语句的第二种形式是二选一执行（ alternative execution） ，此时有两个可能的选择，由条件决定执行哪一个</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>:</div><div class="line">print(<span class="string">'x is even'</span>)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">print(<span class="string">'x is odd'</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p>多于两个的分支。表示像这样的计算的方法之一是链式条件（ chained conditional）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> x &lt; y:</div><div class="line">print(<span class="string">'x is less than y'</span>)</div><div class="line"><span class="keyword">elif</span> x &gt; y:</div><div class="line">print(<span class="string">'x is greater than y'</span>)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">print(<span class="string">'x and y are equal'</span>)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> choice == <span class="string">'a'</span>:</div><div class="line">draw_a()</div><div class="line"><span class="keyword">elif</span> choice == <span class="string">'b'</span>:</div><div class="line">draw_b()</div><div class="line"><span class="keyword">elif</span> choice == <span class="string">'c'</span>:</div><div class="line">draw_c()</div></pre></td></tr></table></figure>
+<p>程序将按顺序逐个检测条件，如果第一个为假，检测下一个，以此类推。如果它们中有一个为真，相应的分支被执行，并且语句结束。即便有不止一个条件为真，也只执行第一个为真的分支。</p>
+<ol>
+<li>嵌套条件 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> x == y:</div><div class="line">print(<span class="string">'x and y are equal'</span>)</div><div class="line"><span class="keyword">else</span>:</div><div class="line"><span class="keyword">if</span> x &lt; y:</div><div class="line">print(<span class="string">'x is less than y'</span>)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">print(<span class="string">'x is greater than y'</span>)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="number">0</span> &lt; x &lt; <span class="number">10</span>:</div><div class="line">print(<span class="string">'x is a positive single-digit number.'</span>)</div></pre></td></tr></table></figure>
+<ol>
+<li>递归<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">countdown</span><span class="params">(n)</span>:</span></div><div class="line"><span class="keyword">if</span> n &lt;= <span class="number">0</span>:</div><div class="line">print(<span class="string">'Blastoff!'</span>)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">print(n)</div><div class="line">countdown(n<span class="number">-1</span>)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果 n 是 0 或负数，程序输出单词“Blastoff!”。否则，它输出 n 然后调用一个名为countdown 的函数—即它自己—传递 n-1 作为实参</p>
+<p>每当一个函数被调用时， Python 生成一个新的栈帧，用于保存函数的局部变量和形参。<br>对于一个递归函数，在堆栈上可能同时有多个栈帧</p>
+<p>通常，堆栈的顶部是 <strong>main</strong> 栈帧。因为我们在 <strong>main</strong> 中没有创建任何变量，也没有传递任何实参给它，所以它是空的。<br>对于形参 n，四个 countdown 栈帧有不同的值。 n=0 的栈底，被称作基础情形（ basecase） 。它不再进行递归调用了，所以没有更多的栈帧了</p>
+<ol>
+<li>Python提供了一个内建函数 input ，可以暂停程序运行，并等待用户输入。当用户按下回车键 (Return or Enter)，程序恢复执行， input 以字符串形式返回用户键入的内容。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>name = input(<span class="string">'What...is your name?\n'</span>)</div><div class="line">What...is your name?</div><div class="line">Arthur, King of the Britons!</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>name</div><div class="line">Arthur, King of the Britons!</div></pre></td></tr></table></figure>
+<h3 id="Chapter-6-有返回值的函数"><a href="#Chapter-6-有返回值的函数" class="headerlink" title="Chapter 6 有返回值的函数"></a>Chapter 6 有返回值的函数</h3><p>调用一个有返回值的函数会生成一个返回值，我们通常将其赋值给某个变量或是作为表达式的一部分。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">area</span><span class="params">(radius)</span>:</span></div><div class="line">a = math.pi * radius**<span class="number">2</span></div><div class="line"><span class="keyword">return</span> a</div></pre></td></tr></table></figure></p>
+<p>另一方面，像 a 这样的 临时变量（ temporary variables） 能使调试变得更简单。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">absolute_value</span><span class="params">(x)</span>:</span></div><div class="line"><span class="keyword">if</span> x &lt; <span class="number">0</span>:</div><div class="line"><span class="keyword">return</span> -x</div><div class="line"><span class="keyword">else</span>:</div><div class="line"><span class="keyword">return</span> x</div></pre></td></tr></table></figure></p>
+<p>增量式开发（ incremental development ) 的方法。增量式开发的目标，是通过每次只增加和测试少量代码，来避免长时间的调试。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">circle_area</span><span class="params">(xc, yc, xp, yp)</span>:</span></div><div class="line">radius = distance(xc, yc, xp, yp)</div><div class="line">result = area(radius)</div><div class="line"><span class="keyword">return</span> result</div></pre></td></tr></table></figure>
+<p>函数可以返回布尔值（booleans），通常对于隐藏函数内部的复杂测试代码非常方便<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_divisible</span><span class="params">(x, y)</span>:</span></div><div class="line"><span class="keyword">if</span> x % y == <span class="number">0</span>:</div><div class="line"><span class="keyword">return</span> <span class="keyword">True</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line"><span class="keyword">return</span> <span class="keyword">False</span></div></pre></td></tr></table></figure></p>
+<h3 id="Chapter-7-迭代"><a href="#Chapter-7-迭代" class="headerlink" title="Chapter 7 迭代"></a>Chapter 7 迭代</h3><p>此外，数学中，相等命题不是对的就是错的。如果 a = b，那么 a 则是永远与 b 相等。在Python 中，赋值语句可以使得两个变量相等，但是这两个变量不一定必须保持这个状态<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">5</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b = a <span class="comment"># a  b </span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">3</span> <span class="comment"># a  b </span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b</div><div class="line"><span class="number">5</span></div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>更新变量<br>如果试图去更新一个不存在的变量，则会返回一个错误。这是因为 Python 是先求式子右边的值，然后再把所求的值赋给 x：<br>在更新变量之前，你得先 初始化（ initialize） 它，通常是通过一个简单的赋值实现</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>x = <span class="number">0</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>x = x + <span class="number">1</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>while 语句</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">countdown</span><span class="params">(n)</span>:</span></div><div class="line"><span class="keyword">while</span> n &gt; <span class="number">0</span>:</div><div class="line">print(n)</div><div class="line">n = n - <span class="number">1</span></div><div class="line">print(<span class="string">'Blastoff!'</span>)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Chapter-8-字符串"><a href="#Chapter-8-字符串" class="headerlink" title="Chapter 8 字符串"></a>Chapter 8 字符串</h2><ol>
+<li>括号中的表达式被称作 索引 (index) 。索引指出在序列中你想要哪个字符<br>字符串是由字符组成的序列。你可以用括号运算符一次访问一个字符</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>fruit = <span class="string">'banana'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>letter = fruit[<span class="number">1</span>]</div></pre></td></tr></table></figure>
+<p>索引值必须使用整数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>i = <span class="number">1</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>fruit[i]</div><div class="line"><span class="string">'a'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>fruit[i+<span class="number">1</span>]</div><div class="line"><span class="string">'n</span></div></pre></td></tr></table></figure></p>
+<p>len 是一个内建函数，其返回字符串中的字符数量</p>
+<p>出现 IndexError 的原因，是在 ’banana’ 中没有索引为 6 的字母。由于我们从 0 开始计数，六个字母的编号是 0 到 5。</p>
+<ol>
+<li><p>遍历 (traversal) 遍历的方法之一是使用 while 循环：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">index = <span class="number">0</span></div><div class="line"><span class="keyword">while</span> index &lt; len(fruit):</div><div class="line">letter = fruit[index]</div><div class="line">print(letter)</div><div class="line">index = index + <span class="number">1</span></div></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> letter <span class="keyword">in</span> fruit:</div><div class="line">print(letter)</div></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">prefixes = <span class="string">'JKLMNOPQ'</span></div><div class="line">suffix = <span class="string">'ack'</span></div><div class="line"><span class="keyword">for</span> letter <span class="keyword">in</span> prefixes:</div><div class="line">print(letter + suffix)</div></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = <span class="string">'Monty Python'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s[<span class="number">0</span>:<span class="number">5</span>]</div><div class="line"><span class="string">'Monty'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s[<span class="number">6</span>:<span class="number">12</span>]</div><div class="line"><span class="string">'Python'</span></div></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>greeting = <span class="string">'Hello world!'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>new_greeting = <span class="string">'J'</span> + greeting[<span class="number">1</span>:]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>new_greeting</div><div class="line"><span class="string">'Jello world!'</span></div></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">find</span><span class="params">(word letter)</span>:</span></div><div class="line">index = <span class="number">0</span></div><div class="line"><span class="keyword">while</span> index &lt; len(word):</div><div class="line"><span class="keyword">if</span> word[index] == letter:</div><div class="line"><span class="keyword">return</span> index</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这是我们第一次在循环内部看见 return 语句。如果 word[index] == letter ，函数停止循环并马上返回。<br>如果字符没出现在字符串中，那么程序正常退出循环并返回 -1。<br>这种计算模式——遍历一个序列并在找到寻找的东西时返回——被称作 搜索 (search) </p>
+<ol>
+<li>字符串方法<br>字符串ᨀ供了可执行多种有用操作的 方法 (method) 。方法和函数类似，接受实参并返回一个值，但是语法不同。<br>方法调用 (invocation) ；在此例中，我们可以说是在 word 上调用 upper<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>word = <span class="string">'banana'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>new_word = word.upper()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>new_word</div><div class="line"><span class="string">'BANANA'</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>word = <span class="string">'banana'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>index = word.find(<span class="string">'a'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>index</div><div class="line"><span class="number">1</span></div></pre></td></tr></table></figure>
+<ol>
+<li>in 运算符<br>单词 in 是一个布尔运算符，接受两个字符串。如果第一个作为子串出现在第二个中，则返回 True：<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'a'</span> <span class="keyword">in</span> <span class="string">'banana'</span></div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'seed'</span> <span class="keyword">in</span> <span class="string">'banana'</span></div><div class="line"><span class="keyword">False</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">in_both</span><span class="params">(word1 word2)</span>:</span></div><div class="line"><span class="keyword">for</span> letter <span class="keyword">in</span> word1:</div><div class="line"><span class="keyword">if</span> letter <span class="keyword">in</span> word2:</div><div class="line">print(letter)</div></pre></td></tr></table></figure>
+<ol>
+<li>字符串比较</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> word == <span class="string">'banana'</span>:</div><div class="line">print(<span class="string">'All right bananas.'</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> word &lt; <span class="string">'banana'</span>:</div><div class="line">print(<span class="string">'Your word '</span> + word + <span class="string">' comes before banana.'</span>)</div><div class="line"><span class="keyword">elif</span> word &gt; <span class="string">'banana'</span>:</div><div class="line">print(<span class="string">'Your word '</span> + word + <span class="string">' comes after banana.'</span>)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">print(<span class="string">'All right bananas.'</span>)</div></pre></td></tr></table></figure>
+<h3 id="chapter-10-列表"><a href="#chapter-10-列表" class="headerlink" title="chapter 10 列表"></a>chapter 10 列表</h3><ol>
+<li>列表是一个序列<br>与字符串类似， 列表是由多个值组成的序列。在字符串中，每个值都是字符；在列表中，值可以是任何数据类型。列表中的值称为 元素（ element） ，有时也被称为 项（ item）</li>
+</ol>
+<p>创建新列表的方法有多种；最简单的方法是用方括号 ( [ 和 ] ) 将元素包括起来<br>一个列表在另一个列表中，称为 嵌套（nested）列表<br>一个不包含元素的列表被称为空列表；你可以用空的方括号 [] 创建一个空列表。<br>正如你想的那样，你可以将列表的值赋给变量<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>cheeses = [<span class="string">'Cheddar'</span>, <span class="string">'Edam'</span>, <span class="string">'Gouda'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>numbers = [<span class="number">42</span>, <span class="number">123</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>empty = []</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(cheeses, numbers, empty)</div><div class="line">[<span class="string">'Cheddar'</span>, <span class="string">'Edam'</span>, <span class="string">'Gouda'</span>] [<span class="number">42</span>, <span class="number">123</span>] []</div></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>]</div><div class="line">[<span class="string">'crunchy frog'</span>, <span class="string">'ram bladder'</span>, <span class="string">'lark vomit'</span>]</div></pre></td></tr></table></figure>
+<p>和字符串不同的是，列表是可变的。当括号运算符出现在赋值语句的左边时，它就指向了列表中将被赋值的元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>numbers = [<span class="number">42</span>, <span class="number">123</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>numbers[<span class="number">1</span>] = <span class="number">5</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>numbers</div><div class="line">[<span class="number">42</span>, <span class="number">5</span>]</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>cheeses = [<span class="string">'Cheddar'</span>, <span class="string">'Edam'</span>, <span class="string">'Gouda'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Edam'</span> <span class="keyword">in</span> cheeses</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Brie'</span> <span class="keyword">in</span> cheeses</div><div class="line"><span class="keyword">False</span></div></pre></td></tr></table></figure>
+<ol>
+<li>遍历列表<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(numbers)):</div><div class="line">numbers[i] = numbers[i] * <span class="number">2</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(numbers)):</div><div class="line">numbers[i] = numbers[i] * <span class="number">2</span></div></pre></td></tr></table></figure>
+<ol>
+<li><p>列表操作</p>
+<p>+运算符拼接多个列表, 运算符 * 以给定次数的重复一个列表</p>
+<ol>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> &gt;&gt;&gt; t = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t[<span class="number">1</span>:<span class="number">3</span>]</div><div class="line">[<span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t[:<span class="number">4</span>]</div><div class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t[<span class="number">3</span>:]</div><div class="line">[<span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>]</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>如果你省略第一个索引，切片将从列表头开始。如果你省略第二个索引，切片将会到列表尾结束。所以如果你两者都省略，切片就是整个列表的一个拷贝。</p>
+</li>
+<li><p>列表方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>t = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t.append(<span class="string">'d'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t</div><div class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t1 = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t2 = [<span class="string">'d'</span>, <span class="string">'e'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t1.extend(t2)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t1</div><div class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>]</div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t = [<span class="string">'d'</span>, <span class="string">'c'</span>, <span class="string">'e'</span>, <span class="string">'b'</span>, <span class="string">'a'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t.sort()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t</div><div class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>]</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>sort 将列表中的元素从小到大进行排序</p>
+<ol>
+<li>映射、筛选和归并 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_all</span><span class="params">(t)</span>:</span></div><div class="line">total = <span class="number">0</span></div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> t:</div><div class="line">total += x</div><div class="line"><span class="keyword">return</span> total</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>增量赋值语句（ augmented assignment statement）<br>total = total + x</p>
+<p>当循环执行时， total 将累计元素的和；一个这样的变量有时被称为 累加器（ accumulator） 。<br>把一个列表中的元素加起来是一个很常用的操作，所以 Python 将其设置为一个内建内置函数 sum </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">only_upper</span><span class="params">(t)</span>:</span></div><div class="line">res = []</div><div class="line"><span class="keyword">for</span> s <span class="keyword">in</span> t:</div><div class="line"><span class="keyword">if</span> s.isupper():</div><div class="line">res.append(s)</div><div class="line"><span class="keyword">return</span> res</div></pre></td></tr></table></figure>
+<ol>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="string">'banana'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b = <span class="string">'banana'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a <span class="keyword">is</span> b</div><div class="line"><span class="keyword">True</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a <span class="keyword">is</span> b</div><div class="line"><span class="keyword">False</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>在这个例子中，我们称这两个列表是 相等（ equivalent） 的，因为它们有相同的元素。<br>但它们并不 相同（ identical） ，因为他们不是同一个对象。如果两个对象 相同，它们也是<br>相等的，但是如果它们是相等的，它们不一定是相同的</p>
+<ol>
+<li><p>pop 修改列表，并返回被移除的元素。如果你不ᨀ供下标，它将移除并返回最后一个元素。<br>如果你不需要被移除的元素，可以使用 del 运算符：<br>如果你知道要删除的值（但是不知道其下标），你可以使用 remove </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>t = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> t[<span class="number">1</span>:<span class="number">5</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t</div><div class="line">[<span class="string">'a'</span>, <span class="string">'f'</span>]</div></pre></td></tr></table></figure>
+</li>
+<li><p>列表和字符串<br>可以使用 list 将一个字符串转换为字符的列表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = <span class="string">'spam'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t = list(s)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t</div><div class="line">[<span class="string">'s'</span>, <span class="string">'p'</span>, <span class="string">'a'</span>, <span class="string">'m'</span>]</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = <span class="string">'pining for the fjords'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t = s.split()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t</div><div class="line">[<span class="string">'pining'</span>, <span class="string">'for'</span>, <span class="string">'the'</span>, <span class="string">'fjords'</span>]</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>t = [<span class="string">'pining'</span>, <span class="string">'for'</span>, <span class="string">'the'</span>, <span class="string">'fjords'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>delimiter = <span class="string">' '</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = delimiter.join(t)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s</div><div class="line"><span class="string">'pining for the fjords'</span></div></pre></td></tr></table></figure>
+<ol>
+<li>别名<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b = a</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b <span class="keyword">is</span> a</div><div class="line"><span class="keyword">True</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>变量和对象之间的关联称为 引用（ reference）</p>
+<p>如果一个对象有多于一个引用，那它也会有多个名称，我们称这个对象是 有别名的（ aliased）</p>
+<ol>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bad_delete_head</span><span class="params">(t)</span>:</span></div><div class="line">t = t[<span class="number">1</span>:]</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>t4 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>bad_delete_head(t4)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t4</div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">tail</span><span class="params">(t)</span>:</span></div><div class="line"><span class="keyword">return</span> t[<span class="number">1</span>:]</div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>letters = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>rest = tail(letters)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>rest</div><div class="line">[<span class="string">'b'</span>, <span class="string">'c'</span>]</div></pre></td></tr></table></figure>
+<p>在 bad_delete_head 的开始处， t 和 t4 指向同一个列表。在结束时， t 指向一个新列表，但是 t4 仍然指向原来的、没有被改动的列表。<br>一个替代的写法是，写一个创建并返回一个新列表的函数。例如， tail 返回列表中除了第一个之外的所有元素：</p>
+<p>通过创建拷贝来避免别名<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>t = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t2 = t[:]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t2.sort()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t</div><div class="line">[<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t2</div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div></pre></td></tr></table></figure></p>
+<h3 id="chapter-11-字典"><a href="#chapter-11-字典" class="headerlink" title="chapter 11 字典"></a>chapter 11 字典</h3><ol>
+<li><p>字典包含了一个索引的集合，被称为 键（ keys） ，和一个值 (values) 的集合。一个键对应一个值。这种一一对应的关联被称为 键值对（ key-value pair) ，有时也被称为 项（ item）。<br>在数学语言中，字典表示的是从键到值的 映射，所以你也可以说每一个键“映射到”一个值。举个例子，我们接下来创建一个字典，将英语单词映射至西班牙语单词，因此键和值都是字符串。<br>dict 函数生成一个不含任何项的新字典。由于 dict 是内建函数名，你应该避免使用它来命名变量。</p>
+</li>
+<li><p>花括号 {} 表示一个空字典。你可以使用方括号向字典中增加项</p>
+</li>
+<li><p>想要知道字典中是否存在某个值，你可以使用 values 方法，它返回值的集合，然后你可以使用 in 操作符来验证：</p>
+</li>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">histogram</span><span class="params">(s)</span>:</span></div><div class="line">d = dict()</div><div class="line"><span class="keyword">for</span> c <span class="keyword">in</span> s:</div><div class="line"><span class="keyword">if</span> c <span class="keyword">not</span> <span class="keyword">in</span> d:</div><div class="line">d[c] = <span class="number">1</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">d[c] += <span class="number">1</span></div><div class="line"><span class="keyword">return</span> d</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>实现是指执行某种计算的方法；有的实现更好。例如，使用字典的实现有一个优势，即我们不需要事先知道字符串中有几种字母，只要在出现新字母时分配空间就好了</p>
+<p>字典中的键是无序的。如果要以确定的顺序遍历字典，你可以使用内建方法sorted：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> key <span class="keyword">in</span> sorted(h):</div><div class="line"><span class="meta">... </span>print(key, h[key])</div><div class="line">a <span class="number">1</span></div><div class="line">o <span class="number">1</span></div><div class="line">p <span class="number">1</span></div><div class="line">r <span class="number">2</span></div><div class="line">t <span class="number">1</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_hist</span><span class="params">(h)</span>:</span></div><div class="line"><span class="keyword">for</span> c <span class="keyword">in</span> h:</div><div class="line">print(c, h[c])</div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>逆向查找</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse_lookup</span><span class="params">(d, v)</span>:</span></div><div class="line"><span class="keyword">for</span> k <span class="keyword">in</span> d:</div><div class="line"><span class="keyword">if</span> d[k] == v:</div><div class="line"><span class="keyword">return</span> k</div><div class="line"><span class="keyword">raise</span> LookupError()</div></pre></td></tr></table></figure>
+</li>
+<li><p>倒转字典</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">invert_dict</span><span class="params">(d)</span>:</span></div><div class="line">inverse = dict()</div><div class="line"><span class="keyword">for</span> key <span class="keyword">in</span> d:</div><div class="line">val = d[key]</div><div class="line"><span class="keyword">if</span> val <span class="keyword">not</span> <span class="keyword">in</span> inverse:</div><div class="line">inverse[val] = [key]</div><div class="line"><span class="keyword">else</span>:</div><div class="line">inverse[val].append(key)</div><div class="line"><span class="keyword">return</span> inverse</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>hist = histogram(<span class="string">'parrot'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>hist</div><div class="line">&#123;<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'p'</span>: <span class="number">1</span>, <span class="string">'r'</span>: <span class="number">2</span>, <span class="string">'t'</span>: <span class="number">1</span>, <span class="string">'o'</span>: <span class="number">1</span>&#125;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>inverse = invert_dict(hist)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>inverse</div><div class="line">&#123;<span class="number">1</span>: [<span class="string">'a'</span>, <span class="string">'p'</span>, <span class="string">'t'</span>, <span class="string">'o'</span>], <span class="number">2</span>: [<span class="string">'r'</span>]&#125;</div></pre></td></tr></table></figure>
+<p>哈希（ hash） 函数接受一个值（任何类型）并返回一个整数。字典使用被称作哈希值的这些整数，来存储和查找键值对</p>
+<p>known 是在函数的外部创建的，因此它属于被称作 <strong>main</strong> 的特殊帧。因为 <strong>main</strong> 中的变量可以被任何函数访问，它们也被称作 全局变量（ global） 。与函数结束时就会消失的局部变量不同，不同函数调用时全局变量一直都存在</p>
+<p>全局变量普遍用作 标记（ flag） ；也就是说明（标记）一个条件是否为真的布尔变量<br>要在函数内对全局变量重新赋值，你必须在使用之前 声明 (declare) 该全局变量：</p>
+<h3 id="chapter-12-tuple-元组"><a href="#chapter-12-tuple-元组" class="headerlink" title="chapter 12 tuple 元组"></a>chapter 12 tuple 元组</h3><ol>
+<li>元组是一组值的序列。其中的值可以是任意类型，使用整数索引，因此从这点上看，元组与列表非常相似。二者不同之处在于元组的不可变性</li>
+</ol>
+<p>如果实参是一个序列（字符串、列表或者元组），结果将是一个包含序列内元素的元组</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>t = tuple(<span class="string">'lupins'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t</div><div class="line">(<span class="string">'l'</span>, <span class="string">'u'</span>, <span class="string">'p'</span>, <span class="string">'i'</span>, <span class="string">'n'</span>, <span class="string">'s'</span>)</div></pre></td></tr></table></figure>
+<p>关系型运算符也适用于元组和其他序列； Python 会首先比较序列中的第一个元素，如果它们相等，就继续比较下一组元素，以此类推，直至比值不同。其后的元素（即便是差异很大）也不会再参与比较<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>(<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>) &lt; (<span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>)</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>(<span class="number">0</span>, <span class="number">1</span>, <span class="number">2000000</span>) &lt; (<span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>)</div><div class="line"><span class="keyword">True</span></div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>元组赋值<br>等号左侧是变量组成的元组；右侧是表达式组成的元组。每个值都被赋给了对应的变量。变量被重新赋值前，将先对右侧的表达式进行求值。<br>左侧的变量数和右侧值的数目必须相同</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a, b = <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span></div><div class="line">ValueError: too many values to unpack</div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>addr = <span class="string">'monty@python.org'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>uname, domain = addr.split(<span class="string">'@'</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p>元组作为返回值<br>一个函数只能返回一个值，但是如果这个返回值是元组，其效果等同于返回多个值。</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">min_max</span><span class="params">(t)</span>:</span></div><div class="line"><span class="keyword">return</span> min(t), max(t)</div></pre></td></tr></table></figure>
+<ol>
+<li><p>可变长度参数元组<br>zip 对象是迭代器的一种，即任何能够按照某个序列迭代的对象。迭代器在某些方面与列表非常相似，但不同之处在于，你无法通过索引来选择迭代器中的某个元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>printall(<span class="number">1</span>, <span class="number">2.0</span>, <span class="string">'3'</span>)</div><div class="line">(<span class="number">1</span>, <span class="number">2.0</span>, <span class="string">'3'</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p>列表和元组<br>zip 是一个内建函数，可以接受将两个或多个序列组，并返回一个元组列表，其中每个元组包含了各个序列中相对位置的一个元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>list(zip(s, t))</div><div class="line">[(<span class="string">'a'</span>, <span class="number">0</span>), (<span class="string">'b'</span>, <span class="number">1</span>), (<span class="string">'c'</span>, <span class="number">2</span>)]</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">has_match</span><span class="params">(t1, t2)</span>:</span></div><div class="line"><span class="keyword">for</span> x, y <span class="keyword">in</span> zip(t1, t2):</div><div class="line"><span class="keyword">if</span> x == y:</div><div class="line"><span class="keyword">return</span> <span class="keyword">True</span></div><div class="line"><span class="keyword">return</span> <span class="keyword">False</span></div></pre></td></tr></table></figure>
+<p>如果将 zip 、 for 循环和元组赋值结合起来使用，你会得到一个可以同时遍历两个（甚至多个）序列的惯用法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> index, element <span class="keyword">in</span> enumerate(<span class="string">'abc'</span>):</div><div class="line">print(index, element)</div></pre></td></tr></table></figure>
+<p>enumerate 的返回结果是一个枚举对象（enumerate object），可迭代一个包含若干个对的序列；每个对包含了（从 0 开始计数）的索引和给定序列中的对应元素</p>
+<p>如果你想使用一个序列作为字典的键，那么你必须使用元组或字符串这样的不可变类型。<br>如果你向函数传入一个序列作为参数，那么使用元组可以降低由于别名而产生的意外行为的可能性。<br>在一些情况下（例如 return 语句），从句式上生成一个元组比列表要简单</p>
+<p>在很多情况下，不同类型的序列（字符串、列表、元组）可以互换使用。因此，我们该如何选用合适的序列呢？<br>首先，显而易见的是，字符串比其他序列的限制更多，因为它的所有元素都必须是字符，且字符串不可变。如果你希望能够改变字符串中的字符，使用列表嵌套字符或许更合适。列表比元组更常用，主要是因为它们是可变的。但是有些情况下，你可能更倾向于使用元组：</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/05/numpy/" rel="next" title="numpy库学习笔记">
+                <i class="fa fa-chevron-left"></i> numpy库学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Mingjun" />
+          <p class="site-author-name" itemprop="name">Mingjun</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/your-user-name" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="facebook">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      facebook
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.github.com" title="Github" target="_blank">Github</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-1-The-Way-of-the-Program"><span class="nav-number">1.</span> <span class="nav-text">Chapter 1 : The Way of the Program</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#What-Is-a-Program"><span class="nav-number">1.1.</span> <span class="nav-text">What Is a Program?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-2-Variables-Expressions-and-Statements"><span class="nav-number">2.</span> <span class="nav-text">Chapter 2: Variables, Expressions and Statements</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Order-of-Operations"><span class="nav-number">2.1.</span> <span class="nav-text">Order of Operations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-Operations"><span class="nav-number">2.2.</span> <span class="nav-text">String Operations</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-3-Function"><span class="nav-number">3.</span> <span class="nav-text">Chapter 3: Function</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数调用（-function-call）"><span class="nav-number">3.1.</span> <span class="nav-text">函数调用（ function call）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数定义（-function-definition"><span class="nav-number">3.2.</span> <span class="nav-text">函数定义（ function definition)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#形参（-parameters"><span class="nav-number">3.3.</span> <span class="nav-text">形参（ parameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆栈图-stack-diagram"><span class="nav-number">3.4.</span> <span class="nav-text">堆栈图  stack diagram</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有返回值函数和无返回值函数-fruitful-functions-void-functions"><span class="nav-number">3.5.</span> <span class="nav-text">有返回值函数和无返回值函数  fruitful functions void functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么写函数"><span class="nav-number">3.6.</span> <span class="nav-text">为什么写函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chapter-4"><span class="nav-number">4.</span> <span class="nav-text">chapter 4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chapter-5-条件和递归"><span class="nav-number">5.</span> <span class="nav-text">chapter 5 条件和递归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-6-有返回值的函数"><span class="nav-number">6.</span> <span class="nav-text">Chapter 6 有返回值的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-7-迭代"><span class="nav-number">7.</span> <span class="nav-text">Chapter 7 迭代</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-8-字符串"><span class="nav-number"></span> <span class="nav-text">Chapter 8 字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#chapter-10-列表"><span class="nav-number">1.</span> <span class="nav-text">chapter 10 列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chapter-11-字典"><span class="nav-number">2.</span> <span class="nav-text">chapter 11 字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chapter-12-tuple-元组"><span class="nav-number">3.</span> <span class="nav-text">chapter 12 tuple 元组</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mingjun</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
